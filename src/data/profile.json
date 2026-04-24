@@ -1,0 +1,14 @@
+{
+  "name": "Hoan Ngo",
+  "nickname": "Jason",
+  "avatar": "/assets/images/my-avatar.png",
+  "email": "conghoan.0406@gmail.com",
+  "phone": "",
+  "location": "Hanoi, Vietnam",
+  "quote": "Building data pipelines and analytics systems for business decisions.",
+  "social": [
+    { "id": "linkedin", "icon": "linkedin", "href": "https://linkedin.com/in/hwanngo", "label": "LinkedIn" },
+    { "id": "github", "icon": "github", "href": "https://github.com/hwanngo", "label": "GitHub" }
+  ],
+  "formspreeId": "mwplewez"
+}

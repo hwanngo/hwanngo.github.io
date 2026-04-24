@@ -1,0 +1,8 @@
+[
+  { "id": "pod",     "period": "Apr 2025 – Present",  "tags": ["Apache Airflow", "Airbyte", "SQL", "Metabase", "ETL/ELT"] },
+  { "id": "vmo",     "period": "Dec 2023 – Apr 2025",  "tags": ["Apache Airflow", "Python", "ETL/ELT", "PostgreSQL", "Tableau"] },
+  { "id": "maxflow", "period": "Jan 2021 – Dec 2023",  "tags": ["AWS", "Flask", "Python", "Serverless"] },
+  { "id": "fpt",     "period": "Dec 2019 – Dec 2020",  "tags": ["Angular", "Java", "Spring Boot"] },
+  { "id": "house3d", "period": "Feb 2019 – Dec 2019",  "tags": [] },
+  { "id": "framgia", "period": "Jun 2018 – Sep 2018",  "tags": ["Ruby on Rails"] }
+]

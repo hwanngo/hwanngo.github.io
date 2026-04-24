@@ -1,0 +1,148 @@
+{
+  "nav": { "about": "About", "resume": "Resume", "portfolio": "Portfolio", "contact": "Contact" },
+  "sidebar": { "dataEngineer": "Data Engineer", "softwareEngineer": "Software Engineer" },
+  "ui": {
+    "downloadCv": "Download CV", "showDetails": "Show details", "showLess": "Show less",
+    "sendMessage": "Send Message", "sending": "Sending…", "messageSent": "Message sent!",
+    "thankYou": "Thank you — I'll get back to you soon.",
+    "somethingWentWrong": "Something went wrong. Please try again.",
+    "professional": "Professional"
+  },
+  "about": {
+    "title": "About me",
+    "bio": "Data Engineer with {{yearsInIT}}+ years in IT, including nearly {{yearsInDataEng}} years focused on data engineering. Experienced in building and operating cloud data pipelines, warehouse models, and analytics workflows using Python, SQL, Apache Airflow, dbt, Snowflake, and BigQuery across AWS, GCP, and Azure. Brings a strong software engineering foundation to improve pipeline reliability, speed up reporting, and deliver trusted data for decision-making.",
+    "whatIDo": "What I'm doing", "clients": "Clients",
+    "services": {
+      "dataEngineering": { "title": "Data Engineering", "desc": "Building and maintaining scalable data management systems, ETL pipelines, and cloud data platforms." },
+      "softwareDev": { "title": "Software Development", "desc": "Delivering high-quality web applications and serverless backend systems at a professional level." }
+    }
+  },
+  "resume": { "title": "Resume", "education": "Education", "experience": "Experience", "skills": "Skills", "certifications": "Certifications", "awards": "Awards & Recognition" },
+  "certIssuers": { "amazon": "Amazon Web Services", "boomi": "Boomi", "coursera": "Coursera", "google": "Google", "ibm": "IBM", "linkedin": "LinkedIn Learning", "microsoft": "Microsoft" },
+  "skills": { "programming": "Programming", "dataEngineering": "Data Engineering", "databases": "Databases & Warehousing", "cloudInfra": "Cloud & Infrastructure", "biAnalytics": "BI & Analytics", "practices": "Practices & Automation", "spokenLanguages": "Languages" },
+  "portfolio": {
+    "title": "Portfolio", "all": "All",
+    "filters": { "dataEngineering": "Data Engineering", "softwareEngineering": "Software Engineering" }
+  },
+  "contact": {
+    "title": "Contact", "email": "Email", "phone": "Phone", "location": "Location", "linkedin": "LinkedIn", "github": "GitHub",
+    "sendAMessage": "Send a message", "fullName": "Full name", "emailAddress": "Email address", "yourMessage": "Your message",
+    "validation": { "nameRequired": "Name is required.", "emailRequired": "Valid email required.", "messageRequired": "Message is required." }
+  },
+  "footer": { "copyright": "© {{year}} Hoan Ngo · Hanoi, Vietnam" },
+  "education": {
+    "vnu": { "institution": "VNU – Hanoi University of Science", "bullets": ["Bachelor's Degree in Computer Science and Informatic Science.", "Coursework focus: Software Engineering, Database Systems, Data Structures and Algorithms."] }
+  },
+  "experience": {
+    "pod": {
+      "title": "Data Engineer — Pod Co.",
+      "bullets": [
+        "Domains: Wholesale, B2B, Distribution Platform",
+        "Built and operated ETL/ELT pipelines across Wholesale, B2B, and Distribution Platform domains using Apache Airflow and Airbyte.",
+        "Developed SQL-based data models and Metabase dashboards to support business, finance, and sales teams in daily operational and strategic decision-making.",
+        "Designed and implemented trend detection and brand monitoring workflows using social data crawling, keyword analysis, and aggregation to identify emerging market signals.",
+        "Delivered analytics solutions to improve visibility into product performance, sales trends, and distribution metrics for internal stakeholders.",
+        "Maintained and enhanced internal analytics systems and data workflows to ensure reliability and consistency of reporting outputs."
+      ]
+    },
+    "vmo": {
+      "title": "Data Engineer — VMO Holdings Technology JSC",
+      "bullets": [
+        "Domains: Healthcare, Pharmaceutical · Client: Singapore",
+        "Migrated legacy cron pipelines to Apache Airflow, improving scheduling, monitoring, and maintainability.",
+        "Built ETL workflows for multi-source healthcare and pharmaceutical datasets across lake and warehouse environments.",
+        "Supported critical data source migrations while preserving data integrity and downstream compatibility.",
+        "Improved pipeline reliability and reconciliation processes that enabled analytics delivery for 200+ recurring reports.",
+        "Partnered with analytics teams to investigate data discrepancies and deliver Tableau dashboards for business users."
+      ]
+    },
+    "maxflow": {
+      "title": "Software Engineer / Full-stack Developer — Maxflow R&D Co. Ltd.",
+      "bullets": [
+        "Domains: Industrial Simulation & Analytics · Client: United States",
+        "Developed core features for an industrial simulation and analytics platform with configurable workflows.",
+        "Re-architected backend services from Flask servers to serverless AWS components, reducing infrastructure cost by approximately 25%.",
+        "Implemented simulation modules for distance, energy, wear, and lifecycle cost analysis across 100+ modeled scenarios.",
+        "Built data preparation and feature extraction pipelines for predictive maintenance experiments."
+      ]
+    },
+    "fpt": {
+      "title": "Back-end Developer — FPT Information System Corp.",
+      "bullets": [
+        "Domains: Public Sector IT · Client: Vietnam",
+        "Built backend services for a national public procurement platform in a 5-engineer team environment.",
+        "Contributed to Angular-based front-end improvements, reducing average page load time by approximately 20%."
+      ]
+    },
+    "house3d": {
+      "title": "Web Developer — House3D Co. Ltd.",
+      "bullets": [
+        "Domains: Interior Design Technology",
+        "Developed and maintained customer-facing web features for an interior design technology platform."
+      ]
+    },
+    "framgia": {
+      "title": "Web Developer Intern — Framgia Inc. / Sun* Inc.",
+      "bullets": [
+        "Completed Ruby on Rails training and built an e-commerce web project in a 3-member team with payment gateway integrations (PayPal, BaoKim, NganLuong)."
+      ]
+    }
+  },
+  "certificates": {
+    "aws-cloud-solutions-architect": "AWS Cloud Solutions Architect",
+    "aws-cloud-support-associate": "AWS Cloud Support Associate",
+    "aws-fundamentals": "AWS Fundamentals",
+    "associate-integration-developer-certification": "Associate Integration Developer",
+    "professional-integration-developer-certification": "Professional Integration Developer",
+    "aws-cloud-technical-essentials": "AWS Cloud Technical Essentials",
+    "architecting-solutions-on-aws": "Architecting Solutions on AWS",
+    "exam-prep-aws-certified-solutions-architect-associate": "AWS Certified Solutions Architect – Associate (Exam Prep)",
+    "introduction-to-designing-data-lakes-on-aws": "Introduction to Designing Data Lakes on AWS",
+    "migrating-to-the-aws-cloud": "Migrating to the AWS Cloud",
+    "analyze-data-to-answer-questions": "Analyze Data to Answer Questions",
+    "ask-questions-to-make-data-driven-decisions": "Ask Questions to Make Data-Driven Decisions",
+    "data-analysis-with-r-programming": "Data Analysis with R Programming",
+    "foundations-data-data-everywhere": "Foundations: Data, Data, Everywhere",
+    "google-data-analytics-capstone-complete-a-case-study": "Google Data Analytics Capstone",
+    "prepare-data-for-exploration": "Prepare Data for Exploration",
+    "process-data-from-dirty-to-clean": "Process Data from Dirty to Clean",
+    "share-data-through-the-art-of-visualization": "Share Data Through the Art of Visualization",
+    "azure-data-lake-storage-gen2-and-data-streaming-solution": "Azure Data Lake Storage Gen2 & Data Streaming",
+    "data-engineering-with-ms-azure-synapse-apache-spark-pools": "Data Engineering with MS Azure Synapse Apache Spark Pools",
+    "data-integration-with-microsoft-azure-data-factory": "Data Integration with Microsoft Azure Data Factory",
+    "data-storage-in-microsoft-azure": "Data Storage in Microsoft Azure",
+    "data-warehousing-with-microsoft-azure-synapse-analytics": "Data Warehousing with Microsoft Azure Synapse Analytics",
+    "introduction-to-microsoft-azure-synapse-analytics": "Introduction to Microsoft Azure Synapse Analytics",
+    "microsoft-azure-databricks-for-data-engineering": "Microsoft Azure Databricks for Data Engineering",
+    "microsoft-azure-for-data-engineering": "Microsoft Azure for Data Engineering",
+    "operational-analytics-with-microsoft-azure-synapse-analytics": "Operational Analytics with Microsoft Azure Synapse Analytics",
+    "prepare-for-dp-203-data-engineering-on-microsoft-azure-exam": "DP-203: Data Engineering on Microsoft Azure (Exam Prep)",
+    "talend-data-integration-certification-preparation-training": "Talend Data Integration Certification Preparation",
+    "google-advanced-data-analytics": "Google Advanced Data Analytics",
+    "google-cloud-database-engineer": "Google Cloud Database Engineer",
+    "google-data-analytics": "Google Data Analytics",
+    "google-project-management": "Google Project Management",
+    "bi-foundations-with-sql-etl-and-data-warehousing": "BI Foundations with SQL, ETL and Data Warehousing",
+    "data-engineering-foundations": "Data Engineering Foundations",
+    "ibm-ai-developer": "IBM AI Developer",
+    "ibm-data-analyst": "IBM Data Analyst",
+    "ibm-data-architecture": "IBM Data Architecture",
+    "ibm-data-engineering": "IBM Data Engineering",
+    "nosql-big-data-and-spark-foundations": "NoSQL, Big Data, and Spark Foundations",
+    "cissp-cert-prep-2021-5-identity-and-access-management": "CISSP: Identity and Access Management (Cert Prep)",
+    "comptia-cysa-cs0002-cert-prep-4-software-and-systems-security": "CompTIA CySA+: Software and Systems Security (Cert Prep)",
+    "learning-the-owasp-top-10": "Learning the OWASP Top 10",
+    "microsoft-azure-data-engineering-associate-dp-203": "Microsoft Azure Data Engineering Associate (DP-203)"
+  },
+  "awards": {
+    "vmo-employee-of-year-2024": { "title": "Employee of the Year 2024", "issuerLabel": "VMO Holdings Technology JSC" }
+  },
+  "projects": {
+    "pharmaEtl": { "title": "Pharma ETL Modernisation", "desc": "Migrated legacy cron-job ETL pipelines to Apache Airflow for a Singapore-based pharma client, improving reliability and observability across the data platform." },
+    "dataLake": { "title": "Multi-Source Data Lake Integration", "desc": "Designed and implemented ETL workflows to collect data from heterogeneous sources and consolidate them into a central data lake and warehouse." },
+    "serverless": { "title": "Serverless Backend Migration", "desc": "Migrated a Flask monolith to a fully serverless AWS architecture (Lambda, API Gateway, S3, EFS, RDS), reducing operational costs and improving scalability." },
+    "workflowPlatform": { "title": "Workflow Automation Platform", "desc": "Contributed to a web platform enabling users to build custom simulation and analytics workflows — similar in concept to Zapier — for industrial engineering clients." },
+    "vehicleSim": { "title": "Vehicle Cost Simulation Tool", "desc": "Built a simulation system modelling vehicle travel distance, energy consumption, wear rates, and long-term operational costs to support fleet decision-making." },
+    "govPortal": { "title": "Government Procurement Portal", "desc": "Revamped a public procurement website to be cross-browser compatible and rebuilt the front-end with Angular 2 for the Vietnamese government." }
+  }
+}

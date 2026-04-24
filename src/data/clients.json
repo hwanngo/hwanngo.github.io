@@ -1,0 +1,4 @@
+[
+  { "id": "cat", "href": "https://cat.com/", "logo": "/assets/images/client_cat.png", "alt": "Caterpillar" },
+  { "id": "zp", "href": "https://zuelligpharma.com/", "logo": "/assets/images/client_zp.png", "alt": "Zuellig Pharma" }
+]

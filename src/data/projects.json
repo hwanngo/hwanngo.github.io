@@ -1,0 +1,8 @@
+[
+  { "id": "pharmaEtl", "category": "dataEngineering", "tags": ["Apache Airflow", "Python", "ETL", "PostgreSQL"], "status": "professional" },
+  { "id": "dataLake", "category": "dataEngineering", "tags": ["AWS S3", "BigQuery", "Python", "SQL"], "status": "professional" },
+  { "id": "serverless", "category": "softwareEngineering", "tags": ["AWS Lambda", "API Gateway", "Python", "Flask"], "status": "professional" },
+  { "id": "workflowPlatform", "category": "softwareEngineering", "tags": ["Python", "JavaScript", "REST API", "AWS"], "status": "professional" },
+  { "id": "vehicleSim", "category": "softwareEngineering", "tags": ["Python", "Simulation", "Analytics"], "status": "professional" },
+  { "id": "govPortal", "category": "softwareEngineering", "tags": ["Angular", "Java", "Spring Boot"], "status": "professional" }
+]

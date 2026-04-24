@@ -1,0 +1,154 @@
+{
+  "nav": { "about": "Giới thiệu", "resume": "Hồ sơ", "portfolio": "Dự án", "contact": "Liên hệ" },
+  "sidebar": { "dataEngineer": "Kỹ sư Dữ liệu", "softwareEngineer": "Kỹ sư Phần mềm" },
+  "ui": {
+    "downloadCv": "Tải CV", "showDetails": "Xem chi tiết", "showLess": "Thu gọn",
+    "sendMessage": "Gửi tin nhắn", "sending": "Đang gửi…", "messageSent": "Đã gửi thành công!",
+    "thankYou": "Cảm ơn bạn — tôi sẽ phản hồi sớm nhất có thể.",
+    "somethingWentWrong": "Đã xảy ra lỗi. Vui lòng thử lại.",
+    "professional": "Chuyên nghiệp"
+  },
+  "about": {
+    "title": "Giới thiệu",
+    "bio": "Kỹ sư Dữ liệu với hơn {{yearsInIT}} năm kinh nghiệm trong lĩnh vực CNTT, trong đó gần {{yearsInDataEng}} năm tập trung vào kỹ thuật dữ liệu. Có kinh nghiệm xây dựng và vận hành các pipeline dữ liệu đám mây, mô hình data warehouse và quy trình phân tích sử dụng Python, SQL, Apache Airflow, dbt, Snowflake và BigQuery trên AWS, GCP và Azure. Nền tảng kỹ thuật phần mềm vững chắc giúp nâng cao độ tin cậy của pipeline, rút ngắn thời gian báo cáo và cung cấp dữ liệu đáng tin cậy phục vụ ra quyết định",
+    "whatIDo": "Tôi đang làm gì", "clients": "Khách hàng",
+    "services": {
+      "dataEngineering": { "title": "Kỹ thuật Dữ liệu", "desc": "Xây dựng và vận hành các pipeline dữ liệu trên đám mây, mô hình data warehouse và quy trình phân tích phục vụ ra quyết định kinh doanh." },
+      "softwareDev": { "title": "Phát triển Phần mềm", "desc": "Phát triển ứng dụng web và hệ thống backend serverless chất lượng cao, mang lại giá trị thực tiễn ở cấp độ chuyên nghiệp." }
+    }
+  },
+  "resume": { "title": "Hồ sơ", "education": "Học vấn", "experience": "Kinh nghiệm", "skills": "Kỹ năng", "certifications": "Chứng chỉ", "awards": "Giải thưởng & Ghi nhận" },
+  "certIssuers": { "amazon": "Amazon Web Services", "boomi": "Boomi", "coursera": "Coursera", "google": "Google", "ibm": "IBM", "linkedin": "LinkedIn Learning", "microsoft": "Microsoft" },
+  "skills": { "programming": "Lập trình", "dataEngineering": "Kỹ thuật Dữ liệu", "databases": "Cơ sở dữ liệu & Kho dữ liệu", "cloudInfra": "Cloud & Hạ tầng", "biAnalytics": "BI & Phân tích", "practices": "Quy trình & Tự động hóa", "spokenLanguages": "Ngôn ngữ" },
+  "portfolio": {
+    "title": "Dự án", "all": "Tất cả",
+    "filters": { "dataEngineering": "Kỹ thuật Dữ liệu", "softwareEngineering": "Kỹ thuật Phần mềm" }
+  },
+  "contact": {
+    "title": "Liên hệ", "email": "Email", "phone": "Điện thoại", "location": "Địa chỉ", "linkedin": "LinkedIn", "github": "GitHub",
+    "sendAMessage": "Gửi tin nhắn", "fullName": "Họ và tên", "emailAddress": "Địa chỉ email", "yourMessage": "Tin nhắn của bạn",
+    "validation": { "nameRequired": "Vui lòng nhập họ tên.", "emailRequired": "Vui lòng nhập email hợp lệ.", "messageRequired": "Vui lòng nhập tin nhắn." }
+  },
+  "footer": { "copyright": "© {{year}} Hoan Ngô · Hà Nội, Việt Nam" },
+  "education": {
+    "vnu": { "institution": "Trường Đại học Khoa học Tự nhiên – ĐHQGHN", "bullets": ["Cử nhân Khoa học Máy tính và Khoa học Thông tin.", "Các môn học trọng tâm: Kỹ thuật Phần mềm, Hệ quản trị Cơ sở dữ liệu, Cấu trúc Dữ liệu và Giải thuật."] }
+  },
+  "experience": {
+    "pod": {
+      "title": "Kỹ sư Dữ liệu — Pod Co.",
+      "period": "04/2025 – Hiện tại",
+      "bullets": [
+        "Lĩnh vực: Bán sỉ, B2B, Nền tảng Phân phối",
+        "Xây dựng và vận hành các pipeline ETL/ELT cho các domain Wholesale, B2B và Distribution Platform sử dụng Apache Airflow và Airbyte.",
+        "Phát triển các mô hình dữ liệu SQL và dashboard Metabase hỗ trợ các bộ phận kinh doanh, tài chính và bán hàng trong việc ra quyết định hàng ngày và chiến lược.",
+        "Thiết kế và triển khai quy trình phát hiện xu hướng và giám sát thương hiệu sử dụng thu thập dữ liệu mạng xã hội, phân tích từ khóa và tổng hợp dữ liệu.",
+        "Cung cấp giải pháp phân tích để tăng cường khả năng theo dõi hiệu suất sản phẩm, xu hướng bán hàng và chỉ số phân phối.",
+        "Vận hành và cải tiến các hệ thống analytics nội bộ để đảm bảo độ tin cậy và tính nhất quán của báo cáo."
+      ]
+    },
+    "vmo": {
+      "title": "Kỹ sư Dữ liệu — VMO Holdings Technology JSC",
+      "period": "12/2023 – 04/2025",
+      "bullets": [
+        "Lĩnh vực: Y tế, Dược phẩm · Khách hàng: Singapore",
+        "Chuyển đổi các pipeline cron sang Apache Airflow, cải thiện khả năng lập lịch, giám sát và bảo trì.",
+        "Xây dựng quy trình ETL cho dữ liệu y tế và dược phẩm từ nhiều nguồn trên môi trường data lake và warehouse.",
+        "Hỗ trợ di chuyển các nguồn dữ liệu quan trọng, đảm bảo tính toàn vẹn dữ liệu và tính tương thích downstream.",
+        "Cải thiện độ tin cậy pipeline và quy trình đối soát, hỗ trợ phân phối analytics cho 200+ báo cáo định kỳ.",
+        "Phối hợp với nhóm analytics để điều tra sự không nhất quán dữ liệu và xây dựng dashboard Tableau cho người dùng kinh doanh."
+      ]
+    },
+    "maxflow": {
+      "title": "Kỹ sư Phần mềm / Lập trình viên Full-stack — Maxflow R&D Co. Ltd.",
+      "period": "01/2021 – 12/2023",
+      "bullets": [
+        "Lĩnh vực: Mô phỏng Công nghiệp · Khách hàng: Hoa Kỳ",
+        "Phát triển các tính năng cốt lõi cho nền tảng mô phỏng và phân tích công nghiệp với quy trình làm việc có thể cấu hình.",
+        "Tái kiến trúc các dịch vụ backend từ Flask sang các thành phần serverless AWS, giảm chi phí hạ tầng khoảng 25%.",
+        "Triển khai các module mô phỏng cho phân tích quãng đường, năng lượng, hao mòn và chi phí vòng đời trên 100+ kịch bản.",
+        "Xây dựng pipeline chuẩn bị dữ liệu và feature extraction cho các thử nghiệm predictive maintenance."
+      ]
+    },
+    "fpt": {
+      "title": "Lập trình viên Backend — FPT Information System Corp.",
+      "period": "12/2019 – 12/2020",
+      "bullets": [
+        "Lĩnh vực: CNTT Dịch vụ công Quốc gia · Khách hàng: Việt Nam",
+        "Xây dựng dịch vụ backend cho nền tảng mua sắm công quốc gia trong nhóm 5 kỹ sư.",
+        "Đóng góp cải thiện giao diện frontend dựa trên Angular, giảm thời gian tải trang trung bình khoảng 20%."
+      ]
+    },
+    "house3d": {
+      "title": "Lập trình viên Web — House3D Co. Ltd.",
+      "period": "02/2019 – 12/2019",
+      "bullets": [
+        "Lĩnh vực: Công nghệ Thiết kế Nội thất",
+        "Phát triển và duy trì các tính năng web hướng khách hàng cho nền tảng công nghệ thiết kế nội thất."
+      ]
+    },
+    "framgia": {
+      "title": "Thực tập sinh Lập trình Web — Framgia Inc. / Sun* Inc.",
+      "period": "06/2018 – 09/2018",
+      "bullets": [
+        "Hoàn thành chương trình đào tạo Ruby on Rails và xây dựng dự án web thương mại điện tử trong nhóm 3 thành viên với tích hợp cổng thanh toán (PayPal, BaoKim, NganLuong)."
+      ]
+    }
+  },
+  "certificates": {
+    "aws-cloud-solutions-architect": "AWS Cloud Solutions Architect",
+    "aws-cloud-support-associate": "AWS Cloud Support Associate",
+    "aws-fundamentals": "AWS Fundamentals",
+    "associate-integration-developer-certification": "Associate Integration Developer",
+    "professional-integration-developer-certification": "Professional Integration Developer",
+    "aws-cloud-technical-essentials": "AWS Cloud Technical Essentials",
+    "architecting-solutions-on-aws": "Architecting Solutions on AWS",
+    "exam-prep-aws-certified-solutions-architect-associate": "AWS Certified Solutions Architect – Associate (Exam Prep)",
+    "introduction-to-designing-data-lakes-on-aws": "Introduction to Designing Data Lakes on AWS",
+    "migrating-to-the-aws-cloud": "Migrating to the AWS Cloud",
+    "analyze-data-to-answer-questions": "Analyze Data to Answer Questions",
+    "ask-questions-to-make-data-driven-decisions": "Ask Questions to Make Data-Driven Decisions",
+    "data-analysis-with-r-programming": "Data Analysis with R Programming",
+    "foundations-data-data-everywhere": "Foundations: Data, Data, Everywhere",
+    "google-data-analytics-capstone-complete-a-case-study": "Google Data Analytics Capstone",
+    "prepare-data-for-exploration": "Prepare Data for Exploration",
+    "process-data-from-dirty-to-clean": "Process Data from Dirty to Clean",
+    "share-data-through-the-art-of-visualization": "Share Data Through the Art of Visualization",
+    "azure-data-lake-storage-gen2-and-data-streaming-solution": "Azure Data Lake Storage Gen2 & Data Streaming",
+    "data-engineering-with-ms-azure-synapse-apache-spark-pools": "Data Engineering with MS Azure Synapse Apache Spark Pools",
+    "data-integration-with-microsoft-azure-data-factory": "Data Integration with Microsoft Azure Data Factory",
+    "data-storage-in-microsoft-azure": "Data Storage in Microsoft Azure",
+    "data-warehousing-with-microsoft-azure-synapse-analytics": "Data Warehousing with Microsoft Azure Synapse Analytics",
+    "introduction-to-microsoft-azure-synapse-analytics": "Introduction to Microsoft Azure Synapse Analytics",
+    "microsoft-azure-databricks-for-data-engineering": "Microsoft Azure Databricks for Data Engineering",
+    "microsoft-azure-for-data-engineering": "Microsoft Azure for Data Engineering",
+    "operational-analytics-with-microsoft-azure-synapse-analytics": "Operational Analytics with Microsoft Azure Synapse Analytics",
+    "prepare-for-dp-203-data-engineering-on-microsoft-azure-exam": "DP-203: Data Engineering on Microsoft Azure (Exam Prep)",
+    "talend-data-integration-certification-preparation-training": "Talend Data Integration Certification Preparation",
+    "google-advanced-data-analytics": "Google Advanced Data Analytics",
+    "google-cloud-database-engineer": "Google Cloud Database Engineer",
+    "google-data-analytics": "Google Data Analytics",
+    "google-project-management": "Google Project Management",
+    "bi-foundations-with-sql-etl-and-data-warehousing": "BI Foundations with SQL, ETL and Data Warehousing",
+    "data-engineering-foundations": "Data Engineering Foundations",
+    "ibm-ai-developer": "IBM AI Developer",
+    "ibm-data-analyst": "IBM Data Analyst",
+    "ibm-data-architecture": "IBM Data Architecture",
+    "ibm-data-engineering": "IBM Data Engineering",
+    "nosql-big-data-and-spark-foundations": "NoSQL, Big Data, and Spark Foundations",
+    "cissp-cert-prep-2021-5-identity-and-access-management": "CISSP: Identity and Access Management (Cert Prep)",
+    "comptia-cysa-cs0002-cert-prep-4-software-and-systems-security": "CompTIA CySA+: Software and Systems Security (Cert Prep)",
+    "learning-the-owasp-top-10": "Learning the OWASP Top 10",
+    "microsoft-azure-data-engineering-associate-dp-203": "Microsoft Azure Data Engineering Associate (DP-203)"
+  },
+  "awards": {
+    "vmo-employee-of-year-2024": { "title": "Employee of the Year 2024", "issuerLabel": "VMO Holdings Technology JSC" }
+  },
+  "projects": {
+    "pharmaEtl": { "title": "Hiện đại hoá ETL Dược phẩm", "desc": "Chuyển đổi các pipeline ETL dạng cron job sang Apache Airflow cho khách hàng dược phẩm tại Singapore, nâng cao độ tin cậy và khả năng giám sát của toàn bộ nền tảng dữ liệu." },
+    "dataLake": { "title": "Tích hợp Data Lake Đa nguồn", "desc": "Thiết kế và triển khai các quy trình ETL thu thập dữ liệu từ nhiều nguồn khác nhau, tổng hợp vào data lake và data warehouse tập trung." },
+    "serverless": { "title": "Di chuyển Backend Serverless", "desc": "Chuyển đổi ứng dụng Flask monolith sang kiến trúc serverless hoàn toàn trên AWS (Lambda, API Gateway, S3, EFS, RDS), giảm chi phí vận hành và tăng khả năng mở rộng." },
+    "workflowPlatform": { "title": "Nền tảng Tự động hoá Quy trình", "desc": "Đóng góp xây dựng nền tảng web cho phép người dùng tự tạo quy trình mô phỏng và phân tích tuỳ chỉnh — tương tự Zapier — phục vụ các khách hàng kỹ thuật công nghiệp." },
+    "vehicleSim": { "title": "Công cụ Mô phỏng Chi phí Phương tiện", "desc": "Xây dựng hệ thống mô phỏng phân tích quãng đường, mức tiêu thụ năng lượng, độ hao mòn và chi phí vận hành dài hạn, hỗ trợ ra quyết định quản lý đội xe." },
+    "govPortal": { "title": "Cổng Mua sắm Chính phủ", "desc": "Nâng cấp cổng mua sắm công quốc gia để tương thích đa trình duyệt và làm mới toàn bộ giao diện người dùng bằng Angular 2 cho Chính phủ Việt Nam." }
+  }
+}

@@ -1,0 +1,9 @@
+[
+  { "id": "programming",      "tags": ["Python", "SQL", "Java"] },
+  { "id": "dataEngineering",  "tags": ["ETL/ELT", "Data Modeling", "Apache Airflow", "dbt", "Airbyte", "Workflow Orchestration", "Data Quality"] },
+  { "id": "databases",        "tags": ["Snowflake", "BigQuery", "PostgreSQL", "MySQL", "SAP HANA", "SQLite"] },
+  { "id": "cloudInfra",       "tags": ["AWS", "GCP", "Azure", "Terraform", "Kubernetes", "Helm", "CI/CD"] },
+  { "id": "biAnalytics",      "tags": ["Metabase", "Tableau", "Dashboarding", "Ad-hoc Analysis"] },
+  { "id": "practices",        "tags": ["Observability", "Analytics Engineering", "Workflow Automation", "Human-in-the-loop Review"] },
+  { "id": "spokenLanguages",  "tags": ["English – C2 Proficient (CEFR)"] }
+]
