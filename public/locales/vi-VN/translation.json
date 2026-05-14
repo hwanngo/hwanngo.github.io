@@ -2,7 +2,7 @@
   "nav": { "about": "Giới thiệu", "resume": "Hồ sơ", "portfolio": "Dự án", "contact": "Liên hệ" },
   "sidebar": { "dataEngineer": "Kỹ sư Dữ liệu", "softwareEngineer": "Kỹ sư Phần mềm" },
   "ui": {
-    "downloadCv": "Tải CV", "showDetails": "Xem chi tiết", "showLess": "Thu gọn",
+    "downloadResume": "Tải Hồ sơ", "showDetails": "Xem chi tiết", "showLess": "Thu gọn",
     "sendMessage": "Gửi tin nhắn", "sending": "Đang gửi…", "messageSent": "Đã gửi thành công!",
     "thankYou": "Cảm ơn bạn — tôi sẽ phản hồi sớm nhất có thể.",
     "somethingWentWrong": "Đã xảy ra lỗi. Vui lòng thử lại.",
@@ -31,7 +31,7 @@
   },
   "footer": { "copyright": "© {{year}} Hoan Ngô · Hà Nội, Việt Nam" },
   "education": {
-    "vnu": { "institution": "Trường Đại học Khoa học Tự nhiên – ĐHQGHN", "degree": "Bachelor's Degree in Computer Science and Information", "location": "Vietnam", "bullets": ["Cử nhân Khoa học Máy tính và Khoa học Thông tin.", "Các môn học trọng tâm: Kỹ thuật Phần mềm, Hệ quản trị Cơ sở dữ liệu, Cấu trúc Dữ liệu và Giải thuật."] }
+    "vnu": { "institution": "Trường Đại học Khoa học Tự nhiên – ĐHQGHN", "degree": "Cử nhân Khoa học Máy tính và Khoa học Thông tin", "location": "Vietnam", "bullets": ["Cử nhân Khoa học Máy tính và Khoa học Thông tin.", "Các môn học trọng tâm: Kỹ thuật Phần mềm, Hệ quản trị Cơ sở dữ liệu, Cấu trúc Dữ liệu và Giải thuật."], "cvBullets": ["Các môn học trọng tâm: Kỹ thuật Phần mềm, Hệ quản trị Cơ sở dữ liệu, Cấu trúc Dữ liệu và Giải thuật."] }
   },
   "experience": {
     "pod": {

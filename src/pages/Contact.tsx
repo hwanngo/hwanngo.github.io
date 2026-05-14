@@ -41,7 +41,7 @@ export default function Contact() {
 
   const inputStyle = (field: keyof FormState): React.CSSProperties => ({
     width: '100%', padding: '0.7rem 1rem', background: 'var(--bg-card)', color: 'var(--fg)',
-    border: `1px solid ${errors[field] ? '#b53333' : 'var(--border)'}`,
+    border: `1px solid ${errors[field] ? 'var(--danger)' : 'var(--border)'}`,
     borderRadius: '10px', fontSize: '0.9rem', outline: 'none',
     transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
     fontFamily: "'DM Sans', system-ui, sans-serif",
@@ -94,9 +94,9 @@ export default function Contact() {
                   value={form[field]} onChange={e => setForm(f => ({ ...f, [field]: e.target.value }))}
                   style={inputStyle(field)}
                   onFocus={e => { e.target.style.borderColor = 'var(--accent)'; e.target.style.boxShadow = '0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent)' }}
-                  onBlur={e => { e.target.style.borderColor = errors[field] ? '#b53333' : 'var(--border)'; e.target.style.boxShadow = 'none' }}
+                  onBlur={e => { e.target.style.borderColor = errors[field] ? 'var(--danger)' : 'var(--border)'; e.target.style.boxShadow = 'none' }}
                 />
-                {errors[field] && <div style={{ fontSize: '0.76rem', color: '#b53333', marginTop: '4px' }}>{errors[field]}</div>}
+                {errors[field] && <div style={{ fontSize: '0.76rem', color: 'var(--danger)', marginTop: '4px' }}>{errors[field]}</div>}
               </div>
             ))}
           </div>
@@ -105,13 +105,13 @@ export default function Contact() {
               onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
               style={{ ...inputStyle('message'), resize: 'vertical', minHeight: 130 }}
               onFocus={e => { e.target.style.borderColor = 'var(--accent)'; e.target.style.boxShadow = '0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent)' }}
-              onBlur={e => { e.target.style.borderColor = errors.message ? '#b53333' : 'var(--border)'; e.target.style.boxShadow = 'none' }}
+              onBlur={e => { e.target.style.borderColor = errors.message ? 'var(--danger)' : 'var(--border)'; e.target.style.boxShadow = 'none' }}
             />
-            {errors.message && <div style={{ fontSize: '0.76rem', color: '#b53333', marginTop: '4px' }}>{errors.message}</div>}
+            {errors.message && <div style={{ fontSize: '0.76rem', color: 'var(--danger)', marginTop: '4px' }}>{errors.message}</div>}
           </div>
-          {status === 'error' && <div style={{ fontSize: '0.82rem', color: '#b53333', marginBottom: '0.75rem' }}>{t('ui.somethingWentWrong')}</div>}
+          {status === 'error' && <div style={{ fontSize: '0.82rem', color: 'var(--danger)', marginBottom: '0.75rem' }}>{t('ui.somethingWentWrong')}</div>}
           <button type="submit" disabled={submitting}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'var(--accent)', color: '#faf9f5', border: 'none', borderRadius: '10px', padding: '0.7rem 1.5rem', fontSize: '0.9rem', fontWeight: 600, cursor: submitting ? 'not-allowed' : 'pointer', opacity: submitting ? 0.7 : 1, transition: 'opacity 0.2s, transform 0.2s, background 0.2s', fontFamily: "'DM Sans', system-ui, sans-serif" }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'var(--accent)', color: 'var(--on-accent)', border: 'none', borderRadius: '10px', padding: '0.7rem 1.5rem', fontSize: '0.9rem', fontWeight: 600, cursor: submitting ? 'not-allowed' : 'pointer', opacity: submitting ? 0.7 : 1, transition: 'opacity 0.2s, transform 0.2s, background 0.2s', fontFamily: "'DM Sans', system-ui, sans-serif" }}
             onMouseEnter={e => { if (!submitting) { e.currentTarget.style.background = 'var(--accent-hover)'; e.currentTarget.style.transform = 'translateY(-1px)' } }}
             onMouseLeave={e => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.transform = 'translateY(0)' }}
           >

@@ -22,7 +22,7 @@ export default function Portfolio() {
       <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.75rem', flexWrap: 'wrap' }}>
         {filters.map(f => (
           <button key={f} onClick={() => setFilter(f)}
-            style={{ padding: '6px 16px', borderRadius: '99px', fontSize: '0.84rem', fontWeight: 500, border: '1px solid ' + (filter === f ? 'var(--accent)' : 'var(--border)'), background: filter === f ? 'var(--accent)' : 'var(--bg-card)', color: filter === f ? '#faf9f5' : 'var(--fg-2)', cursor: 'pointer', transition: 'all 0.18s ease' }}
+            style={{ padding: '6px 16px', borderRadius: '99px', fontSize: '0.84rem', fontWeight: 500, border: '1px solid ' + (filter === f ? 'var(--accent)' : 'var(--border)'), background: filter === f ? 'var(--accent)' : 'var(--bg-card)', color: filter === f ? 'var(--on-accent)' : 'var(--fg-2)', cursor: 'pointer', transition: 'all 0.18s ease' }}
             onMouseEnter={e => { if (filter !== f) { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)' } }}
             onMouseLeave={e => { if (filter !== f) { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--fg-2)' } }}
           >{filterLabel(f)}</button>
