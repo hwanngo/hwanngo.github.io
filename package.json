@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "i18next": "^24.0.0",
-    "i18next-http-backend": "^2.5.2",
+    "i18next-http-backend": "^3.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-i18next": "^15.0.0",
@@ -34,7 +34,7 @@
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.6",
     "typescript": "^5.5.3",
-    "vite": "^5.3.4",
-    "vitest": "^2.0.3"
+    "vite": "^6.4.2",
+    "vitest": "^3.0.0"
   }
 }

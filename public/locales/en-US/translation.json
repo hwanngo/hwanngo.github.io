@@ -2,7 +2,7 @@
   "nav": { "about": "About", "resume": "Resume", "portfolio": "Portfolio", "contact": "Contact" },
   "sidebar": { "dataEngineer": "Data Engineer", "softwareEngineer": "Software Engineer" },
   "ui": {
-    "downloadCv": "Download CV", "showDetails": "Show details", "showLess": "Show less",
+    "downloadResume": "Download Resume", "showDetails": "Show details", "showLess": "Show less",
     "sendMessage": "Send Message", "sending": "Sending…", "messageSent": "Message sent!",
     "thankYou": "Thank you — I'll get back to you soon.",
     "somethingWentWrong": "Something went wrong. Please try again.",
@@ -31,7 +31,7 @@
   },
   "footer": { "copyright": "© {{year}} Hoan Ngo · Hanoi, Vietnam" },
   "education": {
-    "vnu": { "institution": "VNU – Hanoi University of Science", "degree": "Bachelor's Degree in Computer Science and Information", "location": "Vietnam", "bullets": ["Bachelor's Degree in Computer Science and Informatic Science.", "Coursework focus: Software Engineering, Database Systems, Data Structures and Algorithms."] }
+    "vnu": { "institution": "VNU – Hanoi University of Science", "degree": "Bachelor's Degree in Computer Science and Information", "location": "Vietnam", "bullets": ["Bachelor's Degree in Computer Science and Informatic Science.", "Coursework focus: Software Engineering, Database Systems, Data Structures and Algorithms."], "cvBullets": ["Coursework focus: Software Engineering, Database Systems, Data Structures and Algorithms."] }
   },
   "experience": {
     "pod": {

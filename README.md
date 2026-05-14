@@ -18,7 +18,7 @@ Built with React 19 + Vite, fully internationalized (EN / VI), content driven by
    - [Projects](#4-projects)
    - [Clients](#5-clients)
    - [Skills](#6-skills)
-   - [CV / Resume PDF](#7-cv--resume-pdf)
+   - [Resume PDF](#7-resume-pdf)
    - [Avatar & Images](#8-avatar--images)
    - [Certificates](#9-certificates)
    - [Awards](#10-awards)
@@ -58,7 +58,7 @@ hwanngo.github.io/
 │   │   ├── images/              # avatar, client logos, favicon
 │   │   ├── certificates/        # certificate PDFs grouped by issuer
 │   │   ├── awards/              # award PDFs grouped by org
-│   │   └── cv.pdf               # CV download — replace with your actual PDF
+│   │   └── {Name}-Resume.pdf    # resume PDF — filename derives from profile.legalName || profile.name (spaces become hyphens)
 │   └── locales/
 │       ├── en-US/
 │       │   └── translation.json # all English UI strings + content text
@@ -66,16 +66,16 @@ hwanngo.github.io/
 │           └── translation.json # Vietnamese (add more locales here)
 ├── src/
 │   ├── data/                    # language-agnostic structured data
-│   │   ├── profile.json         # name, email, location, social links, formspree ID
+│   │   ├── profile.json         # name, legalName, email, phone, location, quote, social, formspreeId
 │   │   ├── experience.json      # jobs: id, period, tech tags
 │   │   ├── education.json       # degrees: id, period
-│   │   ├── projects.json        # id, category, tech tags, status
+│   │   ├── projects.json        # id, category, tech tags, status, cvShow
 │   │   ├── clients.json         # id, website href, logo path, alt text
-│   │   ├── skills.json          # skill categories with tag arrays
-│   │   ├── certificates.json    # id, issuer, show flag, file path
-│   │   └── awards.json          # id, issuer, year, file path
+│   │   ├── skills.json          # skill categories with tag arrays (optional url)
+│   │   ├── certificates.json    # id, issuer, show, cvShow, date, url, order, file
+│   │   └── awards.json          # id, issuer, year, date, url, order, file
 │   ├── components/
-│   │   ├── Sidebar.tsx          # avatar, name, contacts, CV download
+│   │   ├── Sidebar.tsx          # avatar, name, contacts, resume download
 │   │   ├── NavBar.tsx           # tab switcher, language dropdown, theme toggle
 │   │   ├── TimelineItem.tsx     # collapsible timeline row (used in Resume)
 │   │   ├── Tag.tsx              # pill tag chip
@@ -156,11 +156,14 @@ This means:
 
 ```jsonc
 {
-  "name": "Your Full Name",
+  "name": "Display Name",                    // shown in the sidebar
+  "legalName": "Full Legal Name",            // optional — used for the resume PDF filename: "{legalName}-Resume.pdf" (spaces → hyphens). Falls back to `name`.
   "nickname": "Nickname",
   "avatar": "/assets/images/my-avatar.png",  // path relative to public/
   "email": "you@example.com",
+  "phone": "+84 ...",                        // optional — when set, a Phone row appears in the sidebar
   "location": "City, Country",
+  "quote": "Short one-line tagline.",        // optional — rendered in italic serif under the role labels
   "social": [
     { "id": "linkedin", "icon": "linkedin", "href": "https://linkedin.com/in/yourprofile", "label": "LinkedIn" },
     { "id": "github",   "icon": "github",   "href": "https://github.com/yourusername",    "label": "GitHub"   }
@@ -169,7 +172,7 @@ This means:
 }
 ```
 
-The `icon` value must match a key in `src/components/Icon.tsx`. Available icons: `mail`, `location`, `linkedin`, `github`, `external`, `send`, `data`, `code`, `check`, `calendar`, `edu`, `brief`, `tools`, `sun`, `moon`, `download`, `paper`.
+The `icon` value must match a key in `src/components/Icon.tsx`. Available icons: `mail`, `phone`, `location`, `linkedin`, `github`, `external`, `send`, `data`, `code`, `check`, `calendar`, `edu`, `brief`, `tools`, `sun`, `moon`, `download`, `paper`, `cert`, `award`, `chevrondown`, `chevronup`, `menu`, `close`.
 
 ---
 
@@ -196,6 +199,8 @@ Adding a new job requires changes to **two files**: the data file and every loca
 "experience": {
   "mycompany": {
     "title": "Senior Data Engineer — My Company Ltd.",
+    "location": "United States",          // optional — shown under the title
+    "period": "Apr 2025 – Present",       // optional per-locale period; falls back to experience.json `period`
     "bullets": [
       "First bullet point describing your responsibility or achievement.",
       "Second bullet point.",
@@ -211,6 +216,7 @@ Adding a new job requires changes to **two files**: the data file and every loca
 "experience": {
   "mycompany": {
     "title": "Kỹ sư Dữ liệu Cấp cao — My Company Ltd.",
+    "location": "United States",
     "period": "04/2025 – Hiện tại",       // optional — overrides the data file period for this locale
     "bullets": [
       "Mô tả trách nhiệm hoặc thành tích.",
@@ -247,6 +253,8 @@ Adding a new job requires changes to **two files**: the data file and every loca
 "education": {
   "myuniversity": {
     "institution": "University of Example",
+    "degree": "Master's Degree in Computer Science",  // optional
+    "location": "United States",                       // optional
     "bullets": [
       "Master's Degree in Computer Science.",
       "Thesis: Distributed Stream Processing at Scale."
@@ -277,9 +285,10 @@ Adding a new job requires changes to **two files**: the data file and every loca
 [
   {
     "id": "myProject",                  // unique slug
-    "category": "dataEngineering",      // "dataEngineering" or "softwareEngineering"
+    "category": "dataEngineering",      // "dataEngineering" | "softwareEngineering" | "personal"
     "tags": ["Python", "Spark", "AWS"], // tech pills on the card
-    "status": "professional"            // "professional" or "personal"
+    "status": "professional",           // "professional" or "personal"
+    "cvShow": true                      // optional — include this project in resume PDF exports
   }
 ]
 ```
@@ -287,6 +296,7 @@ Adding a new job requires changes to **two files**: the data file and every loca
 Valid `category` values control which filter button shows the card on the Portfolio page:
 - `"dataEngineering"` — shows under **Data Engineering** filter
 - `"softwareEngineering"` — shows under **Software Engineering** filter
+- `"personal"` — shows under **Personal** filter
 
 **Step 2 — Both locale files** under the `"projects"` key:
 
@@ -336,9 +346,11 @@ Each object represents one category row on the Resume page. The `id` is used to 
   { "id": "cloudInfra",      "tags": ["AWS", "GCP", "Azure", "Terraform"] },
   { "id": "biAnalytics",     "tags": ["Metabase", "Tableau", "Dashboarding"] },
   { "id": "practices",       "tags": ["Observability", "Analytics Engineering", "CI/CD"] },
-  { "id": "spokenLanguages", "tags": ["English – C2 Proficient (CEFR)"] }
+  { "id": "spokenLanguages", "tags": ["English – C2 Proficient (CEFR)"], "url": "https://cert.example.com" }
 ]
 ```
+
+`url` is optional — when present, the category heading becomes a link (handy for proof of language certificates).
 
 To add a tag, just add it to the `tags` array. To add a **new category**, also add its heading to both locale files under `"skills"`:
 
@@ -358,15 +370,15 @@ To add a tag, just add it to the `tags` array. To add a **new category**, also a
 
 ---
 
-### 7. CV / Resume PDF
+### 7. Resume PDF
 
-Drop your PDF at `public/assets/cv.pdf`, replacing the existing placeholder:
+The sidebar's **Download Resume** button links to `/assets/{Name}-Resume.pdf`, where `{Name}` is `profile.legalName` (falling back to `profile.name`) with spaces replaced by hyphens. For example, with `"legalName": "Hoan Ngo"` the expected filename is `Hoan-Ngo-Resume.pdf`.
 
 ```bash
-cp /path/to/your/Resume.pdf public/assets/cv.pdf
+cp /path/to/your/Resume.pdf "public/assets/Hoan-Ngo-Resume.pdf"
 ```
 
-The sidebar contains a **Download CV** button that links directly to `/assets/cv.pdf`. It is currently hidden (`display: 'none'` in `src/components/Sidebar.tsx` line 92). To re-enable it, change `display: 'none'` back to `display: 'flex'`.
+The button is visible by default. The link label comes from the `ui.downloadResume` translation key — edit both locale files to change the text.
 
 ---
 
@@ -402,13 +414,26 @@ Use kebab-case filenames: `my-certificate-name.pdf`
 **Step 2 — Add an entry to `src/data/certificates.json`:**
 
 ```jsonc
-{ "id": "my-certificate-name", "issuer": "amazon", "show": true, "file": "/assets/certificates/amazon/my-certificate-name.pdf" }
+{
+  "id": "my-certificate-name",
+  "issuer": "amazon",
+  "show": true,
+  "cvShow": true,                          // optional — include in resume PDF exports
+  "date": "2025-05",                       // optional, "YYYY-MM" — rendered as "May 2025" and used for sort order (newest first)
+  "url": "https://credentials.example.com/abc",  // optional credential link — used by the "View" button when set
+  "order": 1,                              // optional — manual override; lower numbers sort first
+  "file": "/assets/certificates/amazon/my-certificate-name.pdf"
+}
 ```
 
 - `id` — kebab-case slug, must match the key you add in Step 3
 - `issuer` — one of: `amazon`, `boomi`, `coursera`, `google`, `ibm`, `linkedin`, `microsoft`
 - `show` — `true` to display on the page, `false` to hide (PDF stays in assets)
-- `file` — path relative to `public/`
+- `cvShow` — `true` to include in resume PDF exports (independent of the on-page `show`)
+- `date` — optional ISO `YYYY-MM`. When set, the entry sorts newest-first and shows a formatted month label
+- `url` — optional credential link; when present, the cert title and **View** button point here instead of `file`
+- `order` — optional sort override. If **any** entry in the issuer group has `order`, the group is sorted by `order` ascending instead of by date
+- `file` — path relative to `public/` (always required as the fallback link)
 
 **To hide a certificate without deleting it**, just set `"show": false`. The entire issuer group disappears automatically when all its certs are hidden.
 
@@ -444,13 +469,24 @@ Use kebab-case filenames.
 **Step 2 — Add an entry to `src/data/awards.json`:**
 
 ```jsonc
-{ "id": "my-award-slug", "issuer": "vmo", "year": "2024", "file": "/assets/awards/vmo/my-award.pdf" }
+{
+  "id": "my-award-slug",
+  "issuer": "vmo",
+  "year": "2024",
+  "date": "2024-12",                       // optional, "YYYY-MM" — overrides `year` for display when set
+  "url": "https://example.com/award",      // optional — used by the "View" button when set
+  "order": 1,                              // optional — manual sort override
+  "file": "/assets/awards/vmo/my-award.pdf"
+}
 ```
 
 - `id` — kebab-case slug, must match the key added in Step 3
 - `issuer` — organisation slug (used only internally, not displayed)
-- `year` — displayed next to the issuer label on the card
-- `file` — path relative to `public/`
+- `year` — displayed next to the issuer label when `date` is not set
+- `date` — optional ISO `YYYY-MM`; takes precedence over `year` for display and is used for newest-first sort
+- `url` — optional credential link; the **View** button prefers `url` over `file`
+- `order` — optional manual sort override (lower first)
+- `file` — path relative to `public/` (always required as the fallback link)
 
 **Step 3 — Add translations to both locale files** under the `"awards"` key:
 
@@ -492,15 +528,15 @@ The top-level structure of each file:
 {
   "nav":          { "about": "About", "resume": "Resume", ... },
   "sidebar":      { "dataEngineer": "Data Engineer", "softwareEngineer": "Software Engineer" },
-  "ui":           { "downloadCv": "Download CV", "showDetails": "Show details", ... },
+  "ui":           { "downloadResume": "Download Resume", "showDetails": "Show details", ... },
   "about":        { "title": "About me", "bio": "...", "services": { ... } },
   "resume":       { "title": "Resume", "education": "Education", "certifications": "Certifications", "awards": "Awards & Recognition", ... },
   "certIssuers":  { "amazon": "Amazon Web Services", "google": "Google", "ibm": "IBM", ... },
   "skills":       { "programming": "Programming", "dataEngineering": "Data Engineering", "databases": "Databases & Warehousing", "cloudInfra": "Cloud & Infrastructure", "biAnalytics": "BI & Analytics", "practices": "Practices & Automation", "spokenLanguages": "Languages" },
   "portfolio":    { "title": "Portfolio", "filters": { ... } },
-  "contact":      { "title": "Contact", "validation": { ... } },
-  "education":    { "{id}": { "institution": "...", "bullets": [...] } },
-  "experience":   { "{id}": { "title": "...", "period": "...(optional, overrides data file)", "bullets": [...] } },
+  "contact":      { "title": "Contact", "email": "Email", "phone": "Phone", "location": "Location", "validation": { ... } },
+  "education":    { "{id}": { "institution": "...", "degree": "...(optional)", "location": "...(optional)", "bullets": [...] } },
+  "experience":   { "{id}": { "title": "...", "location": "...(optional)", "period": "...(optional, overrides data file)", "bullets": [...] } },
   "certificates": { "{id}": "Display Name" },
   "awards":       { "{id}": { "title": "...", "issuerLabel": "..." } },
   "projects":     { "{id}": { "title": "...", "desc": "..." } }
