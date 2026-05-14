@@ -22,7 +22,7 @@
   "skills": { "programming": "Programming", "dataEngineering": "Data Engineering", "databases": "Databases & Warehousing", "cloudInfra": "Cloud & Infrastructure", "biAnalytics": "BI & Analytics", "practices": "Practices & Automation", "spokenLanguages": "Languages" },
   "portfolio": {
     "title": "Portfolio", "all": "All",
-    "filters": { "dataEngineering": "Data Engineering", "softwareEngineering": "Software Engineering" }
+    "filters": { "dataEngineering": "Data Engineering", "softwareEngineering": "Software Engineering", "personal": "Personal" }
   },
   "contact": {
     "title": "Contact", "email": "Email", "phone": "Phone", "location": "Location", "linkedin": "LinkedIn", "github": "GitHub",
@@ -31,11 +31,12 @@
   },
   "footer": { "copyright": "© {{year}} Hoan Ngo · Hanoi, Vietnam" },
   "education": {
-    "vnu": { "institution": "VNU – Hanoi University of Science", "bullets": ["Bachelor's Degree in Computer Science and Informatic Science.", "Coursework focus: Software Engineering, Database Systems, Data Structures and Algorithms."] }
+    "vnu": { "institution": "VNU – Hanoi University of Science", "degree": "Bachelor's Degree in Computer Science and Information", "location": "Vietnam", "bullets": ["Bachelor's Degree in Computer Science and Informatic Science.", "Coursework focus: Software Engineering, Database Systems, Data Structures and Algorithms."] }
   },
   "experience": {
     "pod": {
       "title": "Data Engineer — Pod Co.",
+      "location": "United States",
       "bullets": [
         "Domains: Wholesale, B2B, Distribution Platform",
         "Built and operated ETL/ELT pipelines across Wholesale, B2B, and Distribution Platform domains using Apache Airflow and Airbyte.",
@@ -47,6 +48,7 @@
     },
     "vmo": {
       "title": "Data Engineer — VMO Holdings Technology JSC",
+      "location": "Vietnam",
       "bullets": [
         "Domains: Healthcare, Pharmaceutical · Client: Singapore",
         "Migrated legacy cron pipelines to Apache Airflow, improving scheduling, monitoring, and maintainability.",
@@ -58,6 +60,7 @@
     },
     "maxflow": {
       "title": "Software Engineer / Full-stack Developer — Maxflow R&D Co. Ltd.",
+      "location": "Vietnam",
       "bullets": [
         "Domains: Industrial Simulation & Analytics · Client: United States",
         "Developed core features for an industrial simulation and analytics platform with configurable workflows.",
@@ -68,6 +71,7 @@
     },
     "fpt": {
       "title": "Back-end Developer — FPT Information System Corp.",
+      "location": "Vietnam",
       "bullets": [
         "Domains: Public Sector IT · Client: Vietnam",
         "Built backend services for a national public procurement platform in a 5-engineer team environment.",
@@ -76,6 +80,7 @@
     },
     "house3d": {
       "title": "Web Developer — House3D Co. Ltd.",
+      "location": "Vietnam",
       "bullets": [
         "Domains: Interior Design Technology",
         "Developed and maintained customer-facing web features for an interior design technology platform."
@@ -83,13 +88,14 @@
     },
     "framgia": {
       "title": "Web Developer Intern — Framgia Inc. / Sun* Inc.",
+      "location": "Vietnam",
       "bullets": [
         "Completed Ruby on Rails training and built an e-commerce web project in a 3-member team with payment gateway integrations (PayPal, BaoKim, NganLuong)."
       ]
     }
   },
   "certificates": {
-    "aws-cloud-solutions-architect": "AWS Cloud Solutions Architect",
+    "aws-cloud-solutions-architect": "Cloud Solutions Architect",
     "aws-cloud-support-associate": "AWS Cloud Support Associate",
     "aws-fundamentals": "AWS Fundamentals",
     "associate-integration-developer-certification": "Associate Integration Developer",
@@ -118,7 +124,8 @@
     "operational-analytics-with-microsoft-azure-synapse-analytics": "Operational Analytics with Microsoft Azure Synapse Analytics",
     "prepare-for-dp-203-data-engineering-on-microsoft-azure-exam": "DP-203: Data Engineering on Microsoft Azure (Exam Prep)",
     "talend-data-integration-certification-preparation-training": "Talend Data Integration Certification Preparation",
-    "google-advanced-data-analytics": "Google Advanced Data Analytics",
+    "google-advanced-data-analytics": "Advanced Data Analytics",
+    "google-associate-cloud-engineer": "Associate Cloud Engineer",
     "google-cloud-database-engineer": "Google Cloud Database Engineer",
     "google-data-analytics": "Google Data Analytics",
     "google-project-management": "Google Project Management",
@@ -126,16 +133,16 @@
     "data-engineering-foundations": "Data Engineering Foundations",
     "ibm-ai-developer": "IBM AI Developer",
     "ibm-data-analyst": "IBM Data Analyst",
-    "ibm-data-architecture": "IBM Data Architecture",
-    "ibm-data-engineering": "IBM Data Engineering",
+    "ibm-data-architecture": "Data Architecture",
+    "ibm-data-engineering": "Data Engineering",
     "nosql-big-data-and-spark-foundations": "NoSQL, Big Data, and Spark Foundations",
     "cissp-cert-prep-2021-5-identity-and-access-management": "CISSP: Identity and Access Management (Cert Prep)",
     "comptia-cysa-cs0002-cert-prep-4-software-and-systems-security": "CompTIA CySA+: Software and Systems Security (Cert Prep)",
     "learning-the-owasp-top-10": "Learning the OWASP Top 10",
-    "microsoft-azure-data-engineering-associate-dp-203": "Microsoft Azure Data Engineering Associate (DP-203)"
+    "microsoft-azure-data-engineering-associate-dp-203": "Azure Data Engineering Associate"
   },
   "awards": {
-    "vmo-employee-of-year-2024": { "title": "Employee of the Year 2024", "issuerLabel": "VMO Holdings Technology JSC" }
+    "vmo-employee-of-year-2024": { "title": "Employee of the Year", "subtitle": "VMO Year-End Award", "issuer": "VMO Holdings", "issuerLabel": "VMO Holdings Technology JSC" }
   },
   "projects": {
     "pharmaEtl": { "title": "Pharma ETL Modernisation", "desc": "Migrated legacy cron-job ETL pipelines to Apache Airflow for a Singapore-based pharma client, improving reliability and observability across the data platform." },
@@ -143,6 +150,17 @@
     "serverless": { "title": "Serverless Backend Migration", "desc": "Migrated a Flask monolith to a fully serverless AWS architecture (Lambda, API Gateway, S3, EFS, RDS), reducing operational costs and improving scalability." },
     "workflowPlatform": { "title": "Workflow Automation Platform", "desc": "Contributed to a web platform enabling users to build custom simulation and analytics workflows — similar in concept to Zapier — for industrial engineering clients." },
     "vehicleSim": { "title": "Vehicle Cost Simulation Tool", "desc": "Built a simulation system modelling vehicle travel distance, energy consumption, wear rates, and long-term operational costs to support fleet decision-making." },
-    "govPortal": { "title": "Government Procurement Portal", "desc": "Revamped a public procurement website to be cross-browser compatible and rebuilt the front-end with Angular 2 for the Vietnamese government." }
+    "govPortal": { "title": "Government Procurement Portal", "desc": "Revamped a public procurement website to be cross-browser compatible and rebuilt the front-end with Angular 2 for the Vietnamese government." },
+    "hireflow": {
+      "title": "HireFlow -- Hiring Workflow Automation Platform",
+      "subtitle": "Personal Project",
+      "period": "2025 -- Present",
+      "desc": "Personal hiring workflow automation system using FastAPI and Next.js, with pipelines for JD generation, candidate ingestion, CV parsing, and AI-assisted ranking combined with human review.",
+      "bullets": [
+        "Built a personal hiring workflow automation system using FastAPI (backend) and Next.js (frontend), deployed for internal use.",
+        "Developed pipelines for job description generation, candidate ingestion, and CV parsing across multiple submission sources.",
+        "Implemented candidate ranking and workflow automation with AI-assisted components, combined with human review before shortlist decisions and communication steps."
+      ]
+    }
   }
 }

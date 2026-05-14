@@ -1,5 +1,5 @@
 [
-  {"id":"aws-cloud-solutions-architect","issuer":"amazon","show":true,"date":"2024-06","url":"","file":"/assets/certificates/amazon/aws-cloud-solutions-architect.pdf"},
+  {"id":"aws-cloud-solutions-architect","issuer":"amazon","show":true,"cvShow":true,"date":"2024-06","url":"https://www.coursera.org/account/accomplishments/professional-cert/NW4BQLAW62PL","file":"/assets/certificates/amazon/aws-cloud-solutions-architect.pdf"},
   {"id":"aws-cloud-support-associate","issuer":"amazon","show":false,"date":"","url":"","file":"/assets/certificates/amazon/aws-cloud-support-associate.pdf"},
   {"id":"aws-fundamentals","issuer":"amazon","show":false,"date":"","url":"","file":"/assets/certificates/amazon/aws-fundamentals.pdf"},
   {"id":"associate-integration-developer-certification","issuer":"boomi","show":true,"date":"2023-12","url":"","file":"/assets/certificates/boomi/associate-integration-developer-certification.pdf"},
@@ -28,7 +28,8 @@
   {"id":"operational-analytics-with-microsoft-azure-synapse-analytics","issuer":"coursera","show":false,"date":"","url":"","file":"/assets/certificates/coursera/microsoft/operational-analytics-with-microsoft-azure-synapse-analytics.pdf"},
   {"id":"prepare-for-dp-203-data-engineering-on-microsoft-azure-exam","issuer":"coursera","show":false,"date":"","url":"","file":"/assets/certificates/coursera/microsoft/prepare-for-dp-203-data-engineering-on-microsoft-azure-exam.pdf"},
   {"id":"talend-data-integration-certification-preparation-training","issuer":"coursera","show":false,"date":"","url":"","file":"/assets/certificates/coursera/talend/talend-data-integration-certification-preparation-training.pdf"},
-  {"id":"google-advanced-data-analytics","issuer":"google","show":true,"date":"2024-11","url":"","file":"/assets/certificates/google/google-advanced-data-analytics.pdf"},
+  {"id":"google-advanced-data-analytics","issuer":"google","show":true,"cvShow":true,"date":"2024-11","url":"https://www.coursera.org/account/accomplishments/professional-cert/U9K2H40UHX3A","file":"/assets/certificates/google/google-advanced-data-analytics.pdf"},
+  {"id":"google-associate-cloud-engineer","issuer":"google","show":true,"cvShow":true,"date":"2024-12","url":"https://www.credly.com/badges/d981fb4c-fbd0-40f0-9a6d-ac0003d428ea","file":"/assets/certificates/google/google-associate-cloud-engineer.pdf"},
   {"id":"google-cloud-database-engineer","issuer":"google","show":false,"date":"","url":"","file":"/assets/certificates/google/google-cloud-database-engineer.pdf"},
   {"id":"google-data-analytics","issuer":"google","show":true,"date":"2024-06","url":"","file":"/assets/certificates/google/google-data-analytics.pdf"},
   {"id":"google-project-management","issuer":"google","show":true,"date":"2024-09","url":"","file":"/assets/certificates/google/google-project-management.pdf"},
@@ -36,11 +37,11 @@
   {"id":"data-engineering-foundations","issuer":"ibm","show":false,"date":"","url":"","file":"/assets/certificates/ibm/data-engineering-foundations.pdf"},
   {"id":"ibm-ai-developer","issuer":"ibm","show":true,"date":"2025-07","url":"","file":"/assets/certificates/ibm/ibm-ai-developer.pdf"},
   {"id":"ibm-data-analyst","issuer":"ibm","show":true,"date":"2025-06","url":"","file":"/assets/certificates/ibm/ibm-data-analyst.pdf"},
-  {"id":"ibm-data-architecture","issuer":"ibm","show":true,"date":"2025-05","url":"","file":"/assets/certificates/ibm/ibm-data-architecture.pdf"},
-  {"id":"ibm-data-engineering","issuer":"ibm","show":true,"date":"2024-04","url":"","file":"/assets/certificates/ibm/ibm-data-engineering.pdf"},
+  {"id":"ibm-data-architecture","issuer":"ibm","show":true,"cvShow":true,"date":"2025-05","url":"https://www.coursera.org/account/accomplishments/professional-cert/VKZAZD3PNID6","file":"/assets/certificates/ibm/ibm-data-architecture.pdf"},
+  {"id":"ibm-data-engineering","issuer":"ibm","show":true,"cvShow":true,"date":"2024-07","url":"https://www.coursera.org/account/accomplishments/professional-cert/UB2NWPPQ8MK5","file":"/assets/certificates/ibm/ibm-data-engineering.pdf"},
   {"id":"nosql-big-data-and-spark-foundations","issuer":"ibm","show":false,"date":"","url":"","file":"/assets/certificates/ibm/nosql-big-data-and-spark-foundations.pdf"},
   {"id":"cissp-cert-prep-2021-5-identity-and-access-management","issuer":"linkedin","show":false,"date":"","url":"","file":"/assets/certificates/linkedin/cissp-cert-prep-2021-5-identity-and-access-management.pdf"},
   {"id":"comptia-cysa-cs0002-cert-prep-4-software-and-systems-security","issuer":"linkedin","show":false,"date":"","url":"","file":"/assets/certificates/linkedin/comptia-cysa-cs0002-cert-prep-4-software-and-systems-security.pdf"},
   {"id":"learning-the-owasp-top-10","issuer":"linkedin","show":false,"date":"","url":"","file":"/assets/certificates/linkedin/learning-the-owasp-top-10.pdf"},
-  {"id":"microsoft-azure-data-engineering-associate-dp-203","issuer":"microsoft","show":true,"date":"2024-06","url":"","file":"/assets/certificates/microsoft/microsoft-azure-data-engineering-associate-dp-203.pdf"}
+  {"id":"microsoft-azure-data-engineering-associate-dp-203","issuer":"microsoft","show":true,"cvShow":true,"date":"2024-06","url":"http://hwanngo.github.io/files/certificates/microsoft/Microsoft Azure Data Engineering Associate (DP-203).pdf","file":"/assets/certificates/microsoft/microsoft-azure-data-engineering-associate-dp-203.pdf"}
 ]

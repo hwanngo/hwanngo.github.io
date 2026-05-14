@@ -9,7 +9,7 @@ export interface EducationEntry {
   period: string
 }
 
-export type ProjectCategory = 'dataEngineering' | 'softwareEngineering'
+export type ProjectCategory = 'dataEngineering' | 'softwareEngineering' | 'personal'
 export type ProjectStatus = 'professional' | 'personal'
 
 export interface ProjectEntry {
@@ -17,6 +17,7 @@ export interface ProjectEntry {
   category: ProjectCategory
   tags: string[]
   status: ProjectStatus
+  cvShow?: boolean
 }
 
 export interface ClientEntry {
@@ -29,6 +30,7 @@ export interface ClientEntry {
 export interface SkillCategory {
   id: string
   tags: string[]
+  url?: string
 }
 
 export interface SocialLink {
@@ -40,6 +42,7 @@ export interface SocialLink {
 
 export interface Profile {
   name: string
+  legalName?: string
   nickname: string
   avatar: string
   email: string
@@ -54,6 +57,7 @@ export interface CertificateEntry {
   id: string
   issuer: string
   show: boolean
+  cvShow?: boolean
   date?: string
   url?: string
   order?: number

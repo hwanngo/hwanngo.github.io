@@ -22,7 +22,7 @@
   "skills": { "programming": "Lập trình", "dataEngineering": "Kỹ thuật Dữ liệu", "databases": "Cơ sở dữ liệu & Kho dữ liệu", "cloudInfra": "Cloud & Hạ tầng", "biAnalytics": "BI & Phân tích", "practices": "Quy trình & Tự động hóa", "spokenLanguages": "Ngôn ngữ" },
   "portfolio": {
     "title": "Dự án", "all": "Tất cả",
-    "filters": { "dataEngineering": "Kỹ thuật Dữ liệu", "softwareEngineering": "Kỹ thuật Phần mềm" }
+    "filters": { "dataEngineering": "Kỹ thuật Dữ liệu", "softwareEngineering": "Kỹ thuật Phần mềm", "personal": "Cá nhân" }
   },
   "contact": {
     "title": "Liên hệ", "email": "Email", "phone": "Điện thoại", "location": "Địa chỉ", "linkedin": "LinkedIn", "github": "GitHub",
@@ -31,11 +31,12 @@
   },
   "footer": { "copyright": "© {{year}} Hoan Ngô · Hà Nội, Việt Nam" },
   "education": {
-    "vnu": { "institution": "Trường Đại học Khoa học Tự nhiên – ĐHQGHN", "bullets": ["Cử nhân Khoa học Máy tính và Khoa học Thông tin.", "Các môn học trọng tâm: Kỹ thuật Phần mềm, Hệ quản trị Cơ sở dữ liệu, Cấu trúc Dữ liệu và Giải thuật."] }
+    "vnu": { "institution": "Trường Đại học Khoa học Tự nhiên – ĐHQGHN", "degree": "Bachelor's Degree in Computer Science and Information", "location": "Vietnam", "bullets": ["Cử nhân Khoa học Máy tính và Khoa học Thông tin.", "Các môn học trọng tâm: Kỹ thuật Phần mềm, Hệ quản trị Cơ sở dữ liệu, Cấu trúc Dữ liệu và Giải thuật."] }
   },
   "experience": {
     "pod": {
       "title": "Kỹ sư Dữ liệu — Pod Co.",
+      "location": "United States",
       "period": "04/2025 – Hiện tại",
       "bullets": [
         "Lĩnh vực: Bán sỉ, B2B, Nền tảng Phân phối",
@@ -48,6 +49,7 @@
     },
     "vmo": {
       "title": "Kỹ sư Dữ liệu — VMO Holdings Technology JSC",
+      "location": "Vietnam",
       "period": "12/2023 – 04/2025",
       "bullets": [
         "Lĩnh vực: Y tế, Dược phẩm · Khách hàng: Singapore",
@@ -60,6 +62,7 @@
     },
     "maxflow": {
       "title": "Kỹ sư Phần mềm / Lập trình viên Full-stack — Maxflow R&D Co. Ltd.",
+      "location": "Vietnam",
       "period": "01/2021 – 12/2023",
       "bullets": [
         "Lĩnh vực: Mô phỏng Công nghiệp · Khách hàng: Hoa Kỳ",
@@ -71,6 +74,7 @@
     },
     "fpt": {
       "title": "Lập trình viên Backend — FPT Information System Corp.",
+      "location": "Vietnam",
       "period": "12/2019 – 12/2020",
       "bullets": [
         "Lĩnh vực: CNTT Dịch vụ công Quốc gia · Khách hàng: Việt Nam",
@@ -80,6 +84,7 @@
     },
     "house3d": {
       "title": "Lập trình viên Web — House3D Co. Ltd.",
+      "location": "Vietnam",
       "period": "02/2019 – 12/2019",
       "bullets": [
         "Lĩnh vực: Công nghệ Thiết kế Nội thất",
@@ -88,6 +93,7 @@
     },
     "framgia": {
       "title": "Thực tập sinh Lập trình Web — Framgia Inc. / Sun* Inc.",
+      "location": "Vietnam",
       "period": "06/2018 – 09/2018",
       "bullets": [
         "Hoàn thành chương trình đào tạo Ruby on Rails và xây dựng dự án web thương mại điện tử trong nhóm 3 thành viên với tích hợp cổng thanh toán (PayPal, BaoKim, NganLuong)."
@@ -95,7 +101,7 @@
     }
   },
   "certificates": {
-    "aws-cloud-solutions-architect": "AWS Cloud Solutions Architect",
+    "aws-cloud-solutions-architect": "Cloud Solutions Architect",
     "aws-cloud-support-associate": "AWS Cloud Support Associate",
     "aws-fundamentals": "AWS Fundamentals",
     "associate-integration-developer-certification": "Associate Integration Developer",
@@ -124,7 +130,8 @@
     "operational-analytics-with-microsoft-azure-synapse-analytics": "Operational Analytics with Microsoft Azure Synapse Analytics",
     "prepare-for-dp-203-data-engineering-on-microsoft-azure-exam": "DP-203: Data Engineering on Microsoft Azure (Exam Prep)",
     "talend-data-integration-certification-preparation-training": "Talend Data Integration Certification Preparation",
-    "google-advanced-data-analytics": "Google Advanced Data Analytics",
+    "google-advanced-data-analytics": "Advanced Data Analytics",
+    "google-associate-cloud-engineer": "Associate Cloud Engineer",
     "google-cloud-database-engineer": "Google Cloud Database Engineer",
     "google-data-analytics": "Google Data Analytics",
     "google-project-management": "Google Project Management",
@@ -132,16 +139,16 @@
     "data-engineering-foundations": "Data Engineering Foundations",
     "ibm-ai-developer": "IBM AI Developer",
     "ibm-data-analyst": "IBM Data Analyst",
-    "ibm-data-architecture": "IBM Data Architecture",
-    "ibm-data-engineering": "IBM Data Engineering",
+    "ibm-data-architecture": "Data Architecture",
+    "ibm-data-engineering": "Data Engineering",
     "nosql-big-data-and-spark-foundations": "NoSQL, Big Data, and Spark Foundations",
     "cissp-cert-prep-2021-5-identity-and-access-management": "CISSP: Identity and Access Management (Cert Prep)",
     "comptia-cysa-cs0002-cert-prep-4-software-and-systems-security": "CompTIA CySA+: Software and Systems Security (Cert Prep)",
     "learning-the-owasp-top-10": "Learning the OWASP Top 10",
-    "microsoft-azure-data-engineering-associate-dp-203": "Microsoft Azure Data Engineering Associate (DP-203)"
+    "microsoft-azure-data-engineering-associate-dp-203": "Azure Data Engineering Associate"
   },
   "awards": {
-    "vmo-employee-of-year-2024": { "title": "Employee of the Year 2024", "issuerLabel": "VMO Holdings Technology JSC" }
+    "vmo-employee-of-year-2024": { "title": "Employee of the Year", "subtitle": "VMO Year-End Award", "issuer": "VMO Holdings", "issuerLabel": "VMO Holdings Technology JSC" }
   },
   "projects": {
     "pharmaEtl": { "title": "Hiện đại hoá ETL Dược phẩm", "desc": "Chuyển đổi các pipeline ETL dạng cron job sang Apache Airflow cho khách hàng dược phẩm tại Singapore, nâng cao độ tin cậy và khả năng giám sát của toàn bộ nền tảng dữ liệu." },
@@ -149,6 +156,17 @@
     "serverless": { "title": "Di chuyển Backend Serverless", "desc": "Chuyển đổi ứng dụng Flask monolith sang kiến trúc serverless hoàn toàn trên AWS (Lambda, API Gateway, S3, EFS, RDS), giảm chi phí vận hành và tăng khả năng mở rộng." },
     "workflowPlatform": { "title": "Nền tảng Tự động hoá Quy trình", "desc": "Đóng góp xây dựng nền tảng web cho phép người dùng tự tạo quy trình mô phỏng và phân tích tuỳ chỉnh — tương tự Zapier — phục vụ các khách hàng kỹ thuật công nghiệp." },
     "vehicleSim": { "title": "Công cụ Mô phỏng Chi phí Phương tiện", "desc": "Xây dựng hệ thống mô phỏng phân tích quãng đường, mức tiêu thụ năng lượng, độ hao mòn và chi phí vận hành dài hạn, hỗ trợ ra quyết định quản lý đội xe." },
-    "govPortal": { "title": "Cổng Mua sắm Chính phủ", "desc": "Nâng cấp cổng mua sắm công quốc gia để tương thích đa trình duyệt và làm mới toàn bộ giao diện người dùng bằng Angular 2 cho Chính phủ Việt Nam." }
+    "govPortal": { "title": "Cổng Mua sắm Chính phủ", "desc": "Nâng cấp cổng mua sắm công quốc gia để tương thích đa trình duyệt và làm mới toàn bộ giao diện người dùng bằng Angular 2 cho Chính phủ Việt Nam." },
+    "hireflow": {
+      "title": "HireFlow -- Nền tảng Tự động hoá Quy trình Tuyển dụng",
+      "subtitle": "Dự án Cá nhân",
+      "period": "2025 -- Hiện tại",
+      "desc": "Hệ thống tự động hoá quy trình tuyển dụng cá nhân dùng FastAPI và Next.js, với các pipeline tạo JD, thu thập ứng viên, phân tích CV và xếp hạng có sự hỗ trợ AI kết hợp với rà soát của con người.",
+      "bullets": [
+        "Xây dựng hệ thống tự động hoá quy trình tuyển dụng cá nhân dùng FastAPI (backend) và Next.js (frontend), triển khai phục vụ sử dụng nội bộ.",
+        "Phát triển các pipeline tạo mô tả công việc, thu thập ứng viên và phân tích CV từ nhiều nguồn nộp khác nhau.",
+        "Triển khai xếp hạng ứng viên và tự động hoá quy trình với các thành phần hỗ trợ AI, kết hợp với rà soát thủ công trước khi quyết định danh sách rút gọn và liên hệ."
+      ]
+    }
   }
 }
