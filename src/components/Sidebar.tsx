@@ -86,7 +86,7 @@ export default function Sidebar({ mobile = false, onClose }: SidebarProps) {
         {profileData.social.map(s => (
           <a key={s.id} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 36, height: 36, borderRadius: '8px', background: 'var(--bg-card2)', border: '1px solid var(--border)', color: 'var(--fg-2)', textDecoration: 'none', transition: 'all 0.18s ease' }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.color = '#faf9f5'; e.currentTarget.style.borderColor = 'var(--accent)' }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.color = 'var(--on-accent)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
             onMouseLeave={e => { e.currentTarget.style.background = 'var(--bg-card2)'; e.currentTarget.style.color = 'var(--fg-2)'; e.currentTarget.style.borderColor = 'var(--border)' }}
           >
             <Icon name={s.icon} size={16} />
@@ -94,13 +94,13 @@ export default function Sidebar({ mobile = false, onClose }: SidebarProps) {
         ))}
       </div>
 
-      <a href="/assets/cv.pdf" download
-        style={{ display: 'none', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.6rem 1rem', borderRadius: '10px', background: 'var(--tag-bg)', color: 'var(--fg-2)', border: '1px solid var(--border)', textDecoration: 'none', fontSize: '0.84rem', fontWeight: 500, transition: 'all 0.18s ease' }}
+      <a href={`/assets/${(profileData.legalName || profileData.name).replace(/\s+/g, '-')}-Resume.pdf`} download
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.6rem 1rem', borderRadius: '10px', background: 'var(--tag-bg)', color: 'var(--fg-2)', border: '1px solid var(--border)', textDecoration: 'none', fontSize: '0.84rem', fontWeight: 500, transition: 'all 0.18s ease' }}
         onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)' }}
         onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--fg-2)' }}
       >
         <Icon name="download" size={15} />
-        {t('ui.downloadCv')}
+        {t('ui.downloadResume')}
       </a>
     </aside>
   )

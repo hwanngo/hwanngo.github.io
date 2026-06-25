@@ -1,12 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
   --font-serif: 'Lora', Georgia, serif;
   --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  /* Anthropic warm light */
   --bg: #f5f4ed;
   --bg-card: #faf9f5;
   --bg-card2: #ffffff;
@@ -15,6 +16,8 @@
   --fg-3: #87867f;
   --accent: #c96442;
   --accent-hover: #b5562f;
+  --on-accent: #faf9f5;
+  --danger: #b53333;
   --border: #e8e6dc;
   --border-subtle: #f0eee6;
   --ring: #d1cfc5;
@@ -25,6 +28,7 @@
 }
 
 [data-theme="dark"] {
+  /* Anthropic warm dark */
   --bg: #141413;
   --bg-card: #1e1e1c;
   --bg-card2: #282825;
@@ -33,6 +37,8 @@
   --fg-3: #6b6a64;
   --accent: #d97757;
   --accent-hover: #e8895f;
+  --on-accent: #141413;
+  --danger: #e07a7a;
   --border: #2a2a27;
   --border-subtle: #222220;
   --ring: #3d3d3a;
@@ -41,6 +47,27 @@
   --tag-bg: #2a2a27;
   --tag-fg: #b0aea5;
 }
+
+/* Catppuccin palette (saved for later restore — swap into :root and [data-theme="dark"] above).
+:root {
+  --bg: #dce0e8;       --bg-card: #eff1f5;   --bg-card2: #ffffff;
+  --fg: #4c4f69;       --fg-2: #5c5f77;      --fg-3: #6c6f85;
+  --accent: #1e66f5;   --accent-hover: #1550c8;
+  --on-accent: #ffffff; --danger: #d20f39;
+  --border: #acb0be;   --border-subtle: #ccd0da;  --ring: #acb0be;
+  --sidebar-bg: #e6e9ef; --nav-bg: #e6e9ef;
+  --tag-bg: #ccd0da;   --tag-fg: #5c5f77;
+}
+[data-theme="dark"] {
+  --bg: #1e1e2e;       --bg-card: #313244;   --bg-card2: #45475a;
+  --fg: #cdd6f4;       --fg-2: #a6adc8;      --fg-3: #9399b2;
+  --accent: #89b4fa;   --accent-hover: #9cc0fb;
+  --on-accent: #11111b; --danger: #f38ba8;
+  --border: #585b70;   --border-subtle: #45475a;  --ring: #585b70;
+  --sidebar-bg: #181825; --nav-bg: #1e1e2e;
+  --tag-bg: #313244;   --tag-fg: #a6adc8;
+}
+*/
 
 html { font-size: 16px; }
 
@@ -59,7 +86,7 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
-::selection { background: var(--accent); color: #faf9f5; }
+::selection { background: var(--accent); color: var(--on-accent); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 @media (prefers-reduced-motion: reduce) {
