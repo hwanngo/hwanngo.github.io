@@ -4,7 +4,7 @@ import Icon from '../components/Icon'
 import type { ClientEntry } from '../types'
 
 const clientsData = clients as ClientEntry[]
-const SERVICE_ICONS: Record<string, string> = { dataEngineering: 'data', softwareDev: 'code' }
+const SERVICE_ICONS: Record<string, string> = { dataEngineering: 'data', softwareDev: 'code', llmApps: 'tools' }
 
 function getYearsSince(dateStr: string) {
   const start = new Date(dateStr)
@@ -20,8 +20,9 @@ function getYearsSince(dateStr: string) {
 export default function About() {
   const { t } = useTranslation()
   const services = t('about.services', { returnObjects: true }) as Record<string, { title: string; desc: string }>
-  const yearsInIT = getYearsSince('2019-01-01')
-  const yearsInDataEng = getYearsSince('2023-01-01')
+  // Same anchors as the CV build (cv/scripts/_transform.py) so site and PDF agree.
+  const yearsInIT = getYearsSince('2019-02-01') // first full-time role, Feb 2019
+  const yearsInDataEng = getYearsSince('2023-12-01') // first data engineering role, Dec 2023
 
   return (
     <div>
@@ -47,7 +48,7 @@ export default function About() {
               <Icon name={SERVICE_ICONS[key] ?? 'code'} size={22} />
             </div>
             <div>
-              <div style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '0.3rem', color: 'var(--fg)' }}>{service.title}</div>
+              <h4 style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '0.3rem', color: 'var(--fg)' }}>{service.title}</h4>
               <div style={{ fontSize: '0.84rem', color: 'var(--fg-2)', lineHeight: 1.6 }}>{service.desc}</div>
             </div>
           </div>
@@ -62,11 +63,11 @@ export default function About() {
       <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
         {clientsData.map(c => (
           <a key={c.id} href={c.href} target="_blank" rel="noopener noreferrer"
-            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '10px', padding: '1rem 1.5rem', transition: 'border-color 0.2s ease, box-shadow 0.2s ease', cursor: 'pointer' }}
+            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--logo-bg)', border: '1px solid var(--border)', borderRadius: '10px', padding: '0.85rem 1.25rem', transition: 'border-color 0.2s ease, box-shadow 0.2s ease', cursor: 'pointer' }}
             onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.boxShadow = '0 0 0 1px var(--accent)' }}
             onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.boxShadow = 'none' }}
           >
-            <img src={c.logo} alt={c.alt} style={{ maxHeight: 44, maxWidth: 120, objectFit: 'contain' }} />
+            <img src={c.logo} alt={c.alt} style={{ height: 40, width: 'auto', maxWidth: 140, objectFit: 'contain' }} />
           </a>
         ))}
       </div>

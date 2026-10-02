@@ -1,47 +1,31 @@
 [
   {
     "id": "programming",
-    "tags": ["Python", "SQL", "Java"]
+    "tags": ["Python", "SQL", "Java", "JavaScript/TypeScript"]
   },
   {
     "id": "dataEngineering",
-    "tags": [
-      "ETL/ELT",
-      "data modeling",
-      "Apache Airflow",
-      "dbt",
-      "Airbyte",
-      "workflow orchestration",
-      "data quality"
-    ]
+    "tags": ["ETL/ELT", "Apache Airflow", "Airbyte", "dbt", "data modeling", "data quality", "web scraping"]
   },
   {
     "id": "databases",
-    "tags": [
-      "Snowflake",
-      "BigQuery",
-      "PostgreSQL",
-      "MySQL",
-      "SAP HANA",
-      "SQLite"
-    ]
+    "tags": ["Snowflake", "BigQuery", "PostgreSQL", "MySQL", "SAP HANA", "Redis"]
   },
   {
     "id": "cloudInfra",
-    "tags": ["AWS", "GCP", "Azure", "Terraform", "Kubernetes", "Helm", "CI/CD"]
+    "tags": ["AWS", "GCP", "Azure", "OpenTofu/Terraform", "Docker", "Kubernetes", "Helm", "CI/CD"]
+  },
+  {
+    "id": "aiLlm",
+    "tags": ["OpenAI & Anthropic APIs", "prompt engineering", "LLM evaluation", "embeddings & pgvector"]
+  },
+  {
+    "id": "softwareEngineering",
+    "tags": ["REST APIs", "FastAPI", "Flask", "Spring Boot", "React", "Angular"]
   },
   {
     "id": "biAnalytics",
-    "tags": ["Metabase", "Tableau", "dashboarding", "ad-hoc analysis"]
-  },
-  {
-    "id": "practices",
-    "tags": [
-      "Observability",
-      "analytics engineering",
-      "workflow automation",
-      "human-in-the-loop review"
-    ]
+    "tags": ["Metabase", "Tableau"]
   },
   {
     "id": "spokenLanguages",

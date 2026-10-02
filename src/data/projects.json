@@ -42,10 +42,47 @@
     "show": false
   },
   {
-    "id": "hireflow",
-    "category": "personal",
-    "tags": [],
+    "id": "onyxdataChallenges",
+    "category": "dataEngineering",
+    "tags": ["Python", "Polars", "DuckDB", "Parquet", "Malloy", "SolidJS"],
     "status": "personal",
-    "show": true
+    "show": true,
+    "cvShow": true,
+    "url": "https://github.com/hwanngo/onyxdata-challenges"
+  },
+  {
+    "id": "discode",
+    "category": "softwareEngineering",
+    "tags": ["Python", "PostgreSQL", "Redis", "Docker"],
+    "status": "personal",
+    "show": true,
+    "cvShow": true,
+    "url": "https://github.com/hwanngo/discode"
+  },
+  {
+    "id": "chattyBuddy",
+    "category": "softwareEngineering",
+    "tags": ["React", "TypeScript", "Zustand", "Vite", "PWA"],
+    "status": "personal",
+    "show": true,
+    "cvShow": true,
+    "url": "https://github.com/hwanngo/chatty-buddy"
+  },
+  {
+    "id": "hireflow",
+    "category": "softwareEngineering",
+    "tags": ["Python", "FastAPI", "Next.js", "OpenAI", "Anthropic", "pgvector"],
+    "status": "personal",
+    "show": true,
+    "cvShow": false
+  },
+  {
+    "id": "augur",
+    "category": "softwareEngineering",
+    "tags": ["Python", "React", "KQL", "Sigma"],
+    "status": "personal",
+    "show": true,
+    "cvShow": false,
+    "url": "https://github.com/hwanngo/augur"
   }
 ]

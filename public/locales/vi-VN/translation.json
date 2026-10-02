@@ -1,99 +1,104 @@
 {
-  "nav": { "about": "Giới thiệu", "resume": "Hồ sơ", "portfolio": "Dự án", "contact": "Liên hệ" },
-  "sidebar": { "dataEngineer": "Kỹ sư Dữ liệu", "softwareEngineer": "Kỹ sư Phần mềm" },
+  "nav": { "about": "Giới thiệu", "resume": "CV", "portfolio": "Dự án", "contact": "Liên hệ" },
+  "sidebar": { "dataEngineer": "Kỹ sư Dữ liệu", "softwareEngineer": "Kỹ sư Phần mềm", "quote": "Xây dựng pipeline dữ liệu và hệ thống phân tích phục vụ quyết định kinh doanh.", "location": "Hà Nội, Việt Nam" },
   "ui": {
-    "downloadResume": "Tải Hồ sơ", "showDetails": "Xem chi tiết", "showLess": "Thu gọn",
+    "downloadResume": "Tải CV", "showDetails": "Xem chi tiết", "showLess": "Thu gọn",
     "sendMessage": "Gửi tin nhắn", "sending": "Đang gửi…", "messageSent": "Đã gửi thành công!",
-    "thankYou": "Cảm ơn bạn — tôi sẽ phản hồi sớm nhất có thể.",
+    "thankYou": "Cảm ơn bạn, tôi sẽ phản hồi sớm nhất có thể.",
     "somethingWentWrong": "Đã xảy ra lỗi. Vui lòng thử lại.",
-    "professional": "Chuyên nghiệp"
+    "professional": "Dự án công ty", "personal": "Cá nhân", "viewCode": "Xem mã nguồn",
+    "view": "Xem", "toggleTheme": "Đổi giao diện sáng/tối", "language": "Ngôn ngữ", "openMenu": "Mở menu", "closeMenu": "Đóng menu",
+    "skipToContent": "Chuyển đến nội dung", "projectFilters": "Lọc dự án"
   },
   "about": {
     "title": "Giới thiệu",
-    "bio": "Kỹ sư Dữ liệu với hơn {{yearsInIT}} năm kinh nghiệm trong lĩnh vực CNTT, trong đó gần {{yearsInDataEng}} năm tập trung vào kỹ thuật dữ liệu. Có kinh nghiệm xây dựng và vận hành các pipeline dữ liệu đám mây, mô hình data warehouse và quy trình phân tích sử dụng Python, SQL, Apache Airflow, dbt, Snowflake và BigQuery trên AWS, GCP và Azure. Nền tảng kỹ thuật phần mềm vững chắc giúp nâng cao độ tin cậy của pipeline, rút ngắn thời gian báo cáo và cung cấp dữ liệu đáng tin cậy phục vụ ra quyết định",
-    "whatIDo": "Tôi đang làm gì", "clients": "Khách hàng",
+    "bio": "Kỹ sư Dữ liệu với hơn {{yearsInIT}} năm kinh nghiệm kỹ thuật phần mềm, tập trung vào kỹ thuật dữ liệu từ năm 2023, làm việc cho các doanh nghiệp Mỹ và Singapore trong lĩnh vực phân phối B2B, y tế và dược phẩm. Xây dựng pipeline ELT với Apache Airflow, Airbyte và dbt trên Snowflake và BigQuery, làm giàu dữ liệu bằng LLM, cùng hệ thống báo cáo Metabase và Tableau, bao gồm quy trình đối soát cho hơn 200 báo cáo định kỳ. Ở vai trò kỹ sư phần mềm, xây dựng REST API và backend serverless AWS bằng Python và Java (giảm 25% chi phí hạ tầng) cùng giao diện web bằng Angular và React.",
+    "whatIDo": "Lĩnh vực chuyên môn", "clients": "Khách hàng",
     "services": {
       "dataEngineering": { "title": "Kỹ thuật Dữ liệu", "desc": "Xây dựng và vận hành các pipeline dữ liệu trên đám mây, mô hình data warehouse và quy trình phân tích phục vụ ra quyết định kinh doanh." },
-      "softwareDev": { "title": "Phát triển Phần mềm", "desc": "Phát triển ứng dụng web và hệ thống backend serverless chất lượng cao, mang lại giá trị thực tiễn ở cấp độ chuyên nghiệp." }
+      "softwareDev": { "title": "Phát triển Phần mềm", "desc": "Xây dựng REST API và backend serverless trên AWS bằng Python và Java, cùng giao diện web bằng Angular và React." },
+      "llmApps": { "title": "Ứng dụng LLM", "desc": "Xây dựng pipeline dữ liệu và công cụ dùng LLM: API LLM, text-to-SQL, embedding và đánh giá." }
     }
   },
-  "resume": { "title": "Hồ sơ", "education": "Học vấn", "experience": "Kinh nghiệm", "skills": "Kỹ năng", "certifications": "Chứng chỉ", "awards": "Giải thưởng & Ghi nhận" },
+  "resume": { "title": "CV", "education": "Học vấn", "experience": "Kinh nghiệm", "skills": "Kỹ năng", "certifications": "Chứng chỉ", "awards": "Giải thưởng & Ghi nhận", "domains": "Lĩnh vực" },
   "certIssuers": { "amazon": "Amazon Web Services", "boomi": "Boomi", "coursera": "Coursera", "google": "Google", "ibm": "IBM", "linkedin": "LinkedIn Learning", "microsoft": "Microsoft" },
-  "skills": { "programming": "Lập trình", "dataEngineering": "Kỹ thuật Dữ liệu", "databases": "Cơ sở dữ liệu & Kho dữ liệu", "cloudInfra": "Cloud & Hạ tầng", "biAnalytics": "BI & Phân tích", "practices": "Quy trình & Tự động hóa", "spokenLanguages": "Ngôn ngữ" },
+  "skills": { "programming": "Lập trình", "dataEngineering": "Kỹ thuật Dữ liệu", "databases": "Cơ sở dữ liệu & Kho dữ liệu", "cloudInfra": "Cloud & Hạ tầng", "biAnalytics": "BI & Phân tích", "softwareEngineering": "Kỹ thuật Phần mềm", "aiLlm": "AI & LLM", "spokenLanguages": "Ngôn ngữ" },
   "portfolio": {
     "title": "Dự án", "all": "Tất cả",
     "filters": { "dataEngineering": "Kỹ thuật Dữ liệu", "softwareEngineering": "Kỹ thuật Phần mềm", "personal": "Cá nhân" }
   },
   "contact": {
-    "title": "Liên hệ", "email": "Email", "phone": "Điện thoại", "location": "Địa chỉ", "linkedin": "LinkedIn", "github": "GitHub",
+    "title": "Liên hệ", "email": "Email", "phone": "Điện thoại", "location": "Khu vực", "linkedin": "LinkedIn", "github": "GitHub",
     "sendAMessage": "Gửi tin nhắn", "fullName": "Họ và tên", "emailAddress": "Địa chỉ email", "yourMessage": "Tin nhắn của bạn",
     "validation": { "nameRequired": "Vui lòng nhập họ tên.", "emailRequired": "Vui lòng nhập email hợp lệ.", "messageRequired": "Vui lòng nhập tin nhắn." }
   },
-  "footer": { "copyright": "© {{year}} Hoan Ngô · Hà Nội, Việt Nam" },
+  "footer": { "copyright": "© {{year}} {{name}} · {{location}}" },
   "education": {
-    "vnu": { "institution": "Trường Đại học Khoa học Tự nhiên – ĐHQGHN", "degree": "Cử nhân Khoa học Máy tính và Khoa học Thông tin", "location": "Vietnam", "bullets": ["Cử nhân Khoa học Máy tính và Khoa học Thông tin.", "Các môn học trọng tâm: Kỹ thuật Phần mềm, Hệ quản trị Cơ sở dữ liệu, Cấu trúc Dữ liệu và Giải thuật."], "cvBullets": ["Các môn học trọng tâm: Kỹ thuật Phần mềm, Hệ quản trị Cơ sở dữ liệu, Cấu trúc Dữ liệu và Giải thuật."] }
+    "vnu": { "institution": "Trường Đại học Khoa học Tự nhiên – ĐHQGHN", "degree": "Cử nhân ngành Máy tính và Khoa học Thông tin", "location": "Việt Nam", "bullets": ["Cử nhân ngành Máy tính và Khoa học Thông tin.", "Các môn học trọng tâm: Kỹ thuật Phần mềm, Hệ quản trị Cơ sở dữ liệu, Cấu trúc Dữ liệu và Giải thuật."], "cvBullets": ["Các môn học trọng tâm: Kỹ thuật Phần mềm, Hệ quản trị Cơ sở dữ liệu, Cấu trúc Dữ liệu và Giải thuật."] }
   },
   "experience": {
     "pod": {
-      "title": "Kỹ sư Dữ liệu — Pod Co.",
-      "location": "United States",
+      "title": "Kỹ sư Dữ liệu - Pod Co.",
+      "location": "Làm việc từ xa · Công ty tại Mỹ",
       "period": "04/2025 – Hiện tại",
+      "domains": "Bán sỉ, B2B, Nền tảng Phân phối",
       "bullets": [
-        "Lĩnh vực: Bán sỉ, B2B, Nền tảng Phân phối",
-        "Xây dựng và vận hành các pipeline ETL/ELT cho các domain Wholesale, B2B và Distribution Platform sử dụng Apache Airflow và Airbyte.",
-        "Phát triển các mô hình dữ liệu SQL và dashboard Metabase hỗ trợ các bộ phận kinh doanh, tài chính và bán hàng trong việc ra quyết định hàng ngày và chiến lược.",
-        "Thiết kế và triển khai quy trình phát hiện xu hướng và giám sát thương hiệu sử dụng thu thập dữ liệu mạng xã hội, phân tích từ khóa và tổng hợp dữ liệu.",
-        "Cung cấp giải pháp phân tích để tăng cường khả năng theo dõi hiệu suất sản phẩm, xu hướng bán hàng và chỉ số phân phối.",
-        "Vận hành và cải tiến các hệ thống analytics nội bộ để đảm bảo độ tin cậy và tính nhất quán của báo cáo."
+        "Xây dựng và vận hành các pipeline ETL/ELT với Apache Airflow và Airbyte cho các mảng Bán sỉ, B2B và Nền tảng Phân phối, nạp dữ liệu vào Snowflake.",
+        "Phát triển mô hình dữ liệu SQL bằng dbt trên Snowflake và dashboard Metabase, được các bộ phận kinh doanh, tài chính và bán hàng sử dụng để ra quyết định hàng ngày và chiến lược.",
+        "Xây dựng pipeline dữ liệu dùng LLM phục vụ phát hiện xu hướng và khám phá thương hiệu, tìm ra hơn 100 thương hiệu tiềm năng mỗi tuần, trong đó hơn 30% trở thành đối tác.",
+        "Nâng cao độ tin cậy và tính nhất quán của hệ thống analytics và báo cáo nội bộ, giúp theo dõi hiệu suất sản phẩm, xu hướng bán hàng và chỉ số phân phối.",
+        "Xây dựng prototype trợ lý phân tích text-to-SQL dùng LLM trên Snowflake, có cơ chế kiểm soát truy vấn và đánh giá LLM.",
+        "Quản lý hạ tầng dưới dạng code với OpenTofu (Terraform) và giám sát các workload dữ liệu triển khai trên Kubernetes bằng Helm."
       ]
     },
     "vmo": {
-      "title": "Kỹ sư Dữ liệu — VMO Holdings Technology JSC",
-      "location": "Vietnam",
+      "title": "Kỹ sư Dữ liệu - VMO Holdings Technology JSC",
+      "location": "Việt Nam",
       "period": "12/2023 – 04/2025",
+      "domains": "Y tế, Dược phẩm · Khách hàng: Singapore",
       "bullets": [
-        "Lĩnh vực: Y tế, Dược phẩm · Khách hàng: Singapore",
         "Chuyển đổi các pipeline cron sang Apache Airflow, cải thiện khả năng lập lịch, giám sát và bảo trì.",
-        "Xây dựng quy trình ETL cho dữ liệu y tế và dược phẩm từ nhiều nguồn trên môi trường data lake và warehouse.",
+        "Xây dựng quy trình ETL cho dữ liệu y tế và dược phẩm từ nhiều nguồn trên môi trường data lake và warehouse với Azure và Google BigQuery.",
         "Hỗ trợ di chuyển các nguồn dữ liệu quan trọng, đảm bảo tính toàn vẹn dữ liệu và tính tương thích downstream.",
         "Cải thiện độ tin cậy pipeline và quy trình đối soát, hỗ trợ phân phối analytics cho 200+ báo cáo định kỳ.",
-        "Phối hợp với nhóm analytics để điều tra sự không nhất quán dữ liệu và xây dựng dashboard Tableau cho người dùng kinh doanh."
+        "Phối hợp với nhóm analytics để điều tra sự không nhất quán dữ liệu và xây dựng dashboard Tableau cho người dùng kinh doanh.",
+        "Đạt danh hiệu Nhân viên Xuất sắc của năm 2024 (Employee of the Year)."
       ]
     },
     "maxflow": {
-      "title": "Kỹ sư Phần mềm / Lập trình viên Full-stack — Maxflow R&D Co. Ltd.",
-      "location": "Vietnam",
+      "title": "Kỹ sư Phần mềm / Lập trình viên Full-stack - Maxflow R&D Co. Ltd.",
+      "location": "Việt Nam",
       "period": "01/2021 – 12/2023",
+      "domains": "Mô phỏng & Phân tích Công nghiệp · Khách hàng: Hoa Kỳ",
       "bullets": [
-        "Lĩnh vực: Mô phỏng Công nghiệp · Khách hàng: Hoa Kỳ",
         "Phát triển các tính năng cốt lõi cho nền tảng mô phỏng và phân tích công nghiệp với quy trình làm việc có thể cấu hình.",
-        "Tái kiến trúc các dịch vụ backend từ Flask sang các thành phần serverless AWS, giảm chi phí hạ tầng khoảng 25%.",
+        "Tái kiến trúc các dịch vụ backend từ Flask sang serverless AWS (Lambda, API Gateway, S3), giảm chi phí hạ tầng khoảng 25%.",
         "Triển khai các module mô phỏng cho phân tích quãng đường, năng lượng, hao mòn và chi phí vòng đời trên 100+ kịch bản.",
-        "Xây dựng pipeline chuẩn bị dữ liệu và feature extraction cho các thử nghiệm predictive maintenance."
+        "Xây dựng pipeline chuẩn bị dữ liệu và feature extraction trên Snowflake cho các thử nghiệm predictive maintenance."
       ]
     },
     "fpt": {
-      "title": "Lập trình viên Backend — FPT Information System Corp.",
-      "location": "Vietnam",
+      "title": "Lập trình viên Backend - FPT Information System Corp.",
+      "location": "Việt Nam",
       "period": "12/2019 – 12/2020",
+      "domains": "CNTT Dịch vụ công Quốc gia · Khách hàng: Việt Nam",
       "bullets": [
-        "Lĩnh vực: CNTT Dịch vụ công Quốc gia · Khách hàng: Việt Nam",
-        "Xây dựng dịch vụ backend cho nền tảng mua sắm công quốc gia trong nhóm 5 kỹ sư.",
+        "Xây dựng dịch vụ backend Java (Spring Boot) cho nền tảng mua sắm công quốc gia trong nhóm 5 kỹ sư.",
         "Đóng góp cải thiện giao diện frontend dựa trên Angular, giảm thời gian tải trang trung bình khoảng 20%."
       ]
     },
     "house3d": {
-      "title": "Lập trình viên Web — House3D Co. Ltd.",
-      "location": "Vietnam",
+      "title": "Lập trình viên Web - House3D Co. Ltd.",
+      "location": "Việt Nam",
       "period": "02/2019 – 12/2019",
+      "domains": "Công nghệ Thiết kế Nội thất",
       "bullets": [
-        "Lĩnh vực: Công nghệ Thiết kế Nội thất",
         "Phát triển và duy trì các tính năng web hướng khách hàng cho nền tảng công nghệ thiết kế nội thất."
       ]
     },
     "framgia": {
-      "title": "Thực tập sinh Lập trình Web — Framgia Inc. / Sun* Inc.",
-      "location": "Vietnam",
+      "title": "Thực tập sinh Lập trình Web - Framgia Inc. / Sun* Inc.",
+      "location": "Việt Nam",
       "period": "06/2018 – 09/2018",
       "bullets": [
         "Hoàn thành chương trình đào tạo Ruby on Rails và xây dựng dự án web thương mại điện tử trong nhóm 3 thành viên với tích hợp cổng thanh toán (PayPal, BaoKim, NganLuong)."
@@ -154,17 +159,60 @@
     "pharmaEtl": { "title": "Hiện đại hoá ETL Dược phẩm", "desc": "Chuyển đổi các pipeline ETL dạng cron job sang Apache Airflow cho khách hàng dược phẩm tại Singapore, nâng cao độ tin cậy và khả năng giám sát của toàn bộ nền tảng dữ liệu." },
     "dataLake": { "title": "Tích hợp Data Lake Đa nguồn", "desc": "Thiết kế và triển khai các quy trình ETL thu thập dữ liệu từ nhiều nguồn khác nhau, tổng hợp vào data lake và data warehouse tập trung." },
     "serverless": { "title": "Di chuyển Backend Serverless", "desc": "Chuyển đổi ứng dụng Flask monolith sang kiến trúc serverless hoàn toàn trên AWS (Lambda, API Gateway, S3, EFS, RDS), giảm chi phí vận hành và tăng khả năng mở rộng." },
-    "workflowPlatform": { "title": "Nền tảng Tự động hoá Quy trình", "desc": "Đóng góp xây dựng nền tảng web cho phép người dùng tự tạo quy trình mô phỏng và phân tích tuỳ chỉnh — tương tự Zapier — phục vụ các khách hàng kỹ thuật công nghiệp." },
+    "workflowPlatform": { "title": "Nền tảng Tự động hoá Quy trình", "desc": "Đóng góp xây dựng nền tảng web cho phép người dùng tự tạo quy trình mô phỏng và phân tích tuỳ chỉnh (tương tự Zapier) phục vụ các khách hàng kỹ thuật công nghiệp." },
     "vehicleSim": { "title": "Công cụ Mô phỏng Chi phí Phương tiện", "desc": "Xây dựng hệ thống mô phỏng phân tích quãng đường, mức tiêu thụ năng lượng, độ hao mòn và chi phí vận hành dài hạn, hỗ trợ ra quyết định quản lý đội xe." },
     "govPortal": { "title": "Cổng Mua sắm Chính phủ", "desc": "Nâng cấp cổng mua sắm công quốc gia để tương thích đa trình duyệt và làm mới toàn bộ giao diện người dùng bằng Angular 2 cho Chính phủ Việt Nam." },
-    "hireflow": {
-      "title": "HireFlow -- Nền tảng Tự động hoá Quy trình Tuyển dụng",
+    "onyxdataChallenges": {
+      "title": "OnyxData DataDNA Analytics Portfolio",
+      "subtitle": "Dự án Cá nhân · Python, Polars, DuckDB, Malloy",
+      "period": "2025 – Hiện tại",
+      "desc": "Giải các thử thách phân tích dữ liệu hàng tháng từ đầu đến cuối: từ dữ liệu thô đến star schema parquet, mô hình ngữ nghĩa Malloy và dashboard tương tác, hàng tháng từ 05/2025.",
+      "bullets": [
+        "Giải các thử thách phân tích hàng tháng của OnyxData từ 05/2025, mỗi bộ dữ liệu thô được profiling, chuyển thành star schema parquet (Python, Polars, DuckDB) và mô hình ngữ nghĩa Malloy.",
+        "Xây dựng bộ công cụ dùng chung và quy trình 8 bước (profiling, insight ledger, mô hình ngữ nghĩa, kiểm chứng) tự động tính lại mọi con số trước khi công bố.",
+        "Mỗi tháng bàn giao một dashboard SolidJS tương tác và poster xuất ra, có kiểm thử tự động về khả năng truy cập và hiệu năng."
+      ]
+    },
+    "augur": {
+      "title": "Augur: Threat-Hunting & Risk Validation",
       "subtitle": "Dự án Cá nhân",
-      "period": "2025 -- Hiện tại",
+      "period": "2026 – Hiện tại",
+      "desc": "Engine xác định (không dùng AI) thu thập log bảo mật, chiếu lên knowledge graph theo thời gian và chấm điểm mức độ tiến triển của các kịch bản tấn công đã biết, kèm truy vấn săn tìm KQL/Sigma.",
+      "bullets": [
+        "Xây dựng engine xác định thu thập log bảo mật đa hệ điều hành vào knowledge graph theo thời gian và chấm điểm mức độ tiến triển của từng kịch bản tấn công.",
+        "Đưa ra kết luận có xếp hạng, giải thích được, kèm truy vấn KQL/Sigma sẵn dùng, cùng console React, RBAC và hệ thống cảnh báo."
+      ]
+    },
+    "discode": {
+      "title": "Discode: AI Coding Assistants in Discord",
+      "subtitle": "Dự án Cá nhân · Python, PostgreSQL, Redis, Docker",
+      "period": "2026 – Hiện tại",
+      "desc": "Nền tảng bot Discord biến các CLI lập trình AI (Claude, Codex, OpenCode) thành phiên chat theo thread có lưu trạng thái, khởi chạy một subprocess mới cho mỗi tin nhắn.",
+      "bullets": [
+        "Xây dựng nền tảng bot Discord chạy các CLI lập trình AI (Claude, Codex, OpenCode và các công cụ khác) thành phiên chat theo thread có lưu trạng thái, giữ ngữ cảnh nhiều lượt qua resume token của từng công cụ.",
+        "Thiết kế kiến trúc đa tiến trình (bot, runner, dispatcher) dùng chung PostgreSQL và Redis, với outbox và cơ chế nhận job idempotent để đảm bảo gửi tin tin cậy.",
+        "Chạy mỗi lượt trong một subprocess ngắn hạn để lỗi của công cụ không làm sập phiên, và giữ các secret của nền tảng ngoài môi trường của công cụ."
+      ]
+    },
+    "chattyBuddy": {
+      "title": "Chatty Buddy: Multi-Provider AI Chat Client",
+      "subtitle": "Dự án Cá nhân · React, TypeScript, Zustand, Vite",
+      "period": "2026 – Hiện tại",
+      "desc": "Ứng dụng chat trên trình duyệt và PWA cài đặt được, ưu tiên quyền riêng tư, hỗ trợ API tương thích OpenAI, Anthropic và Ollama, có streaming, tool use và sao lưu có phiên bản.",
+      "bullets": [
+        "Xây dựng ứng dụng chat PWA tĩnh cho API tương thích OpenAI, Anthropic Messages và Ollama bằng React 19, TypeScript, Zustand và Vite, không cần application server.",
+        "Triển khai adapter giao thức streaming, tự động phát hiện model, phân quyền tool, sao lưu JSON có phiên bản và snapshot Google Drive với kiểm tra dữ liệu khi import.",
+        "Thiết lập CI chạy kiểm tra kiểu, bộ test hồi quy Vitest và kiểm tra bảo mật dependency trước mỗi lần triển khai."
+      ]
+    },
+    "hireflow": {
+      "title": "HireFlow: Nền tảng Tự động hoá Quy trình Tuyển dụng",
+      "subtitle": "Dự án Cá nhân",
+      "period": "2025 – Hiện tại",
       "desc": "Hệ thống tự động hoá quy trình tuyển dụng cá nhân dùng FastAPI và Next.js, với các pipeline tạo JD, thu thập ứng viên, phân tích CV và xếp hạng có sự hỗ trợ AI kết hợp với rà soát của con người.",
       "bullets": [
         "Xây dựng hệ thống tự động hoá quy trình tuyển dụng cá nhân dùng FastAPI (backend) và Next.js (frontend), triển khai phục vụ sử dụng nội bộ.",
-        "Phát triển các pipeline tạo mô tả công việc, thu thập ứng viên và phân tích CV từ nhiều nguồn nộp khác nhau.",
+        "Phát triển các pipeline tạo mô tả công việc, thu thập ứng viên và phân tích CV bằng LLM (OpenAI, Anthropic) từ nhiều nguồn nộp khác nhau, kèm so khớp ứng viên theo ngữ nghĩa bằng embedding trên pgvector.",
         "Triển khai xếp hạng ứng viên và tự động hoá quy trình với các thành phần hỗ trợ AI, kết hợp với rà soát thủ công trước khi quyết định danh sách rút gọn và liên hệ."
       ]
     }
