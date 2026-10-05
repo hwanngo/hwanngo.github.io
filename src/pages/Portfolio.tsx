@@ -2,15 +2,18 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import projects from '../data/projects.json'
 import Tag from '../components/Tag'
+import Icon from '../components/Icon'
 import type { ProjectEntry, ProjectCategory } from '../types'
 
-const projectsData = projects as ProjectEntry[]
+// `show` is shared with the CV build: hidden projects stay out of both.
+const projectsData = (projects as ProjectEntry[]).filter(p => p.show !== false)
+const categories = [...new Set(projectsData.map(p => p.category))]
 type Filter = 'all' | ProjectCategory
 
 export default function Portfolio() {
   const { t } = useTranslation()
   const [filter, setFilter] = useState<Filter>('all')
-  const filters: Filter[] = ['all', 'dataEngineering', 'softwareEngineering']
+  const filters: Filter[] = categories.length > 1 ? ['all', ...categories] : []
   const filtered = filter === 'all' ? projectsData : projectsData.filter(p => p.category === filter)
   const filterLabel = (f: Filter) => f === 'all' ? t('portfolio.all') : t(`portfolio.filters.${f}`)
 
@@ -19,11 +22,11 @@ export default function Portfolio() {
       <h2 style={{ fontFamily: "var(--font-serif)", fontSize: '1.65rem', fontWeight: 400, lineHeight: 1.2, color: 'var(--fg)', marginBottom: '1.5rem' }}>
         {t('portfolio.title')}
       </h2>
-      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.75rem', flexWrap: 'wrap' }}>
+      <div role="group" aria-label={t('ui.projectFilters')} style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.75rem', flexWrap: 'wrap' }}>
         {filters.map(f => (
-          <button key={f} onClick={() => setFilter(f)}
-            style={{ padding: '6px 16px', borderRadius: '99px', fontSize: '0.84rem', fontWeight: 500, border: '1px solid ' + (filter === f ? 'var(--accent)' : 'var(--border)'), background: filter === f ? 'var(--accent)' : 'var(--bg-card)', color: filter === f ? 'var(--on-accent)' : 'var(--fg-2)', cursor: 'pointer', transition: 'all 0.18s ease' }}
-            onMouseEnter={e => { if (filter !== f) { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)' } }}
+          <button key={f} onClick={() => setFilter(f)} aria-pressed={filter === f}
+            style={{ padding: '6px 16px', borderRadius: '99px', fontSize: '0.84rem', fontWeight: 500, border: '1px solid ' + (filter === f ? 'var(--accent-solid)' : 'var(--border)'), background: filter === f ? 'var(--accent-solid)' : 'var(--bg-card)', color: filter === f ? 'var(--on-accent)' : 'var(--fg-2)', cursor: 'pointer', transition: 'all 0.18s ease' }}
+            onMouseEnter={e => { if (filter !== f) { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent-text)' } }}
             onMouseLeave={e => { if (filter !== f) { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--fg-2)' } }}
           >{filterLabel(f)}</button>
         ))}
@@ -37,14 +40,21 @@ export default function Portfolio() {
               onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 1px 6px rgba(0,0,0,0.04)'; e.currentTarget.style.transform = 'translateY(0)' }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--accent)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{t(`portfolio.filters.${p.category}`)}</span>
-                <span style={{ fontSize: '0.72rem', color: 'var(--fg-3)', background: 'var(--tag-bg)', padding: '2px 8px', borderRadius: '99px', border: '1px solid var(--border)' }}>{t('ui.professional')}</span>
+                <span style={{ fontSize: '0.72rem', fontWeight: 600, color: 'var(--accent-text)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{t(`portfolio.filters.${p.category}`)}</span>
+                <span style={{ fontSize: '0.72rem', color: 'var(--fg-3)', background: 'var(--tag-bg)', padding: '2px 8px', borderRadius: '99px', border: '1px solid var(--border)' }}>{t(`ui.${p.status}`)}</span>
               </div>
-              <div style={{ fontFamily: "var(--font-serif)", fontSize: '1.05rem', fontWeight: 400, color: 'var(--fg)', lineHeight: 1.3 }}>{tr.title}</div>
+              <h3 style={{ fontFamily: "var(--font-serif)", fontSize: '1.05rem', fontWeight: 400, color: 'var(--fg)', lineHeight: 1.3 }}>{tr.title}</h3>
               <p style={{ fontSize: '0.83rem', color: 'var(--fg-2)', lineHeight: 1.65, flexGrow: 1, textWrap: 'pretty' } as React.CSSProperties}>{tr.desc}</p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.25rem' }}>
                 {p.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
               </div>
+              {p.url && (
+                <a href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`${t('ui.viewCode')}: ${tr.title}`}
+                  style={{ alignSelf: 'flex-start', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.8rem', fontWeight: 500, color: 'var(--accent-text)', textDecoration: 'none' }}
+                >
+                  <Icon name="github" size={14} /> {t('ui.viewCode')}
+                </a>
+              )}
             </div>
           )
         })}
