@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -13,9 +12,14 @@
   --bg-card2: #ffffff;
   --fg: #141413;
   --fg-2: #5e5d59;
-  --fg-3: #87867f;
+  --fg-3: #686761;
+  /* --accent is the decorative brand colour (icons, rings, borders).
+     --accent-text and --accent-solid are darker shades that keep small text
+     and white-on-accent buttons at WCAG AA (4.5:1) on the light surfaces. */
   --accent: #c96442;
-  --accent-hover: #b5562f;
+  --accent-text: #a64f30;
+  --accent-solid: #a64f30;
+  --accent-hover: #8f4227;
   --on-accent: #faf9f5;
   --danger: #b53333;
   --border: #e8e6dc;
@@ -25,6 +29,7 @@
   --nav-bg: #f5f4ed;
   --tag-bg: #ede9df;
   --tag-fg: #5e5d59;
+  --logo-bg: #ffffff; /* client logos are dark-on-transparent, so keep a light tile in both themes */
 }
 
 [data-theme="dark"] {
@@ -34,8 +39,10 @@
   --bg-card2: #282825;
   --fg: #f0eee6;
   --fg-2: #b0aea5;
-  --fg-3: #6b6a64;
+  --fg-3: #9a988f;
   --accent: #d97757;
+  --accent-text: #d97757;
+  --accent-solid: #d97757;
   --accent-hover: #e8895f;
   --on-accent: #141413;
   --danger: #e07a7a;
@@ -46,28 +53,9 @@
   --nav-bg: #141413;
   --tag-bg: #2a2a27;
   --tag-fg: #b0aea5;
+  --logo-bg: #efede6;
 }
 
-/* Catppuccin palette (saved for later restore — swap into :root and [data-theme="dark"] above).
-:root {
-  --bg: #dce0e8;       --bg-card: #eff1f5;   --bg-card2: #ffffff;
-  --fg: #4c4f69;       --fg-2: #5c5f77;      --fg-3: #6c6f85;
-  --accent: #1e66f5;   --accent-hover: #1550c8;
-  --on-accent: #ffffff; --danger: #d20f39;
-  --border: #acb0be;   --border-subtle: #ccd0da;  --ring: #acb0be;
-  --sidebar-bg: #e6e9ef; --nav-bg: #e6e9ef;
-  --tag-bg: #ccd0da;   --tag-fg: #5c5f77;
-}
-[data-theme="dark"] {
-  --bg: #1e1e2e;       --bg-card: #313244;   --bg-card2: #45475a;
-  --fg: #cdd6f4;       --fg-2: #a6adc8;      --fg-3: #9399b2;
-  --accent: #89b4fa;   --accent-hover: #9cc0fb;
-  --on-accent: #11111b; --danger: #f38ba8;
-  --border: #585b70;   --border-subtle: #45475a;  --ring: #585b70;
-  --sidebar-bg: #181825; --nav-bg: #1e1e2e;
-  --tag-bg: #313244;   --tag-fg: #a6adc8;
-}
-*/
 
 html { font-size: 16px; }
 
@@ -86,9 +74,26 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
-::selection { background: var(--accent); color: var(--on-accent); }
+::selection { background: var(--accent-solid); color: var(--on-accent); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; left: 1rem; top: -100px; z-index: 10000;
+  background: var(--accent-solid); color: var(--on-accent);
+  padding: 0.6rem 1rem; border-radius: 8px; font-weight: 600; text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+.app-loading {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); color: var(--fg-2);
 }

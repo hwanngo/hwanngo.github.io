@@ -9,10 +9,16 @@ interface AppState {
   setLanguage: (lang: Language) => void
 }
 
+// First visit (nothing persisted yet): follow the OS colour scheme.
+export function systemTheme(): Theme {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return 'light'
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
 export const useAppStore = create<AppState>()(
   persist(
     (set) => ({
-      theme: 'light',
+      theme: systemTheme(),
       language: 'en-US',
       setTheme: (theme) => set({ theme }),
       setLanguage: (language) => set({ language }),

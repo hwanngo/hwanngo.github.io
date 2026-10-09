@@ -2,10 +2,18 @@ import i18n from 'i18next'
 import HttpBackend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
 
-const stored = localStorage.getItem('portfolio-storage')
-const savedLang = stored
-  ? ((JSON.parse(stored) as { state?: { language?: string } }).state?.language ?? 'en-US')
-  : 'en-US'
+function readSavedLanguage(): string {
+  try {
+    const stored = localStorage.getItem('portfolio-storage')
+    if (!stored) return 'en-US'
+    return (JSON.parse(stored) as { state?: { language?: string } }).state?.language ?? 'en-US'
+  } catch {
+    // Corrupted or blocked storage must never blank the page.
+    return 'en-US'
+  }
+}
+
+const savedLang = readSavedLanguage()
 
 i18n
   .use(HttpBackend)

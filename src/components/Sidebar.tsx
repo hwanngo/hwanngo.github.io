@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import profile from '../data/profile.json'
 import Icon from './Icon'
+import { RESUME_URL } from '../resumeUrl'
 import type { Profile } from '../types'
 
 const profileData = profile as Profile
@@ -12,6 +13,11 @@ interface SidebarProps {
 
 export default function Sidebar({ mobile = false, onClose }: SidebarProps) {
   const { t } = useTranslation()
+  // Optional per-locale overrides; profile.json stays the source of truth (the CV reads it).
+  const quote = profileData.quote ? t('sidebar.quote', { defaultValue: profileData.quote }) : ''
+  const location = t('sidebar.location', { defaultValue: profileData.location })
+  // The desktop sidebar carries the page's only <h1>; the mobile drawer copy is a plain heading-less name.
+  const NameTag = mobile ? 'p' : 'h1'
 
   return (
     <aside style={{
@@ -30,7 +36,8 @@ export default function Sidebar({ mobile = false, onClose }: SidebarProps) {
       boxShadow: mobile ? '4px 0 24px rgba(0,0,0,0.15)' : '0 1px 8px rgba(0,0,0,0.04)',
     }}>
       {mobile && (
-        <button onClick={onClose} style={{ alignSelf: 'flex-end', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--fg-2)', marginBottom: '-0.5rem' }}>
+        <button onClick={onClose} aria-label={t('ui.closeMenu')}
+          style={{ alignSelf: 'flex-end', display: 'flex', alignItems: 'center', justifyContent: 'center', width: 36, height: 36, background: 'none', border: 'none', cursor: 'pointer', color: 'var(--fg-2)', marginBottom: '-0.5rem' }}>
           <Icon name="close" size={20} />
         </button>
       )}
@@ -40,16 +47,16 @@ export default function Sidebar({ mobile = false, onClose }: SidebarProps) {
           <img src={profileData.avatar} alt={profileData.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
         <div>
-          <div style={{ fontFamily: "var(--font-serif)", fontSize: '1.2rem', fontWeight: 400, color: 'var(--fg)', lineHeight: 1.2, marginBottom: '0.4rem' }}>
+          <NameTag style={{ fontFamily: "var(--font-serif)", fontSize: '1.2rem', fontWeight: 400, color: 'var(--fg)', lineHeight: 1.2, marginBottom: '0.4rem' }}>
             {profileData.name}
-          </div>
-          <div style={{ fontSize: '0.8rem', color: 'var(--accent)', fontWeight: 500, letterSpacing: '0.04em' }}>{t('sidebar.dataEngineer')}</div>
+          </NameTag>
+          <div style={{ fontSize: '0.8rem', color: 'var(--accent-text)', fontWeight: 500, letterSpacing: '0.04em' }}>{t('sidebar.dataEngineer')}</div>
           <div style={{ fontSize: '0.8rem', color: 'var(--fg-3)', fontWeight: 400, letterSpacing: '0.04em' }}>{t('sidebar.softwareEngineer')}</div>
         </div>
-        {profileData.quote && (
-          <div style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '0.82rem', color: 'var(--fg-3)', lineHeight: 1.4, marginTop: '0.25rem' }}>
-            "{profileData.quote}"
-          </div>
+        {quote && (
+          <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '0.82rem', color: 'var(--fg-3)', lineHeight: 1.4, marginTop: '0.25rem' }}>
+            {quote}
+          </p>
         )}
       </div>
 
@@ -59,7 +66,7 @@ export default function Sidebar({ mobile = false, onClose }: SidebarProps) {
         {[
           { icon: 'mail', labelKey: 'contact.email', value: profileData.email, href: `mailto:${profileData.email}` },
           ...(profileData.phone ? [{ icon: 'phone', labelKey: 'contact.phone', value: profileData.phone, href: `tel:${profileData.phone}` }] : []),
-          { icon: 'location', labelKey: 'contact.location', value: profileData.location, href: null as string | null },
+          { icon: 'location', labelKey: 'contact.location', value: location, href: null as string | null },
         ].map(c => (
           <div key={c.icon} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
             <div style={{ color: 'var(--accent)', flexShrink: 0, background: 'var(--tag-bg)', padding: '6px', borderRadius: '8px', marginTop: '1px' }}>
@@ -69,7 +76,7 @@ export default function Sidebar({ mobile = false, onClose }: SidebarProps) {
               <div style={{ fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: 'var(--fg-3)' }}>{t(c.labelKey)}</div>
               {c.href ? (
                 <a href={c.href} style={{ fontSize: '0.82rem', color: 'var(--fg-2)', textDecoration: 'none', overflowWrap: 'break-word' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent-text)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'var(--fg-2)')}
                 >{c.value}</a>
               ) : (
@@ -86,7 +93,7 @@ export default function Sidebar({ mobile = false, onClose }: SidebarProps) {
         {profileData.social.map(s => (
           <a key={s.id} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 36, height: 36, borderRadius: '8px', background: 'var(--bg-card2)', border: '1px solid var(--border)', color: 'var(--fg-2)', textDecoration: 'none', transition: 'all 0.18s ease' }}
-            onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent)'; e.currentTarget.style.color = 'var(--on-accent)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent-solid)'; e.currentTarget.style.color = 'var(--on-accent)'; e.currentTarget.style.borderColor = 'var(--accent-solid)' }}
             onMouseLeave={e => { e.currentTarget.style.background = 'var(--bg-card2)'; e.currentTarget.style.color = 'var(--fg-2)'; e.currentTarget.style.borderColor = 'var(--border)' }}
           >
             <Icon name={s.icon} size={16} />
@@ -94,10 +101,10 @@ export default function Sidebar({ mobile = false, onClose }: SidebarProps) {
         ))}
       </div>
 
-      <a href={`/assets/${(profileData.legalName || profileData.name).replace(/\s+/g, '-')}-Resume.pdf`} download
-        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.6rem 1rem', borderRadius: '10px', background: 'var(--tag-bg)', color: 'var(--fg-2)', border: '1px solid var(--border)', textDecoration: 'none', fontSize: '0.84rem', fontWeight: 500, transition: 'all 0.18s ease' }}
-        onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)' }}
-        onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--fg-2)' }}
+      <a href={RESUME_URL} download
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.7rem 1rem', borderRadius: '10px', background: 'var(--accent-solid)', color: 'var(--on-accent)', border: '1px solid var(--accent-solid)', textDecoration: 'none', fontSize: '0.88rem', fontWeight: 600, boxShadow: '0 1px 6px rgba(0,0,0,0.08)', transition: 'background 0.18s ease, transform 0.18s ease' }}
+        onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent-hover)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+        onMouseLeave={e => { e.currentTarget.style.background = 'var(--accent-solid)'; e.currentTarget.style.transform = 'translateY(0)' }}
       >
         <Icon name="download" size={15} />
         {t('ui.downloadResume')}

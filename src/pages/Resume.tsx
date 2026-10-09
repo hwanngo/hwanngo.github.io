@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import experience from '../data/experience.json'
 import education from '../data/education.json'
@@ -40,9 +40,10 @@ function sortByDateDesc<T extends { date?: string; order?: number }>(items: T[])
 function CertGroup({ issuer, certs }: { issuer: string; certs: CertificateEntry[] }) {
   const [open, setOpen] = useState(false)
   const { t } = useTranslation()
+  const listId = useId()
   return (
     <div style={{ border: '1px solid var(--border)', borderRadius: '10px', overflow: 'hidden' }}>
-      <button onClick={() => setOpen(o => !o)}
+      <button onClick={() => setOpen(o => !o)} aria-expanded={open} aria-controls={listId}
         style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.65rem 1rem', background: 'var(--tag-bg)', border: 'none', cursor: 'pointer', gap: '0.75rem' }}
         onMouseEnter={e => (e.currentTarget.style.background = 'var(--border)')}
         onMouseLeave={e => (e.currentTarget.style.background = 'var(--tag-bg)')}
@@ -54,25 +55,25 @@ function CertGroup({ issuer, certs }: { issuer: string; certs: CertificateEntry[
         <span style={{ fontSize: '0.75rem', color: 'var(--fg-3)', background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '99px', padding: '1px 8px' }}>{certs.length}</span>
       </button>
       {open && (
-        <ul style={{ listStyle: 'none', padding: '0.25rem 0' }}>
+        <ul id={listId} style={{ listStyle: 'none', padding: '0.25rem 0' }}>
           {certs.map(cert => (
             <li key={cert.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.45rem 1rem', gap: '1rem', borderTop: '1px solid var(--border-subtle)' }}>
               <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0, gap: '2px' }}>
                 <a href={cert.url || cert.file} target="_blank" rel="noopener noreferrer"
                   style={{ fontSize: '0.84rem', color: 'var(--fg-2)', textDecoration: 'none' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
+                  onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent-text)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'var(--fg-2)')}
                 >{t(`certificates.${cert.id}`)}</a>
                 {cert.date && (
                   <span style={{ fontSize: '0.72rem', color: 'var(--fg-3)' }}>{formatYearMonth(cert.date)}</span>
                 )}
               </div>
-              <a href={cert.url || cert.file} target="_blank" rel="noopener noreferrer"
+              <a href={cert.url || cert.file} target="_blank" rel="noopener noreferrer" aria-label={`${t('ui.view')}: ${t(`certificates.${cert.id}`)}`}
                 style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem', color: 'var(--fg-3)', textDecoration: 'none', padding: '3px 8px', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-card)', transition: 'all 0.15s' }}
-                onMouseEnter={e => { e.currentTarget.style.color = 'var(--accent)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
+                onMouseEnter={e => { e.currentTarget.style.color = 'var(--accent-text)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
                 onMouseLeave={e => { e.currentTarget.style.color = 'var(--fg-3)'; e.currentTarget.style.borderColor = 'var(--border)' }}
               >
-                <Icon name="external" size={12} /> View
+                <Icon name="external" size={12} /> {t('ui.view')}
               </a>
             </li>
           ))}
@@ -99,14 +100,14 @@ export default function Resume() {
 
       <div style={{ marginBottom: '2.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.25rem' }}>
-          <span style={{ color: 'var(--accent)' }}><Icon name="edu" size={18} /></span>
-          <h3 style={{ fontFamily: "var(--font-serif)", fontWeight: 400, fontSize: '1.05rem', color: 'var(--fg)' }}>{t('resume.education')}</h3>
+          <span style={{ color: 'var(--accent)' }}><Icon name="brief" size={18} /></span>
+          <h3 style={{ fontFamily: "var(--font-serif)", fontWeight: 400, fontSize: '1.05rem', color: 'var(--fg)' }}>{t('resume.experience')}</h3>
         </div>
         <ul style={{ listStyle: 'none' }}>
-          {eduData.map(edu => {
-            const tr = t(`education.${edu.id}`, { returnObjects: true }) as { institution: string; bullets: string[]; period?: string }
+          {expData.map((exp, idx) => {
+            const tr = t(`experience.${exp.id}`, { returnObjects: true }) as { title: string; bullets: string[]; period?: string; location?: string; domains?: string }
             return (
-              <TimelineItem key={edu.id} title={tr.institution} period={tr.period ?? edu.period}>
+              <TimelineItem key={exp.id} title={tr.title} period={tr.period ?? exp.period} location={tr.location} domains={tr.domains} defaultOpen={idx < 2}>
                 {tr.bullets.map((b, i) => <BulletItem key={i}>{b}</BulletItem>)}
               </TimelineItem>
             )
@@ -118,25 +119,6 @@ export default function Resume() {
 
       <div style={{ marginBottom: '2.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.25rem' }}>
-          <span style={{ color: 'var(--accent)' }}><Icon name="brief" size={18} /></span>
-          <h3 style={{ fontFamily: "var(--font-serif)", fontWeight: 400, fontSize: '1.05rem', color: 'var(--fg)' }}>{t('resume.experience')}</h3>
-        </div>
-        <ul style={{ listStyle: 'none' }}>
-          {expData.map(exp => {
-            const tr = t(`experience.${exp.id}`, { returnObjects: true }) as { title: string; bullets: string[]; period?: string }
-            return (
-              <TimelineItem key={exp.id} title={tr.title} period={tr.period ?? exp.period}>
-                {tr.bullets.map((b, i) => <BulletItem key={i}>{b}</BulletItem>)}
-              </TimelineItem>
-            )
-          })}
-        </ul>
-      </div>
-
-      <div style={{ height: '1px', background: 'var(--border)', margin: '2rem 0' }} />
-
-      <div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.25rem' }}>
           <span style={{ color: 'var(--accent)' }}><Icon name="tools" size={18} /></span>
           <h3 style={{ fontFamily: "var(--font-serif)", fontWeight: 400, fontSize: '1.05rem', color: 'var(--fg)' }}>{t('resume.skills')}</h3>
         </div>
@@ -147,11 +129,34 @@ export default function Resume() {
                 {t(`skills.${cat.id}`)}
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-                {cat.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+                {cat.tags.map(tag => cat.url ? (
+                  <a key={tag} href={cat.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                    <Tag>{tag} <span style={{ marginLeft: 4, display: 'inline-flex' }} aria-hidden="true"><Icon name="external" size={11} /></span></Tag>
+                  </a>
+                ) : <Tag key={tag}>{tag}</Tag>)}
               </div>
             </div>
           ))}
         </div>
+      </div>
+
+      <div style={{ height: '1px', background: 'var(--border)', margin: '2rem 0' }} />
+
+      <div style={{ marginBottom: '2.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.25rem' }}>
+          <span style={{ color: 'var(--accent)' }}><Icon name="edu" size={18} /></span>
+          <h3 style={{ fontFamily: "var(--font-serif)", fontWeight: 400, fontSize: '1.05rem', color: 'var(--fg)' }}>{t('resume.education')}</h3>
+        </div>
+        <ul style={{ listStyle: 'none' }}>
+          {eduData.map(edu => {
+            const tr = t(`education.${edu.id}`, { returnObjects: true }) as { institution: string; bullets: string[]; period?: string; location?: string }
+            return (
+              <TimelineItem key={edu.id} title={tr.institution} period={tr.period ?? edu.period} location={tr.location} defaultOpen>
+                {tr.bullets.map((b, i) => <BulletItem key={i}>{b}</BulletItem>)}
+              </TimelineItem>
+            )
+          })}
+        </ul>
       </div>
 
       <div style={{ height: '1px', background: 'var(--border)', margin: '2rem 0' }} />
@@ -188,12 +193,12 @@ export default function Resume() {
                     <div style={{ fontSize: '0.78rem', color: 'var(--fg-3)', marginTop: '2px' }}>{tr.issuerLabel} · {when}</div>
                   </div>
                 </div>
-                <a href={award.url || award.file} target="_blank" rel="noopener noreferrer"
+                <a href={award.url || award.file} target="_blank" rel="noopener noreferrer" aria-label={`${t('ui.view')}: ${tr.title}`}
                   style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem', color: 'var(--fg-3)', textDecoration: 'none', padding: '3px 8px', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--tag-bg)', transition: 'all 0.15s' }}
-                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--accent)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
+                  onMouseEnter={e => { e.currentTarget.style.color = 'var(--accent-text)'; e.currentTarget.style.borderColor = 'var(--accent)' }}
                   onMouseLeave={e => { e.currentTarget.style.color = 'var(--fg-3)'; e.currentTarget.style.borderColor = 'var(--border)' }}
                 >
-                  <Icon name="external" size={12} /> View
+                  <Icon name="external" size={12} /> {t('ui.view')}
                 </a>
               </div>
             )
