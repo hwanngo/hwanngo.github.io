@@ -2,14 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="/assets/images/favicon.ico" />
+  <link rel="icon" href="/assets/images/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/images/site.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hoan Ngo (Jason) — Data &amp; Software Engineer</title>
+  <title>Cong Hoan Ngo - Data Engineer | Hanoi, Vietnam</title>
+  <meta name="description" content="Cong Hoan Ngo, Data Engineer and Software Engineer in Hanoi, Vietnam. ELT pipelines with Airflow, dbt and Snowflake, LLM data tools, and AWS backends." />
+  <meta name="author" content="Cong Hoan Ngo" />
+  <meta name="theme-color" content="#f5f4ed" />
+  <link rel="canonical" href="https://hwanngo.github.io/" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Cong Hoan Ngo" />
+  <meta property="og:title" content="Cong Hoan Ngo - Data Engineer &amp; Software Engineer" />
+  <meta property="og:description" content="Data pipelines and analytics systems for US and Singapore businesses. Resume, projects and contact." />
+  <meta property="og:url" content="https://hwanngo.github.io/" />
+  <meta property="og:image" content="https://hwanngo.github.io/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Cong Hoan Ngo, Data Engineer and Software Engineer, Hanoi, Vietnam" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="vi_VN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://hwanngo.github.io/og-image.png" />
+  <meta name="twitter:image:alt" content="Cong Hoan Ngo, Data Engineer and Software Engineer, Hanoi, Vietnam" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Cong Hoan Ngo",
+    "alternateName": ["Hoan Ngo"],
+    "jobTitle": ["Data Engineer", "Software Engineer"],
+    "email": "mailto:conghoan.0406@gmail.com",
+    "url": "https://hwanngo.github.io/",
+    "image": "https://hwanngo.github.io/assets/images/my-avatar.png",
+    "address": { "@type": "PostalAddress", "addressLocality": "Hanoi", "addressCountry": "VN" },
+    "sameAs": ["https://linkedin.com/in/hwanngo", "https://github.com/hwanngo"],
+    "knowsAbout": ["Data Engineering", "Software Engineering", "Apache Airflow", "Airbyte", "dbt", "Snowflake", "BigQuery", "SQL", "Python", "AWS", "LLM Applications"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <script>
+    // Apply the saved (or OS) theme before first paint to avoid a light flash in dark mode.
+    try {
+      var s = JSON.parse(localStorage.getItem('portfolio-storage') || 'null');
+      var theme = (s && s.state && s.state.theme) || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+      if (theme === 'dark') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#141413');
+    } catch (e) {}
+  </script>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
