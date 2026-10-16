@@ -58,3 +58,5 @@ jobs:
           token: ${{ secrets.RESUME_REPO_TOKEN }}
           repository: hwanngo/resume
           event-type: site-updated
+          # The resume build fetches site data at exactly this commit.
+          client-payload: '{"sha": "${{ github.sha }}"}'

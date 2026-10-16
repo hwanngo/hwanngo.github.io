@@ -1,7 +1,8 @@
-# My Portfolio Site
+# hwanngo.github.io
 
-Personal portfolio of myself.  
-Built with React 19 + Vite, fully internationalized (EN / VI), content driven by JSON files, deployed to GitHub Pages via GitHub Actions.
+Source of [hwanngo.github.io](https://hwanngo.github.io), the portfolio and resume site of Hoan Ngo (Jason), Data Engineer and Software Engineer in Hanoi, Vietnam.
+
+Built with React 19, TypeScript and Vite, available in English and Vietnamese, with all content kept in JSON files and deployed to GitHub Pages via GitHub Actions. The same data also feeds the LaTeX resume PDF built in the [hwanngo/resume](https://github.com/hwanngo/resume) repo.
 
 ---
 
@@ -19,7 +20,7 @@ Built with React 19 + Vite, fully internationalized (EN / VI), content driven by
    - [Clients](#5-clients)
    - [Skills](#6-skills)
    - [Resume PDF](#7-resume-pdf)
-   - [Avatar & Images](#8-avatar--images)
+   - [Avatar, Images & Link Preview](#8-avatar-images--link-preview)
    - [Certificates](#9-certificates)
    - [Awards](#10-awards)
 6. [Translations](#translations)
@@ -27,8 +28,6 @@ Built with React 19 + Vite, fully internationalized (EN / VI), content driven by
    - [Adding a new language](#adding-a-new-language)
 7. [Theme & Design Tokens](#theme--design-tokens)
 8. [Deploying to GitHub Pages](#deploying-to-github-pages)
-   - [First-time setup](#first-time-setup)
-   - [Deploying an update](#deploying-an-update)
 9. [Running Tests](#running-tests)
 
 ---
@@ -37,13 +36,14 @@ Built with React 19 + Vite, fully internationalized (EN / VI), content driven by
 
 | Layer | Technology |
 |---|---|
-| Framework | React 19 (Functional Components + Hooks) |
+| Framework | React 19 (function components + hooks) |
 | Language | TypeScript 6 (strict mode) |
 | Build Tool | Vite 8 + SWC |
-| Styling | Tailwind CSS 3.4 + CSS variables (warm palette tokens) |
+| Styling | Inline styles on CSS variable tokens; Tailwind CSS 4 is loaded only for its preflight reset |
 | State | Zustand 5 with `persist` middleware (localStorage) |
-| i18n | react-i18next 15 + i18next-http-backend |
+| i18n | i18next 26 + react-i18next 17 + i18next-http-backend |
 | Fonts | Lora (headings) + DM Sans (body) via Google Fonts |
+| Tests | Vitest 4 + jsdom |
 | Package Manager | pnpm 9.15 |
 | Deployment | GitHub Pages via GitHub Actions |
 
@@ -55,50 +55,49 @@ Built with React 19 + Vite, fully internationalized (EN / VI), content driven by
 hwanngo.github.io/
 ├── public/
 │   ├── assets/
-│   │   ├── images/              # avatar, client logos, favicon
+│   │   ├── images/              # avatar, client logos, favicons, site.webmanifest
 │   │   ├── certificates/        # certificate PDFs grouped by issuer
-│   │   ├── awards/              # award PDFs grouped by org
-│   │   └── {Name}-Resume.pdf    # resume PDF — filename derives from profile.legalName || profile.name (spaces become hyphens)
-│   └── locales/
-│       ├── en-US/
-│       │   └── translation.json # all English UI strings + content text
-│       └── vi-VN/
-│           └── translation.json # Vietnamese (add more locales here)
+│   │   ├── awards/              # award PDFs grouped by organisation
+│   │   └── {Name}-Resume.pdf    # resume PDF (see "Resume PDF" below)
+│   ├── locales/
+│   │   ├── en-US/translation.json   # English UI strings + content text (also read by the CV build)
+│   │   └── vi-VN/translation.json   # Vietnamese
+│   ├── og-image.png             # 1200x630 link-preview card (og:image / twitter:image)
+│   ├── robots.txt
+│   └── sitemap.xml
 ├── src/
 │   ├── data/                    # language-agnostic structured data
 │   │   ├── profile.json         # name, legalName, email, phone, location, quote, social, formspreeId
 │   │   ├── experience.json      # jobs: id, period, tech tags
 │   │   ├── education.json       # degrees: id, period
-│   │   ├── projects.json        # id, category, tech tags, status, cvShow
+│   │   ├── projects.json        # id, category, tags, status, show, cvShow, url
 │   │   ├── clients.json         # id, website href, logo path, alt text
 │   │   ├── skills.json          # skill categories with tag arrays (optional url)
 │   │   ├── certificates.json    # id, issuer, show, cvShow, date, url, order, file
 │   │   └── awards.json          # id, issuer, year, date, url, order, file
 │   ├── components/
-│   │   ├── Sidebar.tsx          # avatar, name, contacts, resume download
-│   │   ├── NavBar.tsx           # tab switcher, language dropdown, theme toggle
-│   │   ├── TimelineItem.tsx     # collapsible timeline row (used in Resume)
+│   │   ├── Sidebar.tsx          # avatar, name (h1), roles, contacts, resume download; also the mobile drawer
+│   │   ├── NavBar.tsx           # tab switcher, language menu, theme toggle
+│   │   ├── TimelineItem.tsx     # collapsible timeline row with location / domains subtitles
 │   │   ├── Tag.tsx              # pill tag chip
 │   │   ├── BulletItem.tsx       # checkmark bullet point
 │   │   └── Icon.tsx             # inline SVG icon set
 │   ├── pages/
-│   │   ├── About.tsx            # bio, "What I'm doing" cards, Clients
-│   │   ├── Resume.tsx           # Education + Experience + Skills + Certs + Awards
+│   │   ├── About.tsx            # bio, "What I do" cards, Clients
+│   │   ├── Resume.tsx           # Experience, Skills, Education, Certifications, Awards
 │   │   ├── Portfolio.tsx        # filterable project cards
-│   │   └── Contact.tsx          # contact info cards + Formspree form
-│   ├── store/
-│   │   └── useAppStore.ts       # Zustand: theme + language (both persisted)
-│   ├── i18n.ts                  # react-i18next init
-│   ├── App.tsx                  # layout shell: Sidebar + NavBar + page router
-│   ├── main.tsx                 # React root
+│   │   └── Contact.tsx          # contact cards + Formspree form
+│   ├── store/useAppStore.ts     # Zustand: theme + language (both persisted)
+│   ├── resumeUrl.ts             # builds the resume PDF path from profile.json
+│   ├── i18n.ts                  # i18next init
+│   ├── App.tsx                  # layout shell, hash routing (#about, #resume, #portfolio, #contact)
+│   ├── main.tsx                 # React root + loading fallback
 │   ├── types.ts                 # shared TypeScript interfaces
-│   └── index.css                # CSS variable tokens + Tailwind directives
-├── .github/
-│   └── workflows/
-│       └── deploy.yml           # CI/CD: build + deploy to GitHub Pages
-├── index.html                   # Vite entry point
+│   └── index.css                # design tokens + Tailwind preflight
+├── .github/workflows/deploy.yml # build + deploy to GitHub Pages, then trigger the CV rebuild
+├── index.html                   # Vite entry: meta, Open Graph, JSON-LD
+├── postcss.config.js
 ├── vite.config.ts
-├── tailwind.config.ts
 └── package.json
 ```
 
@@ -109,22 +108,11 @@ hwanngo.github.io/
 **Prerequisites:** Node.js 20+, pnpm 9.15+
 
 ```bash
-# Install dependencies
-pnpm install
-
-# Start dev server (hot reload)
-pnpm dev
-# → http://localhost:5173
-
-# Type-check + production build
-pnpm build
-
-# Preview the production build locally
-pnpm preview
-# → http://localhost:4173
-
-# Run tests
-pnpm test
+pnpm install     # install dependencies
+pnpm dev         # dev server with hot reload, http://localhost:5173
+pnpm build       # type-check + production build into dist/
+pnpm preview     # serve the production build, http://localhost:4173
+pnpm test        # run the test suite
 ```
 
 ---
@@ -135,16 +123,18 @@ Content is split into two layers that are kept separate on purpose:
 
 | Layer | Location | What goes here |
 |---|---|---|
-| **Structured data** | `src/data/*.json` | IDs, dates, URLs, image paths, tech tag arrays — things that never change between languages |
+| **Structured data** | `src/data/*.json` | IDs, dates, URLs, image paths, tech tag arrays: things that do not change between languages |
 | **Translated text** | `public/locales/{lang}/translation.json` | Every human-readable string: titles, descriptions, bullet points, UI labels |
 
-The two layers are linked by **ID keys**. Each entry in a data file has an `id` field. Components call `t('section.{id}.field')` to look up the matching text in the active locale file.
+The two layers are linked by **ID keys**. Each entry in a data file has an `id`, and components call `t('section.{id}.field')` to look up the matching text in the active locale.
 
-**Example:** an experience entry with `"id": "vmo"` in `experience.json` is displayed using `t('experience.vmo.title')` and `t('experience.vmo.bullets', { returnObjects: true })` from the locale file.
+**Example:** the experience entry `"id": "vmo"` in `experience.json` is displayed with `t('experience.vmo.title')`, `t('experience.vmo.bullets', { returnObjects: true })` and so on.
 
-This means:
-- Adding a new language = add one translation file, zero data file changes.
-- Reordering entries = reorder the data file, zero translation file changes.
+So:
+- Adding a language = adding one translation file, with no data file changes.
+- Reordering entries = reordering the data file, with no translation file changes.
+
+> **The CV build reads `src/data/*.json` and `public/locales/en-US/translation.json`.** Keep existing keys and shapes stable; add new optional fields rather than renaming or removing ones the CV uses.
 
 ---
 
@@ -156,21 +146,23 @@ This means:
 
 ```jsonc
 {
-  "name": "Display Name",                    // shown in the sidebar
-  "legalName": "Full Legal Name",            // optional — used for the resume PDF filename: "{legalName}-Resume.pdf" (spaces → hyphens). Falls back to `name`.
+  "name": "Display Name",                    // shown in the sidebar, header and footer
+  "legalName": "Full Legal Name",            // optional: used for the resume PDF filename and the CV header
   "nickname": "Nickname",
   "avatar": "/assets/images/my-avatar.png",  // path relative to public/
   "email": "you@example.com",
-  "phone": "+84 ...",                        // optional — when set, a Phone row appears in the sidebar
+  "phone": "+84 ...",                        // optional: when set, a Phone row appears in the sidebar
   "location": "City, Country",
-  "quote": "Short one-line tagline.",        // optional — rendered in italic serif under the role labels
+  "quote": "Short one-line tagline.",        // optional: shown in italic serif under the role labels
   "social": [
     { "id": "linkedin", "icon": "linkedin", "href": "https://linkedin.com/in/yourprofile", "label": "LinkedIn" },
     { "id": "github",   "icon": "github",   "href": "https://github.com/yourusername",    "label": "GitHub"   }
   ],
-  "formspreeId": "yourformid"  // from formspree.io — powers the contact form
+  "formspreeId": "yourformid"                // from formspree.io: powers the contact form
 }
 ```
+
+`quote` and `location` can be translated per locale with the optional `sidebar.quote` and `sidebar.location` keys; when a locale does not define them, the `profile.json` values are shown.
 
 The `icon` value must match a key in `src/components/Icon.tsx`. Available icons: `mail`, `phone`, `location`, `linkedin`, `github`, `external`, `send`, `data`, `code`, `check`, `calendar`, `edu`, `brief`, `tools`, `sun`, `moon`, `download`, `paper`, `cert`, `award`, `chevrondown`, `chevronup`, `menu`, `close`.
 
@@ -178,133 +170,116 @@ The `icon` value must match a key in `src/components/Icon.tsx`. Available icons:
 
 ### 2. Work Experience
 
-Adding a new job requires changes to **two files**: the data file and every locale file.
+Adding a job means editing the data file and every locale file.
 
-**Step 1 — `src/data/experience.json`** (add at the top, most recent first):
+**Step 1: `src/data/experience.json`** (most recent first; the first two entries start expanded):
 
 ```jsonc
 [
   {
-    "id": "mycompany",                    // unique slug — must match the key in locale files
-    "period": "Apr 2025 – Present",       // English period — used as fallback for all locales
-    "tags": ["Python", "AWS", "Kafka"]    // tech pills shown on the timeline card
-  },
-  // ... existing entries below
+    "id": "mycompany",                // unique slug, must match the key in the locale files
+    "period": "Apr 2025 – Present",   // English period, the fallback for every locale
+    "tags": ["Python", "AWS", "Kafka"] // tech tags (kept as data; not rendered on the site)
+  }
 ]
 ```
 
-**Step 2 — `public/locales/en-US/translation.json`** (under the `"experience"` key):
+**Step 2: `public/locales/en-US/translation.json`** (under `"experience"`):
 
 ```jsonc
 "experience": {
   "mycompany": {
-    "title": "Senior Data Engineer — My Company Ltd.",
-    "location": "United States",          // optional — shown under the title
-    "period": "Apr 2025 – Present",       // optional per-locale period; falls back to experience.json `period`
+    "title": "Senior Data Engineer - My Company Ltd.",  // "Role - Company": the CV splits on " - "
+    "location": "Remote · US-based company",           // optional: muted line under the title
+    "period": "Apr 2025 – Present",                    // optional: overrides the data file period
+    "domains": "Fintech, Payments · Client: Singapore", // optional: muted "Domains: ..." line under the title
     "bullets": [
-      "First bullet point describing your responsibility or achievement.",
-      "Second bullet point.",
-      "Third bullet point."
-    ]
+      "First achievement or responsibility.",
+      "Second bullet."
+    ],
+    "cvBullets": ["Shorter bullet for the PDF."]       // optional: the CV uses these instead of bullets
   }
 }
 ```
 
-**Step 3 — `public/locales/vi-VN/translation.json`** (translated values + localised period):
+**Step 3: `public/locales/vi-VN/translation.json`** (translated values and a localised period):
 
 ```jsonc
 "experience": {
   "mycompany": {
-    "title": "Kỹ sư Dữ liệu Cấp cao — My Company Ltd.",
-    "location": "United States",
-    "period": "04/2025 – Hiện tại",       // optional — overrides the data file period for this locale
-    "bullets": [
-      "Mô tả trách nhiệm hoặc thành tích.",
-      "Điểm thứ hai.",
-      "Điểm thứ ba."
-    ]
+    "title": "Kỹ sư Dữ liệu Cấp cao - My Company Ltd.",
+    "location": "Làm việc từ xa · Công ty tại Mỹ",
+    "period": "04/2025 – Hiện tại",
+    "domains": "Fintech, Thanh toán · Khách hàng: Singapore",
+    "bullets": ["Mô tả trách nhiệm hoặc thành tích.", "Điểm thứ hai."]
   }
 }
 ```
 
-> The `id` in the data file must **exactly** match the key in the locale files.
->
-> The `period` in `experience.json` is the English fallback shown for any locale that does not define its own `period`. Add a `"period"` field to a locale entry to display a localised date string for that language (e.g. `"04/2025 – Hiện tại"` for Vietnamese). If the period contains only years (e.g. `"2016 – 2021"`) it is language-neutral and does not need overriding.
+> Put the business domains in `domains`, not as the first bullet. (The CV still drops a leading `"Domains: ..."` bullet for older content.)
 
 ---
 
 ### 3. Education
 
-**Step 1 — `src/data/education.json`:**
+**Step 1: `src/data/education.json`**
 
 ```jsonc
 [
-  {
-    "id": "myuniversity",   // unique slug
-    "period": "2020 – 2024"
-  }
+  { "id": "myuniversity", "period": "2020 – 2024" }
 ]
 ```
 
-**Step 2 — Both locale files** under the `"education"` key:
+**Step 2: both locale files**, under `"education"`:
 
 ```jsonc
 // en-US/translation.json
 "education": {
   "myuniversity": {
     "institution": "University of Example",
-    "degree": "Master's Degree in Computer Science",  // optional
-    "location": "United States",                       // optional
-    "bullets": [
-      "Master's Degree in Computer Science.",
-      "Thesis: Distributed Stream Processing at Scale."
-    ]
-  }
-}
-
-// vi-VN/translation.json — add "period" only if the dates need localising
-"education": {
-  "myuniversity": {
-    "institution": "Trường Đại học Ví dụ",
-    "period": "2020 – 2024",   // optional — omit if year-only and already language-neutral
-    "bullets": [
-      "Cử nhân Khoa học Máy tính.",
-      "Luận văn: Xử lý luồng phân tán."
-    ]
+    "degree": "Bachelor of Science in Computer Science", // used by the CV
+    "location": "Vietnam",                               // optional: muted line under the institution
+    "bullets": ["Bachelor of Science in Computer Science.", "Coursework focus: ..."],
+    "cvBullets": ["Coursework focus: ..."]               // optional: the CV uses these instead of bullets
   }
 }
 ```
+
+Add `"period"` in a locale only when the dates need localising; year-only periods are language neutral.
 
 ---
 
 ### 4. Projects
 
-**Step 1 — `src/data/projects.json`:**
+**Step 1: `src/data/projects.json`**
 
 ```jsonc
 [
   {
-    "id": "myProject",                  // unique slug
-    "category": "dataEngineering",      // "dataEngineering" | "softwareEngineering" | "personal"
-    "tags": ["Python", "Spark", "AWS"], // tech pills on the card
-    "status": "professional",           // "professional" or "personal"
-    "cvShow": true                      // optional — include this project in resume PDF exports
+    "id": "myProject",                    // unique slug
+    "category": "dataEngineering",        // "dataEngineering" | "softwareEngineering" (drives the filter buttons)
+    "tags": ["Python", "Spark", "AWS"],   // tech pills on the card
+    "status": "personal",                 // "professional" | "personal" (badge on the card)
+    "show": true,                         // false hides it on the site
+    "cvShow": true,                       // optional: include in the resume PDF; when omitted the CV follows `show`
+    "url": "https://github.com/you/repo"  // optional: adds a "View code" link
   }
 ]
 ```
 
-Valid `category` values control which filter button shows the card on the Portfolio page:
-- `"dataEngineering"` — shows under **Data Engineering** filter
-- `"softwareEngineering"` — shows under **Software Engineering** filter
-- `"personal"` — shows under **Personal** filter
+Filter buttons only appear when more than one category is visible.
 
-**Step 2 — Both locale files** under the `"projects"` key:
+**Step 2: both locale files**, under `"projects"`:
 
 ```jsonc
 "projects": {
   "myProject": {
     "title": "Real-Time Analytics Pipeline",
-    "desc": "Built a streaming pipeline processing 10M events/day using Spark Structured Streaming and AWS Kinesis, reducing end-to-end latency from 15 minutes to under 30 seconds."
+    "subtitle": "Personal Project · Python, Spark",  // used by the CV
+    "period": "2025 – Present",                      // optional: kept as data, not shown on the card or in the CV
+    "desc": "One or two sentences shown on the portfolio card.",
+    "bullets": ["Detail used by the CV."],
+    "cvBullets": ["Shorter CV bullet."]              // optional: the CV uses these instead of bullets
   }
 }
 ```
@@ -313,22 +288,17 @@ Valid `category` values control which filter button shows the card on the Portfo
 
 ### 5. Clients
 
-**Step 1 — Copy the logo image to `public/assets/images/`.**
+**Step 1:** copy the logo to `public/assets/images/`. Use a tightly cropped, transparent PNG (or SVG) about 240 px wide; logos are displayed 40 px tall on a light tile in both themes.
 
-**Step 2 — `src/data/clients.json`:**
+**Step 2: `src/data/clients.json`**
 
 ```jsonc
 [
-  {
-    "id": "acme",
-    "href": "https://www.acme.com/",
-    "logo": "/assets/images/client_acme.png",
-    "alt": "ACME Corporation"
-  }
+  { "id": "acme", "href": "https://www.acme.com/", "logo": "/assets/images/client_acme.png", "alt": "ACME Corporation" }
 ]
 ```
 
-Logo images are displayed at `max-height: 44px`. A transparent PNG or SVG on a white/transparent background works best. No translation file changes needed — the `alt` text lives in the data file.
+No translation changes are needed; the `alt` text lives in the data file.
 
 ---
 
@@ -336,35 +306,36 @@ Logo images are displayed at `max-height: 44px`. A transparent PNG or SVG on a w
 
 **File:** `src/data/skills.json`
 
-Each object represents one category row on the Resume page. The `id` is used to look up the category heading in the locale file; the `tags` array is the list of pill chips (displayed as-is, not translated).
+Each object is one category row on the Resume tab. The `id` looks up the heading under `"skills"` in the locale files; `tags` are shown as-is (not translated).
 
 ```jsonc
 [
-  { "id": "programming",     "tags": ["Python", "SQL", "Java"] },
-  { "id": "dataEngineering", "tags": ["ETL/ELT", "Apache Airflow", "dbt", "Airbyte"] },
-  { "id": "databases",       "tags": ["Snowflake", "BigQuery", "PostgreSQL", "MySQL"] },
-  { "id": "cloudInfra",      "tags": ["AWS", "GCP", "Azure", "Terraform"] },
-  { "id": "biAnalytics",     "tags": ["Metabase", "Tableau", "Dashboarding"] },
-  { "id": "practices",       "tags": ["Observability", "Analytics Engineering", "CI/CD"] },
-  { "id": "spokenLanguages", "tags": ["English – C2 Proficient (CEFR)"], "url": "https://cert.example.com" }
+  { "id": "programming",         "tags": ["Python", "SQL", "Java", "JavaScript/TypeScript"] },
+  { "id": "dataEngineering",     "tags": ["ETL/ELT", "Apache Airflow", "Airbyte", "dbt"] },
+  { "id": "databases",           "tags": ["Snowflake", "BigQuery", "PostgreSQL"] },
+  { "id": "cloudInfra",          "tags": ["AWS", "GCP", "Azure", "OpenTofu/Terraform"] },
+  { "id": "aiLlm",               "tags": ["OpenAI & Anthropic APIs", "prompt engineering"] },
+  { "id": "softwareEngineering", "tags": ["REST APIs", "FastAPI", "React"] },
+  { "id": "biAnalytics",         "tags": ["Metabase", "Tableau"] },
+  { "id": "spokenLanguages",     "tags": ["English - C2 Proficient (CEFR)"], "url": "https://cert.efset.org/..." }
 ]
 ```
 
-`url` is optional — when present, the category heading becomes a link (handy for proof of language certificates).
+`url` is optional: when present, the category's tags link to it (handy for a language certificate).
 
-To add a tag, just add it to the `tags` array. To add a **new category**, also add its heading to both locale files under `"skills"`:
+To add a **new category**, also add its heading to both locale files:
 
 ```jsonc
-// en-US/translation.json
 "skills": {
-  "programming":     "Programming",
+  "programming": "Programming",
   "dataEngineering": "Data Engineering",
-  "databases":       "Databases & Warehousing",
-  "cloudInfra":      "Cloud & Infrastructure",
-  "biAnalytics":     "BI & Analytics",
-  "practices":       "Practices & Automation",
+  "databases": "Databases & Warehousing",
+  "cloudInfra": "Cloud & Infrastructure",
+  "aiLlm": "AI & LLM",
+  "softwareEngineering": "Software Engineering",
+  "biAnalytics": "BI & Analytics",
   "spokenLanguages": "Languages",
-  "newCategory":     "My New Category"  // ← add heading here
+  "newCategory": "My New Category"
 }
 ```
 
@@ -372,141 +343,73 @@ To add a tag, just add it to the `tags` array. To add a **new category**, also a
 
 ### 7. Resume PDF
 
-The sidebar's **Download Resume** button links to `/assets/{Name}-Resume.pdf`, where `{Name}` is `profile.legalName` (falling back to `profile.name`) with spaces replaced by hyphens. For example, with `"legalName": "Hoan Ngo"` the expected filename is `Hoan-Ngo-Resume.pdf`.
+The **Download Resume** buttons link to `/assets/{Name}-Resume.pdf`, where `{Name}` is `profile.legalName` (falling back to `profile.name`) with spaces replaced by hyphens. With `"legalName": "Cong Hoan Ngo"` the file is `public/assets/Cong-Hoan-Ngo-Resume.pdf`.
+
+The PDF is generated from this repo's data by [hwanngo/resume](https://github.com/hwanngo/resume): every deploy triggers a CV rebuild, which commits the refreshed PDF back here with `[skip-resume-rebuild]` in the message so the two repos do not loop. To replace it by hand:
 
 ```bash
-cp /path/to/your/Resume.pdf "public/assets/Hoan-Ngo-Resume.pdf"
+cp /path/to/Resume.pdf "public/assets/Cong-Hoan-Ngo-Resume.pdf"
 ```
 
-The button is visible by default. The link label comes from the `ui.downloadResume` translation key — edit both locale files to change the text.
+The button label comes from the `ui.downloadResume` key in each locale.
 
 ---
 
-### 8. Avatar & Images
+### 8. Avatar, Images & Link Preview
 
-Replace `public/assets/images/my-avatar.png` with your photo. The avatar is displayed as a circle at **88 × 88 px**; a square-cropped image at 200 × 200 px or larger works best.
+Replace `public/assets/images/my-avatar.png` to change the avatar (shown as an 88 × 88 px circle; a square image of 200 × 200 px or more works best).
+
+Link previews (LinkedIn, Zalo, Slack, X) use `public/og-image.png`, a 1200 × 630 card referenced from `index.html` (`og:image`, `twitter:image`). Regenerate it when the name or roles change, and keep the `og:image:alt` text in sync.
 
 ---
 
 ### 9. Certificates
 
-Certificates are stored as PDFs under `public/assets/certificates/` and listed in `src/data/certificates.json`. The `show` field controls whether a certificate appears on the Resume page — the PDF file is always kept regardless.
+Certificates are PDFs under `public/assets/certificates/` listed in `src/data/certificates.json`.
 
-**Step 1 — Copy the PDF to the appropriate subfolder:**
+**Step 1: copy the PDF** into the issuer folder (`amazon/`, `boomi/`, `coursera/{amazon,google,microsoft,talend}/`, `google/`, `ibm/`, `linkedin/`, `microsoft/`) with a kebab-case filename.
 
-```
-public/assets/certificates/
-├── amazon/      # AWS official certifications
-├── boomi/
-├── coursera/    # Coursera course completions
-│   ├── amazon/
-│   ├── google/
-│   ├── microsoft/
-│   └── talend/
-├── google/
-├── ibm/
-├── linkedin/
-└── microsoft/
-```
-
-Use kebab-case filenames: `my-certificate-name.pdf`
-
-**Step 2 — Add an entry to `src/data/certificates.json`:**
+**Step 2: add an entry to `src/data/certificates.json`:**
 
 ```jsonc
 {
   "id": "my-certificate-name",
   "issuer": "amazon",
-  "show": true,
-  "cvShow": true,                          // optional — include in resume PDF exports
-  "date": "2025-05",                       // optional, "YYYY-MM" — rendered as "May 2025" and used for sort order (newest first)
-  "url": "https://credentials.example.com/abc",  // optional credential link — used by the "View" button when set
-  "order": 1,                              // optional — manual override; lower numbers sort first
+  "show": true,                                   // display on the Resume tab
+  "cvShow": true,                                 // optional: include in the resume PDF (independent of show)
+  "date": "2025-05",                              // optional "YYYY-MM": shown as "May 2025", sorts newest first
+  "url": "https://credentials.example.com/abc",   // optional credential link, preferred over file
+  "order": 1,                                     // optional manual sort (lower first)
   "file": "/assets/certificates/amazon/my-certificate-name.pdf"
 }
 ```
 
-- `id` — kebab-case slug, must match the key you add in Step 3
-- `issuer` — one of: `amazon`, `boomi`, `coursera`, `google`, `ibm`, `linkedin`, `microsoft`
-- `show` — `true` to display on the page, `false` to hide (PDF stays in assets)
-- `cvShow` — `true` to include in resume PDF exports (independent of the on-page `show`)
-- `date` — optional ISO `YYYY-MM`. When set, the entry sorts newest-first and shows a formatted month label
-- `url` — optional credential link; when present, the cert title and **View** button point here instead of `file`
-- `order` — optional sort override. If **any** entry in the issuer group has `order`, the group is sorted by `order` ascending instead of by date
-- `file` — path relative to `public/` (always required as the fallback link)
+- `issuer`: one of `amazon`, `boomi`, `coursera`, `google`, `ibm`, `linkedin`, `microsoft`.
+- If **any** entry in an issuer group has `order`, the group sorts by `order` instead of by date.
+- `file` is the fallback link when `url` is empty (and the CV links to the hosted file in that case).
+- To hide a certificate without deleting it, set `"show": false`. An issuer group disappears when all its certificates are hidden.
 
-**To hide a certificate without deleting it**, just set `"show": false`. The entire issuer group disappears automatically when all its certs are hidden.
-
-**Step 3 — Add the display title to both locale files** under the `"certificates"` key:
-
-```jsonc
-// en-US/translation.json  AND  vi-VN/translation.json
-"certificates": {
-  "my-certificate-name": "My Certificate Display Name"
-}
-```
-
-Certificate titles are proper nouns so they are kept identical in both locale files.
-
-> If you skip Step 3 the page will show the raw key (e.g. `certificates.my-certificate-name`) as a fallback. Always add the translation entry.
+**Step 3: add the display title to both locale files** under `"certificates"` (titles are proper nouns, so they are identical in both). A missing title shows the raw key.
 
 ---
 
 ### 10. Awards
 
-Awards are stored as PDFs under `public/assets/awards/` and listed in `src/data/awards.json`.
-
-**Step 1 — Copy the PDF:**
-
-```
-public/assets/awards/
-└── {org-slug}/    # e.g. vmo/
-    └── my-award.pdf
-```
-
-Use kebab-case filenames.
-
-**Step 2 — Add an entry to `src/data/awards.json`:**
+Awards are PDFs under `public/assets/awards/{org-slug}/` listed in `src/data/awards.json`:
 
 ```jsonc
 {
   "id": "my-award-slug",
-  "issuer": "vmo",
-  "year": "2024",
-  "date": "2024-12",                       // optional, "YYYY-MM" — overrides `year` for display when set
-  "url": "https://example.com/award",      // optional — used by the "View" button when set
-  "order": 1,                              // optional — manual sort override
+  "issuer": "vmo",                          // organisation slug (internal)
+  "year": "2024",                           // shown when date is not set
+  "date": "2024-12",                        // optional "YYYY-MM": shown instead of year, sorts newest first
+  "url": "https://example.com/award",       // optional, preferred over file for the "View" link
+  "order": 1,                               // optional manual sort
   "file": "/assets/awards/vmo/my-award.pdf"
 }
 ```
 
-- `id` — kebab-case slug, must match the key added in Step 3
-- `issuer` — organisation slug (used only internally, not displayed)
-- `year` — displayed next to the issuer label when `date` is not set
-- `date` — optional ISO `YYYY-MM`; takes precedence over `year` for display and is used for newest-first sort
-- `url` — optional credential link; the **View** button prefers `url` over `file`
-- `order` — optional manual sort override (lower first)
-- `file` — path relative to `public/` (always required as the fallback link)
-
-**Step 3 — Add translations to both locale files** under the `"awards"` key:
-
-```jsonc
-// en-US/translation.json
-"awards": {
-  "my-award-slug": {
-    "title": "Employee of the Year 2024",
-    "issuerLabel": "My Company Ltd."
-  }
-}
-
-// vi-VN/translation.json
-"awards": {
-  "my-award-slug": {
-    "title": "Employee of the Year 2024",
-    "issuerLabel": "My Company Ltd."
-  }
-}
-```
+Then add `title`, `subtitle`, `issuer` and `issuerLabel` under `"awards"."{id}"` in both locale files.
 
 ---
 
@@ -514,167 +417,79 @@ Use kebab-case filenames.
 
 ### Editing existing translations
 
-All human-readable strings live in:
-
-```
-public/locales/
-├── en-US/translation.json
-└── vi-VN/translation.json
-```
-
-The top-level structure of each file:
+All human-readable strings live in `public/locales/en-US/translation.json` and `public/locales/vi-VN/translation.json`. Top-level structure:
 
 ```jsonc
 {
-  "nav":          { "about": "About", "resume": "Resume", ... },
-  "sidebar":      { "dataEngineer": "Data Engineer", "softwareEngineer": "Software Engineer" },
-  "ui":           { "downloadResume": "Download Resume", "showDetails": "Show details", ... },
-  "about":        { "title": "About me", "bio": "...", "services": { ... } },
-  "resume":       { "title": "Resume", "education": "Education", "certifications": "Certifications", "awards": "Awards & Recognition", ... },
-  "certIssuers":  { "amazon": "Amazon Web Services", "google": "Google", "ibm": "IBM", ... },
-  "skills":       { "programming": "Programming", "dataEngineering": "Data Engineering", "databases": "Databases & Warehousing", "cloudInfra": "Cloud & Infrastructure", "biAnalytics": "BI & Analytics", "practices": "Practices & Automation", "spokenLanguages": "Languages" },
-  "portfolio":    { "title": "Portfolio", "filters": { ... } },
-  "contact":      { "title": "Contact", "email": "Email", "phone": "Phone", "location": "Location", "validation": { ... } },
-  "education":    { "{id}": { "institution": "...", "degree": "...(optional)", "location": "...(optional)", "bullets": [...] } },
-  "experience":   { "{id}": { "title": "...", "location": "...(optional)", "period": "...(optional, overrides data file)", "bullets": [...] } },
+  "nav":          { "about": "About", "resume": "Resume", "portfolio": "Portfolio", "contact": "Contact" },
+  "sidebar":      { "dataEngineer": "Data Engineer", "softwareEngineer": "Software Engineer", "quote": "(optional)", "location": "(optional)" },
+  "ui":           { "downloadResume": "Download Resume", "view": "View", "toggleTheme": "Toggle theme", ... },
+  "about":        { "title": "About me", "bio": "...", "whatIDo": "What I do", "services": { ... } },
+  "resume":       { "title": "Resume", "experience": "Experience", "skills": "Skills", "education": "Education", "certifications": "...", "awards": "...", "domains": "Domains" },
+  "certIssuers":  { "amazon": "Amazon Web Services", ... },
+  "skills":       { "programming": "Programming", "aiLlm": "AI & LLM", ... },
+  "portfolio":    { "title": "Portfolio", "all": "All", "filters": { ... } },
+  "contact":      { "title": "Contact", "email": "Email", "location": "Location", "validation": { ... } },
+  "footer":       { "copyright": "© {{year}} {{name}} · {{location}}" },
+  "education":    { "{id}": { "institution": "...", "degree": "...", "location": "...", "bullets": [...], "cvBullets": [...] } },
+  "experience":   { "{id}": { "title": "Role - Company", "location": "...", "period": "...", "domains": "...", "bullets": [...], "cvBullets": [...] } },
   "certificates": { "{id}": "Display Name" },
-  "awards":       { "{id}": { "title": "...", "issuerLabel": "..." } },
-  "projects":     { "{id}": { "title": "...", "desc": "..." } }
+  "awards":       { "{id}": { "title": "...", "subtitle": "...", "issuer": "...", "issuerLabel": "..." } },
+  "projects":     { "{id}": { "title": "...", "subtitle": "...", "period": "...", "desc": "...", "bullets": [...], "cvBullets": [...] } }
 }
 ```
 
-> Only edit the **values** (right side of `:`). Changing a key will break the lookup.
-
----
+> Only edit the **values**. Changing a key breaks the lookup (and possibly the CV build).
 
 ### Adding a new language
 
-**Step 1 — Create the locale file:**
-
-```bash
-mkdir -p public/locales/fr-FR
-cp public/locales/en-US/translation.json public/locales/fr-FR/translation.json
-# Translate all values in public/locales/fr-FR/translation.json
-```
-
-**Step 2 — Add the type to `src/types.ts`:**
+1. Copy `public/locales/en-US/translation.json` to `public/locales/{code}/translation.json` and translate the values.
+2. Add the code to the `Language` type in `src/types.ts`.
+3. Add it to `LANGUAGES` in `src/components/NavBar.tsx`:
 
 ```ts
-// Before:
-export type Language = 'en-US' | 'vi-VN'
-
-// After:
-export type Language = 'en-US' | 'vi-VN' | 'fr-FR'
+{ code: 'fr-FR', label: 'FR', fullName: 'Français' },
 ```
 
-**Step 3 — Add it to the dropdown in `src/components/NavBar.tsx`:**
-
-```ts
-const LANGUAGES: { code: Language; label: string; fullName: string }[] = [
-  { code: 'en-US', label: 'EN', fullName: 'English (US)' },
-  { code: 'vi-VN', label: 'VI', fullName: 'Tiếng Việt' },
-  { code: 'fr-FR', label: 'FR', fullName: 'Français' },  // ← add this line
-]
-```
-
-No other code changes required. The i18next HTTP backend will automatically load `/locales/fr-FR/translation.json` when the user selects French.
+The HTTP backend loads `/locales/{code}/translation.json` when the language is selected.
 
 ---
 
 ## Theme & Design Tokens
 
-All colours are CSS custom properties defined in `src/index.css`. To adjust the palette, edit the values in that file:
-
-```css
-:root {                        /* light theme */
-  --accent:       #c96442;     /* terracotta — buttons, links, active states */
-  --bg:           #f5f4ed;     /* page background */
-  --bg-card:      #faf9f5;     /* card and sidebar background */
-  --fg:           #141413;     /* primary text */
-  --fg-2:         #5e5d59;     /* secondary text */
-  --fg-3:         #87867f;     /* muted text, uppercase labels */
-  --border:       #e8e6dc;
-  --tag-bg:       #ede9df;     /* pill chip background */
-}
-
-[data-theme="dark"] {          /* dark theme — overrides the same tokens */
-  --accent:  #d97757;
-  --bg:      #141413;
-  /* ... */
-}
-```
-
-Fonts are controlled by two variables:
+All colours are CSS custom properties in `src/index.css`, with `[data-theme="dark"]` overriding the same tokens. On a first visit the theme follows the OS setting; after that the visitor's choice is persisted.
 
 ```css
 :root {
-  --font-serif: 'Lora', Georgia, serif;             /* headings */
-  --font-sans:  'DM Sans', system-ui, sans-serif;   /* body text */
+  --accent:       #c96442;  /* decorative brand colour: icons, rings, borders */
+  --accent-text:  #a64f30;  /* accent for small text (4.5:1 on light surfaces) */
+  --accent-solid: #a64f30;  /* filled buttons with --on-accent text */
+  --bg:           #f5f4ed;  /* page background */
+  --bg-card:      #faf9f5;  /* cards and sidebar */
+  --fg:           #141413;  /* primary text */
+  --fg-2:         #5e5d59;  /* secondary text */
+  --fg-3:         #686761;  /* muted text, uppercase labels */
+  --border:       #e8e6dc;
+  --tag-bg:       #ede9df;  /* pill chip background */
+  --logo-bg:      #ffffff;  /* client logo tile */
 }
 ```
 
-To swap a font: update the variable here **and** the Google Fonts `<link>` in `index.html`.
+Keep text tokens at WCAG AA (4.5:1) against `--bg`, `--bg-card` and `--tag-bg` in both themes. Fonts are set by `--font-serif` (Lora) and `--font-sans` (DM Sans); to swap a font, update the variable and the Google Fonts `<link>` in `index.html`.
 
 ---
 
 ## Deploying to GitHub Pages
 
-### First-time setup
-
-1. **Create the repository on GitHub** named exactly `{yourusername}.github.io`.
-
-2. **Add the remote and push:**
-
-```bash
-git remote add origin https://github.com/yourusername/yourusername.github.io.git
-git push -u origin main
-```
-
-3. **Enable GitHub Pages** in repository settings:
-   - Go to **Settings → Pages**
-   - Under *Build and deployment*, set **Source** to **GitHub Actions**
-   - Click **Save**
-
-4. The push in step 2 triggers the workflow automatically. Monitor it at:  
-   `https://github.com/yourusername/yourusername.github.io/actions`
-
-Once the workflow passes, the site is live at `https://yourusername.github.io`.
-
----
-
-### Deploying an update
-
-Every push to `main` triggers an automatic build and deploy:
+Every push to `main` runs `.github/workflows/deploy.yml`:
 
 ```
-git push → GitHub Actions: pnpm install → pnpm build → upload dist/ → deploy
+git push → pnpm install → pnpm build → upload dist/ → deploy to Pages → trigger the CV rebuild
 ```
 
-Deployment completes in **2–3 minutes**. The full update workflow is:
+To deploy without a code change, use **Actions → Deploy to GitHub Pages → Run workflow**.
 
-```bash
-# 1. Make your changes
-#    e.g. edit src/data/experience.json and public/locales/*/translation.json
-
-# 2. Verify the build passes locally first
-pnpm build
-
-# 3. Commit with a descriptive message
-git add src/data/experience.json
-git add public/locales/en-US/translation.json
-git add public/locales/vi-VN/translation.json
-git commit -m "content: add Senior Data Engineer role at MyCompany"
-
-# 4. Push — deployment is fully automatic from here
-git push
-```
-
-Check the live deployment at:  
-`https://github.com/yourusername/yourusername.github.io/actions`
-
-**To trigger a deployment without a code change** (e.g. after updating the PDF):
-
-Go to **Actions → Deploy to GitHub Pages → Run workflow → Run workflow**.
+First-time setup for a fork: name the repository `{username}.github.io`, push it, and set **Settings → Pages → Source** to **GitHub Actions**. The CV rebuild step only runs when a `RESUME_REPO_TOKEN` secret is configured.
 
 ---
 
@@ -684,4 +499,4 @@ Go to **Actions → Deploy to GitHub Pages → Run workflow → Run workflow**.
 pnpm test
 ```
 
-Tests use [Vitest](https://vitest.dev/) with jsdom. The current suite covers the Zustand store (`src/store/__tests__/useAppStore.test.ts`). Test files live in `__tests__/` subdirectories next to the code they cover.
+Tests use [Vitest](https://vitest.dev/) with jsdom and live in `__tests__/` folders next to the code they cover. The suite currently covers the Zustand store, including the OS theme detection.
