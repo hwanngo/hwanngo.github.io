@@ -58,7 +58,8 @@ hwanngo.github.io/
 │   │   ├── images/              # avatar, client logos, favicons, site.webmanifest
 │   │   ├── certificates/        # certificate PDFs grouped by issuer
 │   │   ├── awards/              # award PDFs grouped by organisation
-│   │   └── {Name}-Resume.pdf    # resume PDF (see "Resume PDF" below)
+│   │   ├── {Name}-Resume.pdf    # Data Engineer resume PDF (see "Resume PDF" below)
+│   │   └── {Name}-Software-Engineer-Resume.pdf
 │   ├── locales/
 │   │   ├── en-US/translation.json   # English UI strings + content text (also read by the CV build)
 │   │   └── vi-VN/translation.json   # Vietnamese
@@ -343,15 +344,17 @@ To add a **new category**, also add its heading to both locale files:
 
 ### 7. Resume PDF
 
-The **Download Resume** buttons link to `/assets/{Name}-Resume.pdf`, where `{Name}` is `profile.legalName` (falling back to `profile.name`) with spaces replaced by hyphens. With `"legalName": "Cong Hoan Ngo"` the file is `public/assets/Cong-Hoan-Ngo-Resume.pdf`.
+Two PDFs are published: `/assets/{Name}-Resume.pdf` (Data Engineer) and `/assets/{Name}-Software-Engineer-Resume.pdf` (Software Engineer). The **Download Resume** buttons (hidden for now: `SHOW_RESUME_DOWNLOAD` in `src/resumeUrl.ts`) link to the first one, where `{Name}` is `profile.legalName` (falling back to `profile.name`) with spaces replaced by hyphens. With `"legalName": "Cong Hoan Ngo"` the file is `public/assets/Cong-Hoan-Ngo-Resume.pdf`.
 
-The PDF is generated from this repo's data by [hwanngo/resume](https://github.com/hwanngo/resume): every deploy triggers a CV rebuild, which commits the refreshed PDF back here with `[skip-resume-rebuild]` in the message so the two repos do not loop. To replace it by hand:
+The PDFs are generated from this repo's data by [hwanngo/resume](https://github.com/hwanngo/resume) (the SE summary is `about.bioSe` in `en-US/translation.json`, used only by the PDF): every deploy triggers a CV rebuild, which commits the refreshed PDFs back here with `[skip-resume-rebuild]` in the message so the two repos do not loop. To replace it by hand:
 
 ```bash
 cp /path/to/Resume.pdf "public/assets/Cong-Hoan-Ngo-Resume.pdf"
 ```
 
 The button label comes from the `ui.downloadResume` key in each locale.
+
+Every customization behind the PDFs (variants, ATS layout, which site keys the CV reads, secrets) is listed in `CUSTOMIZATIONS.md` in [hwanngo/resume](https://github.com/hwanngo/resume).
 
 ---
 

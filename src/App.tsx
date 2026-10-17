@@ -10,7 +10,7 @@ import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
 import Icon from './components/Icon'
 import profile from './data/profile.json'
-import { RESUME_URL } from './resumeUrl'
+import { RESUME_URL, SHOW_RESUME_DOWNLOAD } from './resumeUrl'
 import type { Tab } from './types'
 
 const PAGES: Record<Tab, React.ReactNode> = {
@@ -108,14 +108,17 @@ export default function App() {
       <div className="mobile-summary" style={{ display: 'none', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', padding: '0.75rem 1.25rem', borderBottom: '1px solid var(--border)', background: 'var(--bg-card)' }}>
         <div style={{ fontSize: '0.84rem', color: 'var(--fg-2)', minWidth: 0 }}>
           <span style={{ color: 'var(--accent-text)', fontWeight: 600 }}>{t('sidebar.dataEngineer')}</span>
+          {' · '}<span style={{ color: 'var(--accent-text)', fontWeight: 600 }}>{t('sidebar.softwareEngineer')}</span>
           {' · '}<span style={{ whiteSpace: 'nowrap' }}>{location}</span>
         </div>
+        {SHOW_RESUME_DOWNLOAD && (
         <a href={RESUME_URL} download
           style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: '0.4rem', padding: '0.45rem 0.8rem', borderRadius: '9px', background: 'var(--accent-solid)', color: 'var(--on-accent)', textDecoration: 'none', fontSize: '0.8rem', fontWeight: 600 }}
         >
           <Icon name="download" size={14} />
           {t('ui.downloadResume')}
         </a>
+        )}
       </div>
 
       {sidebarOpen && createPortal(

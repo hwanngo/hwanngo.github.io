@@ -13,6 +13,7 @@
   "about": {
     "title": "About me",
     "bio": "Data Engineer with {{yearsInIT}}+ years in software engineering and a data engineering focus since 2023, working for US and Singapore businesses in B2B distribution, healthcare, and pharma. Builds ELT pipelines with Apache Airflow, Airbyte, and dbt on Snowflake and BigQuery, LLM-powered data enrichment, and the Metabase and Tableau reporting on top, including reconciliation behind 200+ recurring reports. As a software engineer, builds REST APIs and serverless AWS backends in Python and Java (25% lower infrastructure cost) and web front ends in Angular and React.",
+    "bioSe": "Software Engineer with {{yearsInIT}}+ years building backend services, REST APIs, and web applications for US and Singapore businesses. Builds Python and Java backends (Flask, Spring Boot), including a move from Flask servers to serverless AWS (Lambda, API Gateway, S3) that cut infrastructure cost by about 25%, and web front ends in Angular and React. Since 2023 also builds LLM-powered pipelines and tools, and data platforms with Apache Airflow and dbt on Snowflake and BigQuery, with infrastructure as code (OpenTofu) and workloads on Kubernetes.",
     "whatIDo": "What I do", "clients": "Clients",
     "services": {
       "dataEngineering": { "title": "Data Engineering", "desc": "Building and operating cloud data pipelines, data warehouse models, and analytics workflows that support business decisions." },
@@ -45,14 +46,16 @@
         "Build and operate ETL/ELT pipelines with Apache Airflow and Airbyte across Wholesale, B2B, and Distribution Platform domains, loading data into Snowflake.",
         "Develop SQL data models in dbt on Snowflake and Metabase dashboards that business, finance, and sales teams use for daily operational and strategic decisions.",
         "Built LLM-powered data pipelines for trend detection and brand discovery, surfacing 100+ potential brands per week, over 30% of which became partnerships.",
+        "Build internal web apps and tools for the team with React front ends, such as a brand detection tool.",
         "Improve the reliability and consistency of internal analytics and reporting, giving stakeholders visibility into product performance, sales trends, and distribution metrics.",
         "Prototyped an LLM text-to-SQL analytics assistant on Snowflake, with query guardrails and LLM evaluation.",
         "Maintain cloud infrastructure as code with OpenTofu (Terraform) and monitor data workloads deployed on Kubernetes with Helm."
       ],
       "cvBullets": [
         "Build and operate ETL/ELT pipelines with Apache Airflow and Airbyte into Snowflake for Wholesale, B2B, and Distribution.",
-        "Develop dbt models on Snowflake and Metabase dashboards used daily by business, finance, and sales teams.",
+        "Develop SQL data models in dbt on Snowflake and Metabase dashboards used daily by business, finance, and sales teams.",
         "Built LLM-powered pipelines for trend and brand discovery: 100+ potential brands per week, over 30% became partnerships.",
+        "Build internal web apps and tools for the team with React, such as a brand detection tool.",
         "Improve reliability and consistency of analytics on product performance, sales trends, and distribution metrics.",
         "Prototyped an LLM text-to-SQL analytics assistant on Snowflake with query guardrails and LLM evaluation.",
         "Maintain infrastructure as code with OpenTofu (Terraform) and monitor data workloads on Kubernetes (Helm)."
@@ -64,7 +67,7 @@
       "domains": "Healthcare, Pharmaceutical · Client: Singapore",
       "bullets": [
         "Migrated legacy cron pipelines to Apache Airflow, improving scheduling, monitoring, and maintainability.",
-        "Built ETL workflows for multi-source healthcare and pharmaceutical datasets across data lake and warehouse environments on Azure and Google BigQuery.",
+        "Built Python ETL workflows for multi-source healthcare and pharmaceutical datasets across data lake and warehouse environments on Azure and Google BigQuery.",
         "Supported critical data source migrations while preserving data integrity and downstream compatibility.",
         "Improved pipeline reliability and reconciliation processes that enabled analytics delivery for 200+ recurring reports.",
         "Partnered with analytics teams to investigate data discrepancies and deliver Tableau dashboards for business users.",
@@ -72,7 +75,7 @@
       ],
       "cvBullets": [
         "Migrated legacy cron pipelines to Apache Airflow, improving scheduling, monitoring, and maintainability.",
-        "Built ETL workflows for multi-source healthcare and pharma data across a data lake and warehouse on Azure and BigQuery.",
+        "Built Python ETL workflows for multi-source healthcare and pharma data in a data lake and warehouse (Azure, BigQuery).",
         "Supported critical data source migrations while preserving data integrity and downstream compatibility.",
         "Improved pipeline reliability and reconciliation, enabling analytics delivery for 200+ recurring reports.",
         "Investigated data discrepancies with analytics teams and delivered Tableau dashboards for business users."
@@ -83,14 +86,14 @@
       "location": "Vietnam",
       "domains": "Industrial Simulation & Analytics · Client: United States",
       "bullets": [
-        "Developed core features for an industrial simulation and analytics platform with configurable workflows.",
+        "Developed core features and REST APIs for an industrial simulation and analytics platform with configurable workflows.",
         "Re-architected backend services from Flask servers to serverless AWS (Lambda, API Gateway, S3), reducing infrastructure cost by approximately 25%.",
         "Implemented simulation modules for distance, energy, wear, and lifecycle cost analysis across 100+ modeled scenarios.",
         "Built data preparation and feature extraction pipelines on Snowflake for predictive maintenance experiments."
       ],
       "cvBullets": [
-        "Developed core features for an industrial simulation and analytics platform with configurable workflows.",
-        "Moved Flask services to serverless AWS (Lambda, API Gateway, S3), cutting infrastructure cost by about 25%.",
+        "Developed core features and REST APIs for an industrial simulation and analytics platform with configurable workflows.",
+        "Moved Python Flask services to serverless AWS (Lambda, API Gateway, S3), cutting infrastructure cost by about 25%.",
         "Implemented simulation modules for distance, energy, wear, and lifecycle cost across 100+ modeled scenarios.",
         "Built data preparation and feature extraction pipelines on Snowflake for predictive maintenance experiments."
       ]

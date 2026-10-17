@@ -132,6 +132,7 @@
         "Xây dựng và vận hành pipeline ETL/ELT bằng Apache Airflow, Airbyte, đổ dữ liệu vào Snowflake cho các mảng bán sỉ, B2B và nền tảng phân phối.",
         "Xây dựng data model bằng dbt trên Snowflake và dashboard Metabase mà đội kinh doanh, tài chính, bán hàng dùng hằng ngày để ra quyết định.",
         "Xây dựng pipeline dùng LLM để phát hiện xu hướng và tìm thương hiệu mới: mỗi tuần tìm ra hơn 100 thương hiệu tiềm năng, hơn 30% trong số đó trở thành đối tác.",
+        "Xây dựng các ứng dụng web và công cụ nội bộ cho team bằng React, ví dụ công cụ nhận diện thương hiệu.",
         "Tăng độ ổn định và nhất quán của hệ thống báo cáo nội bộ, giúp theo dõi hiệu quả sản phẩm, xu hướng bán hàng và các chỉ số phân phối.",
         "Làm prototype trợ lý phân tích dùng LLM chuyển câu hỏi thành SQL (text-to-SQL) trên Snowflake, có cơ chế kiểm soát truy vấn và đánh giá chất lượng.",
         "Quản lý hạ tầng bằng code với OpenTofu (Terraform) và theo dõi các workload dữ liệu chạy trên Kubernetes (Helm)."
@@ -144,7 +145,7 @@
       "domains": "Y tế, Dược phẩm · Khách hàng Singapore",
       "bullets": [
         "Chuyển các job cron cũ sang Apache Airflow, giúp lập lịch, giám sát và bảo trì dễ dàng hơn.",
-        "Xây dựng quy trình ETL cho dữ liệu y tế, dược phẩm từ nhiều nguồn, trên data lake và data warehouse dùng Azure và Google BigQuery.",
+        "Xây dựng quy trình ETL bằng Python cho dữ liệu y tế, dược phẩm từ nhiều nguồn, trên data lake và data warehouse dùng Azure và Google BigQuery.",
         "Tham gia các đợt chuyển đổi nguồn dữ liệu quan trọng, đảm bảo dữ liệu toàn vẹn và các hệ thống phía sau vẫn chạy ổn định.",
         "Cải thiện độ ổn định của pipeline và quy trình đối soát, đảm bảo dữ liệu cho hơn 200 báo cáo định kỳ.",
         "Phối hợp với đội phân tích tìm nguyên nhân dữ liệu bị lệch và xây dựng dashboard Tableau cho người dùng nghiệp vụ.",
@@ -157,7 +158,7 @@
       "period": "01/2021 – 12/2023",
       "domains": "Mô phỏng & phân tích công nghiệp · Khách hàng Mỹ",
       "bullets": [
-        "Phát triển các tính năng chính cho nền tảng mô phỏng và phân tích công nghiệp, cho phép người dùng tự cấu hình quy trình.",
+        "Phát triển các tính năng chính và REST API cho nền tảng mô phỏng và phân tích công nghiệp, cho phép người dùng tự cấu hình quy trình.",
         "Chuyển backend từ Flask server sang serverless trên AWS (Lambda, API Gateway, S3), giảm khoảng 25% chi phí hạ tầng.",
         "Phát triển các module mô phỏng quãng đường, năng lượng, hao mòn và chi phí vòng đời trên hơn 100 kịch bản.",
         "Xây dựng pipeline chuẩn bị dữ liệu và trích xuất đặc trưng (feature extraction) trên Snowflake cho các thử nghiệm bảo trì dự đoán (predictive maintenance)."

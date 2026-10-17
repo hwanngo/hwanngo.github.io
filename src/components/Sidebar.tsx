@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import profile from '../data/profile.json'
 import Icon from './Icon'
-import { RESUME_URL } from '../resumeUrl'
+import { RESUME_URL, SHOW_RESUME_DOWNLOAD } from '../resumeUrl'
 import type { Profile } from '../types'
 
 const profileData = profile as Profile
@@ -51,7 +51,7 @@ export default function Sidebar({ mobile = false, onClose }: SidebarProps) {
             {profileData.name}
           </NameTag>
           <div style={{ fontSize: '0.8rem', color: 'var(--accent-text)', fontWeight: 500, letterSpacing: '0.04em' }}>{t('sidebar.dataEngineer')}</div>
-          <div style={{ fontSize: '0.8rem', color: 'var(--fg-3)', fontWeight: 400, letterSpacing: '0.04em' }}>{t('sidebar.softwareEngineer')}</div>
+          <div style={{ fontSize: '0.8rem', color: 'var(--accent-text)', fontWeight: 500, letterSpacing: '0.04em' }}>{t('sidebar.softwareEngineer')}</div>
         </div>
         {quote && (
           <p style={{ fontFamily: 'var(--font-serif)', fontStyle: 'italic', fontSize: '0.82rem', color: 'var(--fg-3)', lineHeight: 1.4, marginTop: '0.25rem' }}>
@@ -101,6 +101,7 @@ export default function Sidebar({ mobile = false, onClose }: SidebarProps) {
         ))}
       </div>
 
+      {SHOW_RESUME_DOWNLOAD && (
       <a href={RESUME_URL} download
         style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.7rem 1rem', borderRadius: '10px', background: 'var(--accent-solid)', color: 'var(--on-accent)', border: '1px solid var(--accent-solid)', textDecoration: 'none', fontSize: '0.88rem', fontWeight: 600, boxShadow: '0 1px 6px rgba(0,0,0,0.08)', transition: 'background 0.18s ease, transform 0.18s ease' }}
         onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent-hover)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
@@ -109,6 +110,7 @@ export default function Sidebar({ mobile = false, onClose }: SidebarProps) {
         <Icon name="download" size={15} />
         {t('ui.downloadResume')}
       </a>
+      )}
     </aside>
   )
 }
