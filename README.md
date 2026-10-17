@@ -346,7 +346,7 @@ To add a **new category**, also add its heading to both locale files:
 
 Two PDFs are published: `/assets/{Name}-Resume.pdf` (Data Engineer) and `/assets/{Name}-Software-Engineer-Resume.pdf` (Software Engineer). The **Download Resume** buttons (hidden for now: `SHOW_RESUME_DOWNLOAD` in `src/resumeUrl.ts`) link to the first one, where `{Name}` is `profile.legalName` (falling back to `profile.name`) with spaces replaced by hyphens. With `"legalName": "Cong Hoan Ngo"` the file is `public/assets/Cong-Hoan-Ngo-Resume.pdf`.
 
-The PDFs are generated from this repo's data by [hwanngo/resume](https://github.com/hwanngo/resume) (the SE summary is `about.bioSe` in `en-US/translation.json`, used only by the PDF): every deploy triggers a CV rebuild, which commits the refreshed PDFs back here with `[skip-resume-rebuild]` in the message so the two repos do not loop. To replace it by hand:
+The PDFs are generated from this repo's data by [hwanngo/resume](https://github.com/hwanngo/resume) (PDF-only content: the summaries `about.bioDe` and `about.bioSe` and the shorter `cvBullets` in `en-US/translation.json`, and `cvShow` in `src/data/projects.json`; keep their facts in line with the web text): every deploy triggers a CV rebuild, which commits the refreshed PDFs back here with `[skip-resume-rebuild]` in the message so the two repos do not loop. To replace it by hand:
 
 ```bash
 cp /path/to/Resume.pdf "public/assets/Cong-Hoan-Ngo-Resume.pdf"

@@ -65,7 +65,7 @@
     "tags": ["React", "TypeScript", "Zustand", "Vite", "PWA"],
     "status": "personal",
     "show": true,
-    "cvShow": true,
+    "cvShow": false,
     "url": "https://github.com/hwanngo/chatty-buddy"
   },
   {
