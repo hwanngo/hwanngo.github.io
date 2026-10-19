@@ -131,7 +131,7 @@
       "bullets": [
         "Xây dựng và vận hành hơn 150 DAG Apache Airflow cùng các pipeline Airbyte, đổ dữ liệu vào Snowflake cho các mảng bán sỉ, B2B và nền tảng phân phối.",
         "Xây dựng data model và test bằng dbt trên Snowflake, phục vụ hơn 200 báo cáo Metabase chạy theo lịch và các dashboard mà đội kinh doanh, tài chính, bán hàng dùng hằng ngày để ra quyết định.",
-        "Xây dựng pipeline dùng LLM để phát hiện xu hướng và tìm thương hiệu mới: mỗi tuần tìm ra hơn 100 thương hiệu tiềm năng, hơn 30% trong số đó trở thành đối tác.",
+        "Xây dựng pipeline dùng LLM để phát hiện xu hướng và tìm thương hiệu mới từ dữ liệu video và hồ sơ trên mạng xã hội, thu thập bằng scraper tự viết và dịch vụ scraping (giới hạn tần suất, thử lại, fingerprinting): mỗi tuần tìm ra hơn 100 thương hiệu tiềm năng, hơn 30% trong số đó trở thành đối tác.",
         "Xây dựng các ứng dụng web và công cụ nội bộ cho team bằng React, ví dụ công cụ nhận diện thương hiệu.",
         "Giúp dashboard về hiệu quả sản phẩm, xu hướng bán hàng và chỉ số phân phối làm mới nhanh hơn và ít lỗi hơn, giữ chi phí không tăng và giảm 20–30% ở một số workload.",
         "Làm prototype trợ lý phân tích dùng LLM chuyển câu hỏi thành SQL (text-to-SQL) trên Snowflake, có cơ chế kiểm soát truy vấn và đánh giá chất lượng.",

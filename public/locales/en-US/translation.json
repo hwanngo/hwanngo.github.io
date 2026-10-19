@@ -46,7 +46,7 @@
       "bullets": [
         "Build and operate 150+ Apache Airflow DAGs and Airbyte pipelines across Wholesale, B2B, and Distribution Platform domains, loading data into Snowflake.",
         "Develop SQL data models and tests in dbt on Snowflake behind 200+ scheduled Metabase reports and dashboards that business, finance, and sales teams use for daily decisions.",
-        "Built LLM-powered data pipelines for trend detection and brand discovery, surfacing 100+ potential brands per week, over 30% of which became partnerships.",
+        "Built LLM-powered data pipelines for trend detection and brand discovery on social media video and profile data, collected with in-house scrapers and a scraping service (rate limiting, retries, fingerprinting), surfacing 100+ potential brands per week, over 30% of which became partnerships.",
         "Build internal web apps and tools for the team with React front ends, such as a brand detection tool.",
         "Made dashboards on product performance, sales trends, and distribution metrics faster to refresh and less prone to breaking, holding cost flat and cutting it by 20–30% on some workloads.",
         "Prototyped an LLM text-to-SQL analytics assistant on Snowflake, with query guardrails and LLM evaluation.",
@@ -55,7 +55,7 @@
       "cvBullets": [
         "Build and operate 150+ Airflow DAGs and Airbyte pipelines into Snowflake for Wholesale, B2B, and Distribution.",
         "Develop dbt models and tests on Snowflake behind 200+ scheduled Metabase reports for business, finance, and sales.",
-        "Built LLM-powered pipelines for trend and brand discovery: 100+ potential brands per week, over 30% became partnerships.",
+        "Built LLM-powered discovery on scraped social media: 100+ potential brands per week, over 30% became partnerships.",
         "Build internal web apps and tools for the team with React, such as a brand detection tool.",
         "Made dashboards faster to refresh and less prone to breaking, holding cost flat and cutting it 20–30% on some workloads.",
         "Prototyped an LLM text-to-SQL analytics assistant on Snowflake with query guardrails and LLM evaluation.",

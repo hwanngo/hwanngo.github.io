@@ -5,7 +5,7 @@
   },
   {
     "id": "dataEngineering",
-    "tags": ["ETL/ELT", "Apache Airflow", "Airbyte", "dbt", "data modeling", "data quality", "web scraping"]
+    "tags": ["ETL/ELT", "Apache Airflow", "Airbyte", "dbt", "data modeling", "data quality", "web scraping", "Selenium", "Crawl4AI"]
   },
   {
     "id": "databases",
