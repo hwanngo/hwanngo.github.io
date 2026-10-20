@@ -25,7 +25,7 @@
   },
   {
     "id": "biAnalytics",
-    "tags": ["Metabase", "Tableau"]
+    "tags": ["Metabase", "Tableau", "Matplotlib", "Plotly"]
   },
   {
     "id": "spokenLanguages",
