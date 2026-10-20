@@ -17,7 +17,7 @@
   },
   {
     "id": "aiLlm",
-    "tags": ["OpenAI & Anthropic APIs", "prompt engineering", "LLM evaluation", "embeddings & pgvector"]
+    "tags": ["OpenAI & Anthropic APIs", "prompt engineering", "LLM evaluation", "embeddings & pgvector", "Claude Code & Codex"]
   },
   {
     "id": "softwareEngineering",
@@ -25,7 +25,7 @@
   },
   {
     "id": "biAnalytics",
-    "tags": ["Metabase", "Tableau", "Matplotlib", "Plotly"]
+    "tags": ["Metabase", "Tableau", "Matplotlib", "Plotly", "Excel"]
   },
   {
     "id": "spokenLanguages",
